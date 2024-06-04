@@ -4,6 +4,7 @@ interface BuildPaths {
   entry: string;
   buildDir: string;
   htmlTemplate: string;
+  src: string;
 }
 
 export interface BuildEnv {
