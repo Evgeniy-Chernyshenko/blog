@@ -24,7 +24,7 @@ export const buildWebpackConfig = (
     },
     resolve: buildResolvers(),
     ...(isDev && {
-      devtool: "inline-source-map",
+      devtool: "eval-source-map",
       devServer: buildDevServer(buildOptions),
     }),
   };
