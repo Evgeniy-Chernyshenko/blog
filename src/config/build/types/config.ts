@@ -6,7 +6,11 @@ interface BuildPaths {
   htmlTemplate: string;
 }
 
-export interface BuildOptions {
+export interface BuildEnv {
   mode: BuildMode;
+  port: number;
+}
+
+export interface BuildOptions extends BuildEnv {
   paths: BuildPaths;
 }
