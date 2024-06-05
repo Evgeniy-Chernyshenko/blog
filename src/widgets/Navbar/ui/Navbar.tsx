@@ -11,10 +11,10 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
+  console.log({ className });
   return (
     <div className={cx("Navbar", [className])}>
-      <ThemeSwitcher />
-
+      Logo
       <div className={cx("menu")}>
         <AppLink to={appRoutes.main.path} theme="inverted">
           Home

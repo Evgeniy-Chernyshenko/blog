@@ -1,0 +1,19 @@
+.Sidebar {
+  background-color: var(--inverted-bg-color);
+  width: 300px;
+  transition: width 0.25s;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.collapsed {
+  width: 80px;
+}
+
+.switchers {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

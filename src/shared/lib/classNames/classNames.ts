@@ -32,13 +32,11 @@ export function classNames(
       : additionalOptional;
 
   return [
-    this ? this[cls] : cls,
+    this?.[cls] ?? cls,
     ...Object.entries(mods)
       .filter(([, value]) => Boolean(value))
-      .map(([key]) => (this ? this[key] : key)),
-    ...additional
-      .filter(Boolean)
-      .map((key) => (this ? this[key as string] : key)),
+      .map(([key]) => this?.[key] ?? key),
+    ...additional.filter(Boolean).map((key) => this?.[key as string] ?? key),
   ].join(" ");
 }
 
