@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 
 export const AppRouter = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback="Loading...">
       <Routes>
         {Object.values(appRoutes).map((appRoute) => (
           <Route key={appRoute.path} {...appRoute} />

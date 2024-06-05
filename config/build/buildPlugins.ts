@@ -1,10 +1,11 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { ProgressPlugin, WebpackPluginInstance } from "webpack";
+import { ProgressPlugin, WebpackPluginInstance, DefinePlugin } from "webpack";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export const buildPlugins = (
-  buildOptions: BuildOptions
+  buildOptions: BuildOptions,
+  isDev: boolean
 ): WebpackPluginInstance[] => {
   return [
     new HtmlWebpackPlugin({
@@ -15,5 +16,6 @@ export const buildPlugins = (
       filename: "css/[name].[contenthash].css",
       chunkFilename: "css/[name].[contenthash].css",
     }),
+    new DefinePlugin({ __IS_DEV__: isDev }),
   ];
 };

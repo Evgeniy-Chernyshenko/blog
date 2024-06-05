@@ -1,4 +1,5 @@
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
+import { LanguageSwitcher } from "@/widgets/LanguageSwitcher";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 import { useState } from "react";
 import s from "./Sidebar.module.scss";
@@ -22,6 +23,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
       <div className={cx("switchers")}>
         <ThemeSwitcher />
+        <LanguageSwitcher />
       </div>
     </div>
   );
