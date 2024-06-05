@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "noImplicitAny": true,
     "module": "ESNext",
     "target": "ES6",
     "jsx": "react-jsx",
@@ -12,7 +11,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "strict": true
   },
   "ts-node": {
     "compilerOptions": {
