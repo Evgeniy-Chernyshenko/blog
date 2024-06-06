@@ -19,7 +19,7 @@ export function Sidebar({ className }: SidebarProps) {
 
   return (
     <div className={cx("Sidebar", { collapsed }, [className])}>
-      <button onClick={handleToggle}>toggle</button>
+      <button onClick={handleToggle}>|||</button>
 
       <div className={cx("switchers")}>
         <ThemeSwitcher />

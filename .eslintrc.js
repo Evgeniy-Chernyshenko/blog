@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "i18next"],
   rules: {
     "react/jsx-filename-extension": [
       "error",
@@ -41,6 +41,10 @@ module.exports = {
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "error",
     "no-underscore-dangle": "off",
+    "i18next/no-literal-string": [
+      "error",
+      { markupOnly: true, onlyAttribute: [""] },
+    ],
   },
   globals: {
     __IS_DEV__: true,

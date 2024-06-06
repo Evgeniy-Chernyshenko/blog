@@ -15,7 +15,7 @@ export function Navbar({ className }: NavbarProps) {
 
   return (
     <div className={cx("Navbar", [className])}>
-      Logo
+      |||
       <div className={cx("menu")}>
         <AppLink to={appRoutes.main.path} theme="inverted">
           {t("Главная")}

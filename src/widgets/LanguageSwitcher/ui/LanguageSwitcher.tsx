@@ -1,10 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ChangeEvent } from "react";
-import { classNamesBind } from "@/shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { languageOptions } from "../constants/languageOptions";
-import s from "./LanguageSwitcher.module.scss";
-
-const cx = classNamesBind(s);
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -19,7 +16,7 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
 
   return (
     <select
-      className={cx("LanguageSwitcher", [className])}
+      className={classNames("", [className])}
       value={i18n.language}
       onChange={handleChange}
     >
