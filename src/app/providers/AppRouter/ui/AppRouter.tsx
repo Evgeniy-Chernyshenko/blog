@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
+import { PageLoader } from "@/widgets/PageLoader";
 
 export function AppRouter() {
   return (
-    <Suspense fallback="Loading...">
+    <Suspense fallback={<PageLoader />}>
       <Routes>
         {Object.values(appRoutes).map((appRoute) => (
           <Route key={appRoute.path} {...appRoute} />
