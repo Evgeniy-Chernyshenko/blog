@@ -1,8 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-import { useTranslation } from "react-i18next";
 import s from "./Navbar.module.scss";
 
 const cx = classNamesBind(s);
@@ -11,7 +10,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation();
 
   return (
@@ -27,4 +26,4 @@ export const Navbar = ({ className }: NavbarProps) => {
       </div>
     </div>
   );
-};
+}

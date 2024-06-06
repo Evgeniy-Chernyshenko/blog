@@ -1,8 +1,8 @@
+import { useTranslation } from "react-i18next";
+import { ChangeEvent } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { languageOptions } from "../constants/languageOptions";
 import s from "./LanguageSwitcher.module.scss";
-import { useTranslation } from "react-i18next";
-import { ChangeEvent } from "react";
 
 const cx = classNamesBind(s);
 
@@ -10,7 +10,7 @@ interface LanguageSwitcherProps {
   className?: string;
 }
 
-export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
+export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   const { i18n } = useTranslation();
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -30,4 +30,4 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       ))}
     </select>
   );
-};
+}

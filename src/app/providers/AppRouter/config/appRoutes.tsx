@@ -1,10 +1,11 @@
+import { RouteObject } from "react-router-dom";
+import { ReactNode } from "react";
 import { AboutPageLazy } from "@/pages/AboutPage";
 import { HomePageLazy } from "@/pages/HomePage";
-import { RouteObject } from "react-router-dom";
 
 interface AppRouteObject extends RouteObject {
   path: string;
-  element: React.ReactNode;
+  element: ReactNode;
 }
 
 export const nonTypedAppRoutes = {

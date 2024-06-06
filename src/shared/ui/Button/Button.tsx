@@ -1,5 +1,5 @@
-import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { ButtonHTMLAttributes, FC } from "react";
+import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Button.module.scss";
 
 const cx = classNamesBind(s);
@@ -14,6 +14,4 @@ export const Button: FC<ButtonProps> = ({
   className,
   theme = "primary",
   ...restProps
-}) => {
-  return <button className={cx("Button", [className, theme])} {...restProps} />;
-};
+}) => <button className={cx("Button", [className, theme])} {...restProps} />;

@@ -11,7 +11,7 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -23,4 +23,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       {theme === Theme.LIGHT ? <ThemeLightIcon /> : <ThemeDarkIcon />}
     </Button>
   );
-};
+}

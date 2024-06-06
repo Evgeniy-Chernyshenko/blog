@@ -3,19 +3,19 @@ type Mods = Record<string, unknown>;
 export function classNames(cls: string): string;
 export function classNames(
   cls: string,
-  modsOrAdditional: Mods | (string | undefined)[]
+  modsOrAdditional: Mods | (string | undefined)[],
 ): string;
 export function classNames(
   cls: string,
   mods: Mods,
-  additional: (string | undefined)[]
+  additional: (string | undefined)[],
 ): string;
 
 export function classNames(
   this: Record<string, string> | undefined,
   cls: string,
   modsOrAdditional?: Mods | (string | undefined)[],
-  additionalOptional: (string | undefined)[] = []
+  additionalOptional: (string | undefined)[] = [],
 ): string {
   const modsOrAdditionalIsAdditional = Array.isArray(modsOrAdditional);
 
@@ -28,8 +28,8 @@ export function classNames(
     additionalOptional === undefined && !modsOrAdditionalIsAdditional
       ? []
       : modsOrAdditionalIsAdditional
-      ? modsOrAdditional
-      : additionalOptional;
+        ? modsOrAdditional
+        : additionalOptional;
 
   return [
     this?.[cls] ?? cls,
@@ -40,6 +40,5 @@ export function classNames(
   ].join(" ");
 }
 
-export const classNamesBind = (styles: Record<string, string>) => {
-  return classNames.bind(styles);
-};
+export const classNamesBind = (styles: Record<string, string>) =>
+  classNames.bind(styles);
