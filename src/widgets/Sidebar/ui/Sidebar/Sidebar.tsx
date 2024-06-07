@@ -3,6 +3,7 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { LanguageSwitcher } from "@/widgets/LanguageSwitcher";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 import s from "./Sidebar.module.scss";
+import { BugButton } from "@/app/providers/ErrorBoundary";
 
 const cx = classNamesBind(s);
 
@@ -20,6 +21,7 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <div className={cx("Sidebar", { collapsed }, [className])}>
       <button onClick={handleToggle}>|||</button>
+      <BugButton />
 
       <div className={cx("switchers")}>
         <ThemeSwitcher />

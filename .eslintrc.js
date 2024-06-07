@@ -46,6 +46,7 @@ module.exports = {
       "error",
       { markupOnly: true, onlyAttribute: [""] },
     ],
+    "no-console": ["error", { allow: ["warn", "error", "info"] }],
   },
   globals: {
     __IS_DEV__: true,
