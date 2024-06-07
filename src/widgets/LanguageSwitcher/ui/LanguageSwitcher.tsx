@@ -1,18 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { ChangeEvent, useMemo } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { getLanguageOptions } from "../lib/getLanguageOptions";
 
 interface LanguageSwitcherProps {
   className?: string;
 }
 
 export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const languageOptions = useMemo(
-    () => getLanguageOptions(i18n.language),
-    [getLanguageOptions, i18n.language],
+    () => [
+      { value: "ru", title: t("Русский") },
+      { value: "en", title: t("Английский") },
+    ],
+    [i18n.language],
   );
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {

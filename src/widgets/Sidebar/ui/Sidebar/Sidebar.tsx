@@ -19,8 +19,13 @@ export function Sidebar({ className }: SidebarProps) {
   };
 
   return (
-    <div className={cx("Sidebar", { collapsed }, [className])}>
-      <button onClick={handleToggle}>|||</button>
+    <div
+      className={cx("Sidebar", { collapsed }, [className])}
+      data-testid="sidebar"
+    >
+      <button onClick={handleToggle} data-testid="sidebar-toggle">
+        |||
+      </button>
       <BugButton />
 
       <div className={cx("switchers")}>
