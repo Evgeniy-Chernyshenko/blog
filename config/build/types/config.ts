@@ -1,6 +1,6 @@
 type BuildMode = "development" | "production";
 
-interface BuildPaths {
+export interface BuildPaths {
   entry: string;
   buildDir: string;
   htmlTemplate: string;

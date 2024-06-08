@@ -1,12 +1,7 @@
 .App {
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
-
-  min-height: 100vh;
 }
 
 .navbar {

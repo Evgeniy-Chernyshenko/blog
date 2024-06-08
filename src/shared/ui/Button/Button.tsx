@@ -4,7 +4,7 @@ import s from "./Button.module.scss";
 
 const cx = classNamesBind(s);
 
-type ButtonTheme = "primary" | "clear";
+type ButtonTheme = "primary" | "clear" | "outlined";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;

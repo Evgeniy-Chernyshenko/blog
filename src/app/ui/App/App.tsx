@@ -12,7 +12,7 @@ export function App() {
   const { theme } = useTheme();
 
   return (
-    <div className={cx("App")} data-theme={theme}>
+    <div className={cx("App", ["app"])} data-theme={theme}>
       <Suspense fallback="Loading...">
         <Navbar className={cx("navbar")} />
 
