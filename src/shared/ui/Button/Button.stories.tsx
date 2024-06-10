@@ -6,7 +6,6 @@ import { Button } from "./Button";
 export default {
   title: "shared/Button",
   component: Button,
-  argTypes: {},
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
@@ -49,3 +48,39 @@ OutlinedDark.args = {
   theme: "outlined",
 };
 OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundLight = Template.bind({});
+BackgroundLight.args = {
+  children: "Button",
+  theme: "background",
+};
+
+export const BackgroundInvertedLight = Template.bind({});
+BackgroundInvertedLight.args = {
+  children: "Button",
+  theme: "background-inverted",
+};
+
+export const BackgroundInvertedSquareSizeMLight = Template.bind({});
+BackgroundInvertedSquareSizeMLight.args = {
+  children: ">",
+  theme: "background-inverted",
+  square: true,
+  size: "m",
+};
+
+export const BackgroundInvertedSquareSizeLLight = Template.bind({});
+BackgroundInvertedSquareSizeLLight.args = {
+  children: ">",
+  theme: "background-inverted",
+  square: true,
+  size: "l",
+};
+
+export const BackgroundInvertedSquareSizeXLLight = Template.bind({});
+BackgroundInvertedSquareSizeXLLight.args = {
+  children: ">",
+  theme: "background-inverted",
+  square: true,
+  size: "xl",
+};

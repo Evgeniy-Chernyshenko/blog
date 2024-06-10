@@ -4,17 +4,18 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 interface LanguageSwitcherProps {
   className?: string;
+  short?: boolean;
 }
 
-export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ className, short }: LanguageSwitcherProps) {
   const { t, i18n } = useTranslation();
 
   const languageOptions = useMemo(
     () => [
-      { value: "ru", title: t("Русский") },
-      { value: "en", title: t("Английский") },
+      { value: "ru", title: t(short ? "Русский короткий" : "Русский") },
+      { value: "en", title: t(short ? "Английский короткий" : "Английский") },
     ],
-    [i18n.language],
+    [i18n.language, short],
   );
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {

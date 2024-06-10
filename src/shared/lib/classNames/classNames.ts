@@ -14,22 +14,16 @@ export function classNames(
 export function classNames(
   this: Record<string, string> | undefined,
   cls: string,
-  modsOrAdditional?: Mods | (string | undefined)[],
+  modsOrAdditional: Mods | (string | undefined)[] = {},
   additionalOptional: (string | undefined)[] = [],
 ): string {
   const modsOrAdditionalIsAdditional = Array.isArray(modsOrAdditional);
 
-  const mods: Mods =
-    modsOrAdditional === undefined || modsOrAdditionalIsAdditional
-      ? {}
-      : modsOrAdditional;
+  const mods: Mods = modsOrAdditionalIsAdditional ? {} : modsOrAdditional;
 
-  const additional: (string | undefined)[] =
-    additionalOptional === undefined && !modsOrAdditionalIsAdditional
-      ? []
-      : modsOrAdditionalIsAdditional
-        ? modsOrAdditional
-        : additionalOptional;
+  const additional: (string | undefined)[] = modsOrAdditionalIsAdditional
+    ? modsOrAdditional
+    : additionalOptional;
 
   return [
     this?.[cls] ?? cls,
