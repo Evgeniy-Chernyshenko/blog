@@ -1,16 +1,16 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { renderWithTranslation } from "@/shared/lib/tests/renderWithTranslation";
 import { Sidebar } from "./Sidebar";
+import { componentRender } from "@/app/config/tests/componentRender";
 
 describe("Sidebar", () => {
   test("Сайдбар рендерится", () => {
-    renderWithTranslation(<Sidebar />);
+    componentRender(<Sidebar />);
 
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
 
   test("Сайдбар сворачивается", () => {
-    renderWithTranslation(<Sidebar />);
+    componentRender(<Sidebar />);
 
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
 

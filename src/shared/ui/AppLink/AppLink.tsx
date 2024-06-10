@@ -15,4 +15,6 @@ export const AppLink: FC<AppLinkProps> = ({
   className,
   theme = "primary",
   ...restProps
-}) => <Link className={cx("AppLink", [className, theme])} {...restProps} />;
+}) => {
+  return <Link className={cx("AppLink", [className, theme])} {...restProps} />;
+};

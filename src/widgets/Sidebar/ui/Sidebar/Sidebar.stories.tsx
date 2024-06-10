@@ -6,7 +6,6 @@ import { Sidebar } from "./Sidebar";
 export default {
   title: "widgets/Sidebar",
   component: Sidebar,
-  argTypes: {},
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => (
@@ -14,8 +13,6 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
 );
 
 export const SidebarLight = Template.bind({});
-SidebarLight.args = {};
 
 export const SidebarDark = Template.bind({});
-SidebarDark.args = {};
 SidebarDark.decorators = [ThemeDecorator(Theme.DARK)];
