@@ -15,7 +15,7 @@ export function LanguageSwitcher({ className, short }: LanguageSwitcherProps) {
       { value: "ru", title: t(short ? "Русский короткий" : "Русский") },
       { value: "en", title: t(short ? "Английский короткий" : "Английский") },
     ],
-    [i18n.language, short],
+    [short, t],
   );
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {

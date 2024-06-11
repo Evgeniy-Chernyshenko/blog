@@ -10,6 +10,7 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "prettier",
     "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -19,7 +20,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
     "react/jsx-filename-extension": [
       "error",
@@ -47,6 +48,10 @@ module.exports = {
       { markupOnly: true, onlyAttribute: ["text"] },
     ],
     "no-console": ["error", { allow: ["warn", "error", "info"] }],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
   },
   globals: {
     __IS_DEV__: true,

@@ -9,7 +9,8 @@ type ButtonTheme =
   | "clear"
   | "outlined"
   | "background"
-  | "background-inverted";
+  | "background-inverted"
+  | "outlined-inverted";
 
 type ButtonSize = "m" | "l" | "xl";
 

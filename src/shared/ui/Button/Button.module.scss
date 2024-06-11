@@ -8,10 +8,16 @@
   border: none;
 }
 
-.outlined {
+.outlined,
+.outlined-inverted {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
-  background: none;
+  background-color: transparent;
+}
+
+.outlined-inverted {
+  border-color: var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
 }
 
 .background {
