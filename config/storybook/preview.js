@@ -3,7 +3,6 @@ import { StyleDecorator } from "@/app/config/storybook/decorators/StyleDecorator
 import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
 import { Theme } from "@/app/providers/ThemeProvider";
 import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
-import { AppDecorator } from "@/app/config/storybook/decorators/AppDecorator";
 
 export const parameters = {
   actions: {
@@ -17,7 +16,6 @@ export const parameters = {
   },
 };
 
-addDecorator(AppDecorator);
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
