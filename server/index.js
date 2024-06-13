@@ -34,7 +34,9 @@ server.post("/login", async (req, res) => {
       return;
     }
 
-    res.json(userFromDb);
+    const { password: _password, ...userFromDbWithoutPassword } = userFromDb;
+
+    res.json(userFromDbWithoutPassword);
   } catch (error) {
     res.status(500).json({ message: error.message ?? "Internal server error" });
   }

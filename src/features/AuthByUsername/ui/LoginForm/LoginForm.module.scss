@@ -5,6 +5,12 @@
   width: 300px;
 }
 
+.top-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .submit-button {
   align-self: flex-end;
 }

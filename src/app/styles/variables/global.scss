@@ -1,4 +1,5 @@
 :root {
+  // Щрифт
   --font-family-main: consolas, "Times New Roman", serif;
 
   --font-size-m: 16px;
@@ -13,5 +14,10 @@
   --font-line-xl: 40px;
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
+  // Время
   --transition-duration1: 0.25s;
+
+  // Цвета
+  --red-color-light: #ec0000;
+  --red-color-dark: #c20000;
 }

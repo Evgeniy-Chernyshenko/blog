@@ -35,7 +35,6 @@ module.exports = {
     "react/button-has-type": "off",
     "no-promise-executor-return": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error",
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "error",
     "no-nested-ternary": "off",
@@ -53,6 +52,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "no-param-reassign": "off",
+    "consistent-return": "off",
+    "no-empty": ["error", { allowEmptyCatch: true }],
   },
   globals: {
     __IS_DEV__: true,

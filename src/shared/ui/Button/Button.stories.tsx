@@ -16,12 +16,27 @@ PrimaryLight.args = {
   theme: "primary",
 };
 
+export const PrimaryLightDisabled = Template.bind({});
+PrimaryLightDisabled.args = {
+  children: "Button",
+  theme: "primary",
+  disabled: true,
+};
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   children: "Button",
   theme: "primary",
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryDarkDisabled = Template.bind({});
+PrimaryDarkDisabled.args = {
+  children: "Button",
+  theme: "primary",
+  disabled: true,
+};
+PrimaryDarkDisabled.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ClearLight = Template.bind({});
 ClearLight.args = {

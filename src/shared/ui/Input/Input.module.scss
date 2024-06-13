@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.Input:has(.input:disabled) {
+  opacity: 0.5;
+}
+
 .placeholder {
   flex-shrink: 0;
 }
