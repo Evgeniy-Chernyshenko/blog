@@ -8,5 +8,7 @@
   "Страница не найдена": "Page not found",
   "Что-то пошло не так": "Something went wrong",
   "Перезагрузить страницу": "Reload page",
-  "Войти": "Login"
+  "Войти": "Login",
+  "Введите username": "Enter username",
+  "Введите password": "Enter password"
 }

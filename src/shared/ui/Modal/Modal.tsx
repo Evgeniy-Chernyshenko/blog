@@ -14,24 +14,40 @@ const cx = classNamesBind(s);
 
 interface ModalProps {
   opened: boolean;
-  onClose?: () => void;
-  className?: string;
   children: ReactNode;
+  lazy?: boolean;
+  withoutPortal?: boolean;
+  className?: string;
+  onClose?: () => void;
 }
 
 const ANIMATION_DURATION = 250;
 
-export const Modal = ({ opened, onClose, className, children }: ModalProps) => {
+export const Modal = ({
+  opened,
+  children,
+  lazy,
+  withoutPortal,
+  className,
+  onClose,
+}: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const animationStateRef = useRef<{ opened: boolean; isClosing: boolean }>({
     opened,
     isClosing,
   });
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     animationStateRef.current = { opened, isClosing };
   }, [opened, isClosing]);
+
+  useEffect(() => {
+    if (opened) {
+      setIsMounted(true);
+    }
+  }, [opened]);
 
   const close = useCallback(() => {
     if (
@@ -76,16 +92,20 @@ export const Modal = ({ opened, onClose, className, children }: ModalProps) => {
     };
   }, [close]);
 
-  return (
-    <Portal>
-      <div
-        className={cx("Modal", { opened, closing: isClosing }, [className])}
-        onClick={handleClose}
-      >
-        <div className={cx("content-container")}>
-          <div className={cx("content")}>{children}</div>
-        </div>
+  if (lazy && !isMounted) {
+    return null;
+  }
+
+  const Component = (
+    <div
+      className={cx("Modal", { opened, closing: isClosing }, [className])}
+      onClick={handleClose}
+    >
+      <div className={cx("content-container")}>
+        <div className={cx("content")}>{children}</div>
       </div>
-    </Portal>
+    </div>
   );
+
+  return withoutPortal ? Component : <Portal>{Component}</Portal>;
 };

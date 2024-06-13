@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { Button } from "@/shared/ui/Button/Button";
-import { Modal } from "@/shared/ui/Modal/Modal";
+import { LoginModal } from "@/features/AuthByUsername";
 
 const cx = classNamesBind(s);
 
@@ -15,21 +15,23 @@ export function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation();
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
 
-  const handleToggleLoginModal = useCallback(() => {
-    setIsOpenLoginModal((prev) => !prev);
+  const handleOpenLoginModal = useCallback(() => {
+    setIsOpenLoginModal(true);
+  }, []);
+
+  const handleCloseLoginModal = useCallback(() => {
+    setIsOpenLoginModal(false);
   }, []);
 
   return (
     <div className={cx("Navbar", [className])}>
       |||
       <div className={cx("menu")}>
-        <Button theme="outlined-inverted" onClick={handleToggleLoginModal}>
+        <Button theme="outlined-inverted" onClick={handleOpenLoginModal}>
           {t("Войти")}
         </Button>
 
-        <Modal opened={isOpenLoginModal} onClose={handleToggleLoginModal}>
-          !!!
-        </Modal>
+        <LoginModal opened={isOpenLoginModal} onClose={handleCloseLoginModal} />
       </div>
     </div>
   );

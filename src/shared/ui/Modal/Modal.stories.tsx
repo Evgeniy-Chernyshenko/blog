@@ -9,6 +9,7 @@ export default {
   args: {
     children: "Modal text",
     opened: true,
+    withoutPortal: true,
   },
 } as ComponentMeta<typeof Modal>;
 
