@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { Button } from "@/shared/ui/Button/Button";
-import { LoginModal } from "@/features/AuthByUsername";
+import { LoginModal } from "@/features/authByUsername";
 import { getUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
 import { userActions } from "@/entities/User";

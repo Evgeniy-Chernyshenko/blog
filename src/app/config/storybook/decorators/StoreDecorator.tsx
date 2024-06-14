@@ -1,7 +1,7 @@
 import { Story } from "@storybook/react";
 import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
-import { authByUsernameReducer } from "@/features/AuthByUsername";
+import { authByUsernameReducer } from "@/features/authByUsername";
 
 const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
   { authByUsername: authByUsernameReducer };

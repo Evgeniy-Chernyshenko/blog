@@ -7,7 +7,7 @@ import {
 } from "@reduxjs/toolkit";
 import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
-import { AuthByUsernameSchema } from "@/features/AuthByUsername";
+import { AuthByUsernameSchema } from "@/features/authByUsername";
 
 export interface StateSchema {
   counter: CounterSchema;
