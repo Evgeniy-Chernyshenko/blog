@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
@@ -35,12 +35,6 @@ export function Navbar({ className }: NavbarProps) {
     dispatch(userActions.setAuthData(null));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (userAuthData) {
-      setIsOpenLoginModal(false);
-    }
-  }, [userAuthData]);
-
   return (
     <div className={cx("Navbar", [className])}>
       |||
@@ -55,10 +49,12 @@ export function Navbar({ className }: NavbarProps) {
               {t("Войти")}
             </Button>
 
-            <LoginModal
-              opened={isOpenLoginModal}
-              onClose={handleCloseLoginModal}
-            />
+            {isOpenLoginModal && (
+              <LoginModal
+                opened={isOpenLoginModal}
+                onClose={handleCloseLoginModal}
+              />
+            )}
           </>
         )}
       </div>

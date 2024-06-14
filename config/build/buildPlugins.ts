@@ -21,7 +21,9 @@ export const buildPlugins = (
   ];
 
   if (isDev) {
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    plugins.push(
+      new BundleAnalyzerPlugin({ openAnalyzer: true, analyzerPort: "auto" }),
+    );
   }
 
   return plugins;

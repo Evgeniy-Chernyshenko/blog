@@ -5,10 +5,20 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./LoginForm.module.scss";
 import { Button } from "@/shared/ui/Button/Button";
 import { Input } from "@/shared/ui/Input/Input";
-import { getAuthByUsername } from "../../model/selectors/getAuthByUsername/getAuthByUsername";
-import { authByUsernameActions } from "../..";
-import { authByUsername } from "../../services/authByUsername/authByUsername";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import {
+  authByUsernameActions,
+  authByUsernameReducer,
+} from "../../model/slice/authByUsernameSlice";
+import { getAuthUsername } from "../../model/selectors/getAuthUsername/getAuthUsername";
+import { getAuthPassword } from "../../model/selectors/getAuthPassword/getAuthPassword";
+import { getAuthIsLoading } from "../../model/selectors/getAuthIsLoading/getAuthIsLoading";
+import { getAuthError } from "../../model/selectors/getAuthError/getAuthError";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { authByUsername } from "../../services/authByUsername/authByUsername";
 
 const cx = classNamesBind(s);
 
@@ -16,11 +26,15 @@ interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+const initialReducers: ReducersList = { authByUsername: authByUsernameReducer };
+
+const LoginForm = ({ className }: LoginFormProps) => {
   const { t } = useTranslation();
-  const { username, password, isLoading, error } =
-    useSelector(getAuthByUsername);
   const dispatch = useDispatch();
+  const username = useSelector(getAuthUsername);
+  const password = useSelector(getAuthPassword);
+  const isLoading = useSelector(getAuthIsLoading);
+  const error = useSelector(getAuthError);
 
   const handleChangeUsername = useCallback(
     (value: string) => {
@@ -39,36 +53,42 @@ export const LoginForm = ({ className }: LoginFormProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    dispatch(authByUsername({ username, password }));
+    if (username && password) {
+      dispatch(authByUsername({ username, password }));
+    }
   };
 
   return (
-    <form className={cx("LoginForm", [className])} onSubmit={handleSubmit}>
-      <div className={cx("top-text-block", [className])}>
-        <TextBlock title={t("Форма авторизации")} />
-        {error && <TextBlock theme="error" text={t(error)} />}
-      </div>
+    <DynamicModuleLoader reducers={initialReducers} removeOnUnmount>
+      <form className={cx("LoginForm", [className])} onSubmit={handleSubmit}>
+        <div className={cx("top-text-block", [className])}>
+          <TextBlock title={t("Форма авторизации")} />
+          {error && <TextBlock theme="error" text={t(error)} />}
+        </div>
 
-      <Input
-        name="username"
-        placeholder={t("Введите username")}
-        autoFocus
-        value={username}
-        onChange={handleChangeUsername}
-        disabled={isLoading}
-      />
-      <Input
-        type="password"
-        name="password"
-        placeholder={t("Введите password")}
-        value={password}
-        onChange={handleChangePassword}
-        disabled={isLoading}
-      />
+        <Input
+          name="username"
+          placeholder={t("Введите username")}
+          autoFocus
+          value={username}
+          onChange={handleChangeUsername}
+          disabled={isLoading}
+        />
+        <Input
+          type="password"
+          name="password"
+          placeholder={t("Введите password")}
+          value={password}
+          onChange={handleChangePassword}
+          disabled={isLoading}
+        />
 
-      <Button className={cx("submit-button")} disabled={isLoading}>
-        {t("Войти")}
-      </Button>
-    </form>
+        <Button className={cx("submit-button")} disabled={isLoading}>
+          {t("Войти")}
+        </Button>
+      </form>
+    </DynamicModuleLoader>
   );
 };
+
+export default LoginForm;

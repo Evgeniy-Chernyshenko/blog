@@ -1,4 +1,12 @@
 .Loader {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.item {
   width: 48px;
   height: 48px;
   border: 5px solid var(--inverted-bg-color);

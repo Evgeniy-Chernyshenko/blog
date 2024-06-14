@@ -8,5 +8,9 @@ interface LoaderProps {
 }
 
 export const Loader = ({ className }: LoaderProps) => {
-  return <span className={cx("Loader", [className])} />;
+  return (
+    <span className={cx("Loader", [className])}>
+      <span className={cx("item")} />
+    </span>
+  );
 };

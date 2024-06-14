@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
 import { Theme } from "@/app/providers/ThemeProvider";
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./LoginForm";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
+import { authByUsernameReducer } from "../../model/slice/authByUsernameSlice";
 
 export default {
   title: "features/LoginForm",
@@ -10,7 +11,11 @@ export default {
   args: { placeholder: "Type text" },
   decorators: [
     StoreDecorator({
-      authByUsername: { username: "John", password: "password" },
+      authByUsername: {
+        username: "John",
+        password: "password",
+        isLoading: false,
+      },
     }),
   ],
 } as ComponentMeta<typeof LoginForm>;
@@ -31,6 +36,7 @@ WithError.decorators = [
       username: "John",
       password: "password",
       error: "Something error text",
+      isLoading: false,
     },
   }),
 ];
