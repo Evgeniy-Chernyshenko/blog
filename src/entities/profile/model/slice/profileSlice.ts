@@ -18,5 +18,5 @@ const ProfileSlice = createSlice({
   initialState,
 });
 
-export const { actions: ProfileActions, reducer: ProfileReducer } =
+export const { actions: profileActions, reducer: profileReducer } =
   ProfileSlice;
