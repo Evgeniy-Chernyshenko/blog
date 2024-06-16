@@ -89,10 +89,8 @@ export const Modal = ({
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
-
-      onClose?.();
     };
-  }, [close, onClose]);
+  }, [close]);
 
   if (lazy && !isMounted) {
     return null;

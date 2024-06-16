@@ -1,17 +1,17 @@
 import { Suspense, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { AppRouter } from "../../providers/AppRouter";
 import { Navbar } from "@/widgets/Navbar";
 import s from "./App.module.scss";
 import { Sidebar } from "@/widgets/Sidebar";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
-import { User, userActions } from "@/entities/User";
+import { User, userActions } from "@/entities/user";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 const cx = classNamesBind(s);
 
 export function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     try {

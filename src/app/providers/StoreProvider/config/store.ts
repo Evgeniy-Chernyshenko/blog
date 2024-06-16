@@ -1,7 +1,7 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
-import { counterReducer } from "@/entities/Counter";
+import { counterReducer } from "@/entities/counter";
 import { StateSchema } from "./stateSchema";
-import { userReducer } from "@/entities/User";
+import { userReducer } from "@/entities/user";
 import { createReducerManager } from "./reducerManager";
 
 export const createReduxStore = (
@@ -28,3 +28,5 @@ export const createReduxStore = (
 
   return store;
 };
+
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];

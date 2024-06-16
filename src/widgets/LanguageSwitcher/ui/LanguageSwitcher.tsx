@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ChangeEvent, useMemo } from "react";
+import { ChangeEvent, memo, useMemo } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 interface LanguageSwitcherProps {
@@ -7,7 +7,10 @@ interface LanguageSwitcherProps {
   short?: boolean;
 }
 
-export function LanguageSwitcher({ className, short }: LanguageSwitcherProps) {
+export const LanguageSwitcher = memo(function LanguageSwitcher({
+  className,
+  short,
+}: LanguageSwitcherProps) {
   const { t, i18n } = useTranslation();
 
   const languageOptions = useMemo(
@@ -35,4 +38,4 @@ export function LanguageSwitcher({ className, short }: LanguageSwitcherProps) {
       ))}
     </select>
   );
-}
+});

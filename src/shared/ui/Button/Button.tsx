@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, FC, memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Button.module.scss";
 
@@ -20,15 +20,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
 }
 
-export const Button: FC<ButtonProps> = ({
+export const Button = memo(function Button({
   className,
   theme = "primary",
   square = false,
   size = "m",
   ...restProps
-}) => {
+}: ButtonProps) {
   const mods = { square };
   const additional = [className, theme, size];
 
   return <button className={cx("Button", mods, additional)} {...restProps} />;
-};
+});

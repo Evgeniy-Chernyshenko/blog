@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./TextBlock.module.scss";
 
@@ -10,16 +11,16 @@ interface TextBlockProps {
   className?: string;
 }
 
-export const TextBlock = ({
+export const TextBlock = memo(function TextBlock({
   title,
   text,
   theme = "primary",
   className,
-}: TextBlockProps) => {
+}: TextBlockProps) {
   return (
     <div className={cx("TextBlock", [className, theme])}>
       {title && <p className={cx("title")}>{title}</p>}
       {text && <p className={cx("text")}>{text}</p>}
     </div>
   );
-};
+});

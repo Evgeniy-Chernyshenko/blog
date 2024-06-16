@@ -29,12 +29,19 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 42,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "john",
+    "avatar": "https://i.pravatar.cc/300?img=3"
   },
   "users": [
     {
       "id": "1",
-      "username": "John",
+      "username": "john",
       "password": "password"
     }
   ]

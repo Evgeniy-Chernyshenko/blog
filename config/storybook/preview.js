@@ -4,6 +4,7 @@ import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator
 import { Theme } from "@/app/providers/ThemeProvider";
 import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 import { TranslationsDecorator } from "@/app/config/storybook/decorators/TranslationsDecorator";
+import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
 
 export const parameters = {
   actions: {

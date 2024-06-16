@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { FormEvent, useCallback } from "react";
+import { useSelector } from "react-redux";
+import { FormEvent, memo, useCallback } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./LoginForm.module.scss";
 import { Button } from "@/shared/ui/Button/Button";
@@ -18,19 +18,24 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { authByUsername } from "../../services/authByUsername/authByUsername";
+import { authByUsername } from "../../model/services/authByUsername/authByUsername";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 const cx = classNamesBind(s);
 
-interface LoginFormProps {
+export interface LoginFormProps {
+  onSuccess: () => void;
   className?: string;
 }
 
 const initialReducers: ReducersList = { authByUsername: authByUsernameReducer };
 
-const LoginForm = ({ className }: LoginFormProps) => {
+const LoginForm = memo(function LoginForm({
+  onSuccess,
+  className,
+}: LoginFormProps) {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getAuthUsername);
   const password = useSelector(getAuthPassword);
   const isLoading = useSelector(getAuthIsLoading);
@@ -50,11 +55,15 @@ const LoginForm = ({ className }: LoginFormProps) => {
     [dispatch],
   );
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (username && password) {
-      dispatch(authByUsername({ username, password }));
+      const result = await dispatch(authByUsername({ username, password }));
+
+      if (result.meta.requestStatus === "fulfilled") {
+        onSuccess();
+      }
     }
   };
 
@@ -89,6 +98,6 @@ const LoginForm = ({ className }: LoginFormProps) => {
       </form>
     </DynamicModuleLoader>
   );
-};
+});
 
 export default LoginForm;
