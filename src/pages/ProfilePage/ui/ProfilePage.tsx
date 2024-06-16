@@ -3,7 +3,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { profileReducer } from "@/entities/profiletemp";
+import { profileReducer } from "@/entities/Profile";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
 

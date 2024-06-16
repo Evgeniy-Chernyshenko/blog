@@ -1,5 +1,5 @@
 import { SVGProps, VFC } from "react";
-import { appRoutes } from "@/app/providers/appRoutertemp/config/appRoutes";
+import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import HomeIcon from "@/shared/assets/icons/home-icon.svg";
 import AboutIcon from "@/shared/assets/icons/about-icon.svg";
 import ProfileIcon from "@/shared/assets/icons/profile-icon.svg";
