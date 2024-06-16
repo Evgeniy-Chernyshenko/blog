@@ -3,13 +3,13 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ProfileReducer } from "@/entities/profile";
+import { profileReducer } from "@/entities/profiletemp";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
 
 const cx = classNamesBind(s);
 
-const initialReducers: ReducersList = { profile: ProfileReducer };
+const initialReducers: ReducersList = { profile: profileReducer };
 
 export function ProfilePage() {
   const { t } = useTranslation("profile");

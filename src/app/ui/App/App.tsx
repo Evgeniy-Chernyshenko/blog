@@ -1,11 +1,11 @@
 import { Suspense, useEffect } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
-import { AppRouter } from "../../providers/AppRouter";
+import { AppRouter } from "../../providers/appRoutertemp";
 import { Navbar } from "@/widgets/Navbar";
 import s from "./App.module.scss";
 import { Sidebar } from "@/widgets/Sidebar";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
-import { User, userActions } from "@/entities/user";
+import { User, userActions } from "@/entities/usertemp";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 const cx = classNamesBind(s);

@@ -1,7 +1,7 @@
 import { addDecorator } from "@storybook/react";
 import { StyleDecorator } from "@/app/config/storybook/decorators/StyleDecorator";
 import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/app/providers/themeProvidertemp";
 import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 import { TranslationsDecorator } from "@/app/config/storybook/decorators/TranslationsDecorator";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";

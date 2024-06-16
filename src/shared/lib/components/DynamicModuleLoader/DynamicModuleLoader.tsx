@@ -5,7 +5,7 @@ import {
   ReduxStoreWithManager,
   StateSchema,
   StateSchemaKey,
-} from "@/app/providers/StoreProvider";
+} from "@/app/providers/storeProvidertemp";
 
 export type ReducersList = Partial<ReducersMapObject<Required<StateSchema>>>;
 

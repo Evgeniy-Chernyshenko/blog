@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Theme, useTheme } from "@/app/providers/ThemeProvider";
+import { Theme, useTheme } from "@/app/providers/themeProvidertemp";
 import { classNames, classNamesBind } from "@/shared/lib/classNames/classNames";
 import ThemeLightIcon from "@/shared/assets/icons/theme-light.svg";
 import ThemeDarkIcon from "@/shared/assets/icons/theme-dark.svg";

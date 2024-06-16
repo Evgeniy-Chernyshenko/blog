@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BugButton } from "@/app/providers/ErrorBoundary";
+import { BugButton } from "@/app/providers/errorBoundarytemp";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { Button } from "@/shared/ui/Button/Button";
 import { LanguageSwitcher } from "@/widgets/LanguageSwitcher";
