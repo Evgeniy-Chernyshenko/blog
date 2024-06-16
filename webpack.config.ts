@@ -3,8 +3,9 @@ import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { BuildEnv, BuildOptions } from "./config/build/types/config";
 
 export default (env: BuildEnv) => {
-  const mode = env.mode || "development";
-  const port = env.port || 3000;
+  const mode = env.mode ?? "development";
+  const port = env.port ?? 3000;
+  const apiBaseUrl = env.apiBaseUrl ?? "http://localhost:8000";
 
   const buildOptions: BuildOptions = {
     mode,
@@ -15,6 +16,7 @@ export default (env: BuildEnv) => {
       src: path.resolve(__dirname, "src"),
     },
     port,
+    apiBaseUrl,
   };
 
   return buildWebpackConfig(buildOptions);

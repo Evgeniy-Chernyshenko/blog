@@ -10,6 +10,7 @@ export interface BuildPaths {
 export interface BuildEnv {
   mode: BuildMode;
   port: number;
+  apiBaseUrl: string;
 }
 
 export interface BuildOptions extends BuildEnv {

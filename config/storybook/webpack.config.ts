@@ -28,7 +28,9 @@ export default ({ config }: { config: Configuration }): Configuration => {
     ),
   );
 
-  config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
+  config.plugins?.push(
+    new DefinePlugin({ __IS_DEV__: true, __API_BASE_URL__: "" }),
+  );
 
   return config;
 };

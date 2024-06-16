@@ -17,7 +17,10 @@ export const buildPlugins = (
       filename: "css/[name].[contenthash].css",
       chunkFilename: "css/[name].[contenthash].css",
     }),
-    new DefinePlugin({ __IS_DEV__: isDev }),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+      __API_BASE_URL__: JSON.stringify(buildOptions.apiBaseUrl),
+    }),
   ];
 
   if (isDev) {

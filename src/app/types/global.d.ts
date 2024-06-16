@@ -20,3 +20,4 @@ declare module "*.jpeg";
 declare module "*.gif";
 
 declare const __IS_DEV__: boolean;
+declare const __API_BASE_URL__: string;
