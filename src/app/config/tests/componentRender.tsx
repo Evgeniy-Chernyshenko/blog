@@ -18,10 +18,10 @@ export const componentRender = (
   const { route = "/" } = options;
 
   return render(
-    <StoreProvider initialState={options.initialState}>
-      <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[route]}>
+      <StoreProvider initialState={options.initialState}>
         <I18nextProvider i18n={i18nForTests}>{Component}</I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>,
+      </StoreProvider>
+    </MemoryRouter>,
   );
 };
