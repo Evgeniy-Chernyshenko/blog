@@ -29,12 +29,14 @@
     }
   ],
   "profile": {
-    "firstName": "John",
-    "lastName": "Smith",
+    "firstName": "Туалетный Джо",
+    "lastName": "Smiths",
     "age": 42,
     "city": "Moscow",
     "username": "john",
-    "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user"
+    "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user",
+    "country": "Belarus",
+    "currency": "EUR"
   },
   "users": [
     {

@@ -18,7 +18,7 @@ interface CurrencySelectorProps {
 
 export const CurrencySelector = memo(
   ({ className, value, onChange }: CurrencySelectorProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation("profile");
 
     return (
       <Select

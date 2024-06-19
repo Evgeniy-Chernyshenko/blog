@@ -20,7 +20,7 @@ interface CountrySelectorProps {
 
 export const CountrySelector = memo(
   ({ className, value, onChange }: CountrySelectorProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation("profile");
 
     return (
       <Select

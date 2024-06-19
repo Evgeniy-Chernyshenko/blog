@@ -79,6 +79,12 @@ export const ProfileCard = ({
           <form onSubmit={handleSubmit}>
             <fieldset className={cx("fieldset")} disabled={readonly}>
               <Input
+                placeholder={t("Имя пользователя")}
+                value={data.username}
+                onChange={onChangeUsername}
+              />
+
+              <Input
                 placeholder={t("Ваше имя")}
                 value={data.firstName}
                 ref={firstInputRef}
@@ -98,6 +104,11 @@ export const ProfileCard = ({
                 type="number"
               />
 
+              <CountrySelector
+                value={data.country}
+                onChange={onChangeCountry}
+              />
+
               <Input
                 placeholder={t("Город")}
                 value={data.city}
@@ -105,20 +116,9 @@ export const ProfileCard = ({
               />
 
               <Input
-                placeholder={t("Имя пользователя")}
-                value={data.username}
-                onChange={onChangeUsername}
-              />
-
-              <Input
                 placeholder={t("Аватар")}
                 value={data.avatar}
                 onChange={onChangeAvatar}
-              />
-
-              <CountrySelector
-                value={data.country}
-                onChange={onChangeCountry}
               />
 
               <CurrencySelector

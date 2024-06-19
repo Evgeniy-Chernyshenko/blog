@@ -6,5 +6,15 @@
   "Возраст": "Age",
   "Город": "City",
   "Имя пользователя": "Username",
-  "Аватар": "Avatar"
+  "Аватар": "Avatar",
+  "Выберите страну": "Select country",
+  "Выберите валюту": "Select currency",
+  "Не указан возраст": "No age specified",
+  "Не указан аватар": "Unspecified avatar",
+  "Не указан город": "No city specified",
+  "Не указана страна": "No country specified",
+  "Не указана валюта": "No currency specified",
+  "Не указано имя": "First name not specified",
+  "Не указана фамилия": "No last name specified",
+  "Не указано имя пользователя": "No username specified"
 }

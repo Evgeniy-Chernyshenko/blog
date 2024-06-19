@@ -91,7 +91,6 @@ const Component = <T extends "string" | "number" | "password" = "string">(
           readOnly={readOnly}
           ref={ref}
           value={value ?? ""}
-          type={type}
           {...restProps}
         />
 

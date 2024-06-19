@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -9,18 +10,21 @@ import {
   getProfileError,
   getProfileFormData,
   getProfileIsLoading,
+  getProfileReadonly,
+  getProfileValidationErrors,
   profileActions,
   ProfileCard,
   profileReducer,
+  updateProfileData,
+  ValidateProfileError,
 } from "@/entities/Profile";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ProfilePage.module.scss";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
-import { getProfileReadonly } from "@/entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly";
-import { updateProfileData } from "@/entities/Profile/model/services/updateProfileData/updateProfileData";
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
+import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 
 const cx = classNamesBind(s);
 
@@ -32,6 +36,8 @@ export function ProfilePage() {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validationErrors = useSelector(getProfileValidationErrors);
+  const { t } = useTranslation("profile");
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -105,6 +111,17 @@ export function ProfilePage() {
     [dispatch],
   );
 
+  const validationErrorTranslates: Record<ValidateProfileError, string> = {
+    INCORRECT_AGE: t("Не указан возраст"),
+    INCORRECT_AVATAR: t("Не указан аватар"),
+    INCORRECT_CITY: t("Не указан город"),
+    INCORRECT_COUNTRY: t("Не указана страна"),
+    INCORRECT_CURRENCY: t("Не указана валюта"),
+    INCORRECT_FIRSTNAME: t("Не указано имя"),
+    INCORRECT_LASTNAME: t("Не указана фамилия"),
+    INCORRECT_USERNAME: t("Не указано имя пользователя"),
+  };
+
   return (
     <DynamicModuleLoader reducers={initialReducers} removeOnUnmount>
       <div className={cx("ProfilePage")}>
@@ -115,6 +132,14 @@ export function ProfilePage() {
           onCancelClick={handleCancelClick}
           onSaveClick={handleSaveClick}
         />
+
+        {validationErrors?.map((validationError) => (
+          <TextBlock
+            theme="error"
+            text={validationErrorTranslates[validationError]}
+            key={validationError}
+          />
+        ))}
 
         <ProfileCard
           data={prodileFormData}
