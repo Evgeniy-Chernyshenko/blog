@@ -32,6 +32,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
       __API_BASE_URL__: JSON.stringify("http://localhost:8000"),
+      __PROJECT__: JSON.stringify("storybook"),
     }),
   );
 

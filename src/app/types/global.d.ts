@@ -21,3 +21,4 @@ declare module "*.gif";
 
 declare const __IS_DEV__: boolean;
 declare const __API_BASE_URL__: string;
+declare const __PROJECT__: "storybook" | "frontend" | "jest";

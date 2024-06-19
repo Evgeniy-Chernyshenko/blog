@@ -40,7 +40,9 @@ export function ProfilePage() {
   const { t } = useTranslation("profile");
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== "storybook") {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const handleEditClick = useCallback(() => {

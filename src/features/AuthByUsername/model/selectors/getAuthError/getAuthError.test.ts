@@ -1,5 +1,5 @@
+import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "@/app/providers/StoreProvider";
-import { DeepPartial } from "@/shared/types/deepPartial";
 import { getAuthError } from "./getAuthError";
 
 describe("getAuthError", () => {

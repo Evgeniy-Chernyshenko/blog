@@ -1,13 +1,13 @@
 import path from "path";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
-import { BuildEnv, BuildOptions } from "./config/build/types/config";
+import { BuildEnv } from "./config/build/types/config";
 
 export default (env: BuildEnv) => {
   const mode = env.mode ?? "development";
   const port = env.port ?? 3000;
   const apiBaseUrl = env.apiBaseUrl ?? "http://localhost:8000";
 
-  const buildOptions: BuildOptions = {
+  return buildWebpackConfig({
     mode,
     paths: {
       entry: path.resolve(__dirname, "src/index.tsx"),
@@ -17,7 +17,6 @@ export default (env: BuildEnv) => {
     },
     port,
     apiBaseUrl,
-  };
-
-  return buildWebpackConfig(buildOptions);
+    project: "frontend",
+  });
 };

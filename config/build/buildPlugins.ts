@@ -20,6 +20,7 @@ export const buildPlugins = (
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API_BASE_URL__: JSON.stringify(buildOptions.apiBaseUrl),
+      __PROJECT__: JSON.stringify(buildOptions.project),
     }),
   ];
 

@@ -74,6 +74,9 @@ const Component = <T extends "string" | "number" | "password" = "string">(
     onSelect?.(e);
   };
 
+  const inputTypeArg: InputHTMLAttributes<HTMLInputElement>["type"] =
+    type === "password" ? "password" : "text";
+
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={cx("Input", [className])}>
@@ -91,6 +94,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
           readOnly={readOnly}
           ref={ref}
           value={value ?? ""}
+          type={inputTypeArg}
           {...restProps}
         />
 
