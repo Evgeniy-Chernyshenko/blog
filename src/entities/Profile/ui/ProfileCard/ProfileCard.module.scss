@@ -1,17 +1,25 @@
 .ProfileCard {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  border: 2px solid var(--inverted-bg-color);
+  padding: 20px;
+  gap: 30px;
+
+  &.loading,
+  &.error {
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.avatar {
+  margin: 0 auto;
 }
 
-.form {
+.fieldset {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }

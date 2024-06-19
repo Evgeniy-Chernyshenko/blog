@@ -1,39 +1,57 @@
 import {
   ChangeEvent,
   FocusEvent,
+  forwardRef,
   InputHTMLAttributes,
   memo,
+  Ref,
   SyntheticEvent,
   useState,
+  ReactElement,
 } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Input.module.scss";
 
 const cx = classNamesBind(s);
 
-interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> {
-  value?: string;
-  onChange?: (value: string) => void;
+interface InputProps<T extends "string" | "number" | "password" = "string">
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange"> {
+  type?: T;
   className?: string;
+  onChange?: (value: T extends "number" ? number | undefined : string) => void;
 }
 
 const CHARACTER_WIDTH = 8.797;
 
-export const Input = memo(function Input({
-  className,
-  onChange,
-  placeholder,
-  onFocus,
-  onBlur,
-  onSelect,
-  ...restProps
-}: InputProps) {
+const Component = <T extends "string" | "number" | "password" = "string">(
+  {
+    className,
+    onChange,
+    placeholder,
+    onFocus,
+    onBlur,
+    onSelect,
+    readOnly,
+    type,
+    value,
+    ...restProps
+  }: InputProps<T>,
+  ref: Ref<HTMLInputElement>,
+) => {
   const [caretOffset, setCaretOffset] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
 
+  const isCaretVisible = isFocused && !readOnly;
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
+    let clearValue: string | number | undefined = e.target.value;
+
+    if (type === "number") {
+      const parsedNumber = Number.parseInt(clearValue, 10);
+      clearValue = Number.isNaN(parsedNumber) ? undefined : parsedNumber;
+    }
+
+    onChange?.(clearValue as T extends "number" ? number | undefined : string);
   };
 
   const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
@@ -57,7 +75,8 @@ export const Input = memo(function Input({
   };
 
   return (
-    <div className={cx("Input", [className])}>
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
+    <label className={cx("Input", [className])}>
       {placeholder && (
         <span className={cx("placeholder")}>{`${placeholder}>`}</span>
       )}
@@ -69,10 +88,14 @@ export const Input = memo(function Input({
           onFocus={handleFocus}
           onBlur={handleBlur}
           onSelect={handleSelect}
+          readOnly={readOnly}
+          ref={ref}
+          value={value ?? ""}
+          type={type}
           {...restProps}
         />
 
-        {isFocused && (
+        {isCaretVisible && (
           <span
             className={cx("caret")}
             style={{
@@ -82,6 +105,12 @@ export const Input = memo(function Input({
           />
         )}
       </div>
-    </div>
+    </label>
   );
-});
+};
+export const Input = memo(forwardRef(Component)) as <
+  T extends "string" | "number" | "password" = "string",
+>(
+  // eslint-disable-next-line no-use-before-define
+  props: InputProps<T> & { ref?: Ref<HTMLInputElement> },
+) => ReactElement;

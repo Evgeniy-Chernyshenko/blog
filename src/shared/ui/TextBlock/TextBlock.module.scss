@@ -2,6 +2,18 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
 }
 
 .title {

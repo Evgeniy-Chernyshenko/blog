@@ -55,6 +55,8 @@ module.exports = {
     "no-param-reassign": "off",
     "consistent-return": "off",
     "no-empty": ["error", { allowEmptyCatch: true }],
+    "react/prop-types": "off",
+    "react/no-unused-prop-types": "off",
   },
   globals: {
     __IS_DEV__: true,

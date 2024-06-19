@@ -30,13 +30,11 @@
   ],
   "profile": {
     "firstName": "John",
-    "lastName": "Doe",
+    "lastName": "Smith",
     "age": 42,
-    "currency": "RUB",
-    "country": "Russia",
     "city": "Moscow",
     "username": "john",
-    "avatar": "https://i.pravatar.cc/300?img=3"
+    "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user"
   },
   "users": [
     {

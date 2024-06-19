@@ -14,5 +14,11 @@
   "Форма авторизации": "Authorization form",
   "Неверный логин или пароль": "Incorrect login or password",
   "Выйти": "Logout",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Редактировать": "Edit",
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
+  "Имя пользователя": "Username",
+  "Аватар": "Avatar"
 }

@@ -1,37 +1,150 @@
-import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { FormEvent, useEffect, useRef } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
-import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 import s from "./ProfileCard.module.scss";
-import { Button } from "@/shared/ui/Button/Button";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { Input } from "@/shared/ui/Input/Input";
+import { Profile } from "../../model/types/profile";
+import { Loader } from "@/shared/ui/Loader/Loader";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Country, CountrySelector } from "@/entities/Country";
+import { Currency, CurrencySelector } from "@/entities/Currency";
 
 const cx = classNamesBind(s);
 
 interface ProfileCardProps {
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
+  readonly?: boolean;
   className?: string;
+  onChangeFirstName?: (value: string) => void;
+  onChangeLastName?: (value: string) => void;
+  onChangeAge?: (value?: number) => void;
+  onChangeCity?: (value: string) => void;
+  onChangeUsername?: (value: string) => void;
+  onChangeAvatar?: (value: string) => void;
+  onChangeCountry?: (country: Country | undefined) => void;
+  onChangeCurrency?: (currency: Currency | undefined) => void;
+  onSubmit: () => void;
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
+export const ProfileCard = ({
+  data,
+  isLoading,
+  error,
+  readonly,
+  className,
+  onChangeFirstName,
+  onChangeLastName,
+  onChangeAge,
+  onChangeCity,
+  onChangeUsername,
+  onChangeAvatar,
+  onChangeCountry,
+  onChangeCurrency,
+  onSubmit,
+}: ProfileCardProps) => {
   const { t } = useTranslation("profile");
-  const profileData = useSelector(getProfileData);
+  const firstInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (readonly) {
+      return;
+    }
+
+    firstInputRef.current?.focus();
+  }, [readonly]);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    onSubmit();
+  };
+
+  const mods = { loading: isLoading, error };
 
   return (
-    <div className={cx("ProfileCard", [className])}>
-      <div className={cx("header")}>
-        <TextBlock title={t("Профиль")} />
-        <Button>{t("Редактировать")}</Button>
-      </div>
+    <div className={cx("ProfileCard", mods, [className])}>
+      {data && !isLoading && (
+        <>
+          {data?.avatar && (
+            <Avatar
+              src={data.avatar}
+              alt={t("Аватар")}
+              className={cx("avatar")}
+            />
+          )}
 
-      <form className={cx("form")}>
-        <Input
-          placeholder={t("Ваше имя")}
-          value={profileData?.firstName}
-          autoFocus
+          <form onSubmit={handleSubmit}>
+            <fieldset className={cx("fieldset")} disabled={readonly}>
+              <Input
+                placeholder={t("Ваше имя")}
+                value={data.firstName}
+                ref={firstInputRef}
+                onChange={onChangeFirstName}
+              />
+
+              <Input
+                placeholder={t("Ваша фамилия")}
+                value={data.lastName}
+                onChange={onChangeLastName}
+              />
+
+              <Input
+                placeholder={t("Возраст")}
+                value={data.age}
+                onChange={onChangeAge}
+                type="number"
+              />
+
+              <Input
+                placeholder={t("Город")}
+                value={data.city}
+                onChange={onChangeCity}
+              />
+
+              <Input
+                placeholder={t("Имя пользователя")}
+                value={data.username}
+                onChange={onChangeUsername}
+              />
+
+              <Input
+                placeholder={t("Аватар")}
+                value={data.avatar}
+                onChange={onChangeAvatar}
+              />
+
+              <CountrySelector
+                value={data.country}
+                onChange={onChangeCountry}
+              />
+
+              <CurrencySelector
+                value={data.currency}
+                onChange={onChangeCurrency}
+              />
+
+              {
+                // eslint-disable-next-line jsx-a11y/control-has-associated-label
+                <button type="submit" hidden />
+              }
+            </fieldset>
+          </form>
+        </>
+      )}
+
+      {isLoading && <Loader />}
+
+      {error && (
+        <TextBlock
+          title={t("Произошла ошибка при загрузке профиля")}
+          text={t("Попробуйте обновить страницу", { ns: "translation" })}
+          theme="error"
+          align="center"
         />
-        <Input placeholder={t("Ваше имя")} value={profileData?.lastName} />
-      </form>
+      )}
     </div>
   );
 };

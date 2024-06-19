@@ -19,7 +19,8 @@
 }
 
 .outlined,
-.outlined-inverted {
+.outlined-inverted,
+.outlined-red {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background-color: transparent;
@@ -28,6 +29,11 @@
 .outlined-inverted {
   border-color: var(--inverted-primary-color);
   color: var(--inverted-primary-color);
+}
+
+.outlined-red {
+  border-color: var(--red-color-light);
+  color: var(--red-color-light);
 }
 
 .background {

@@ -4,7 +4,8 @@
   align-items: center;
 }
 
-.Input:has(.input:disabled) {
+.input:disabled,
+.input:read-only {
   opacity: 0.5;
 }
 

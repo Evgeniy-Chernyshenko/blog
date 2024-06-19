@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { memo, useState } from "react";
+import { useSelector } from "react-redux";
 import { BugButton } from "@/app/providers/ErrorBoundary";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { Button } from "@/shared/ui/Button/Button";
@@ -7,6 +8,7 @@ import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 import { sidebarItemsList } from "../../model/items";
 import { SidebarNavItem } from "../SidebarNavItem/SidebarNavItem";
 import s from "./Sidebar.module.scss";
+import { getUserAuthData } from "@/entities/User";
 
 const cx = classNamesBind(s);
 
@@ -14,8 +16,9 @@ interface SidebarProps {
   className?: string;
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
+  const isAuth = Boolean(useSelector(getUserAuthData));
 
   const handleToggle = () => {
     setCollapsed((prev) => !prev);
@@ -40,13 +43,15 @@ export function Sidebar({ className }: SidebarProps) {
       <BugButton />
 
       <div className={cx("nav-items")}>
-        {sidebarItemsList.map((sidebarItem) => (
-          <SidebarNavItem
-            key={sidebarItem.path}
-            item={sidebarItem}
-            collapsed={collapsed}
-          />
-        ))}
+        {sidebarItemsList
+          .filter((sidebarItem) => (sidebarItem.authOnly ? isAuth : true))
+          .map((sidebarItem) => (
+            <SidebarNavItem
+              key={sidebarItem.path}
+              item={sidebarItem}
+              collapsed={collapsed}
+            />
+          ))}
       </div>
 
       <div className={cx("switchers")}>
@@ -55,4 +60,4 @@ export function Sidebar({ className }: SidebarProps) {
       </div>
     </div>
   );
-}
+});

@@ -8,13 +8,14 @@ import { ProfilePageLazy } from "@/pages/ProfilePage";
 interface AppRouteObject extends RouteObject {
   path: string;
   element: ReactNode;
+  authOnly?: boolean;
 }
 
 export const nonTypedAppRoutes = {
   main: { path: "/", element: <HomePageLazy /> },
   about: { path: "/about", element: <AboutPageLazy /> },
+  profile: { path: "/profile", element: <ProfilePageLazy />, authOnly: true },
   notFound: { path: "*", element: <NotFoundPage /> },
-  profile: { path: "/profile", element: <ProfilePageLazy /> },
 };
 
 export const appRoutes: Record<keyof typeof nonTypedAppRoutes, AppRouteObject> =

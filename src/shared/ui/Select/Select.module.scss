@@ -1,0 +1,16 @@
+.Select {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.select {
+  padding: 4px 8px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--primary-color);
+}
+
+.option {
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+}

@@ -1,4 +1,10 @@
 {
   "Профиль": "Profile",
-  "Редактировать": "Edit"
+  "Произошла ошибка при загрузке профиля": "An error occurred while loading a profile",
+  "Ваше имя": "Your name",
+  "Ваша фамилия": "Your last name",
+  "Возраст": "Age",
+  "Город": "City",
+  "Имя пользователя": "Username",
+  "Аватар": "Avatar"
 }
