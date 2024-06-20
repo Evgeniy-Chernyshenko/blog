@@ -8,7 +8,9 @@ import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator
 export default {
   title: "widgets/Sidebar",
   component: Sidebar,
-  decorators: [StoreDecorator()],
+  decorators: [
+    StoreDecorator({ user: { authData: { id: "1", username: "John" } } }),
+  ],
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => (
@@ -22,4 +24,10 @@ export const SidebarDark = Template.bind({});
 SidebarDark.decorators = [
   ThemeDecorator(Theme.DARK),
   ThemeProviderDecorator(Theme.DARK),
+];
+
+export const SidebarNoAuth = Template.bind({});
+SidebarNoAuth.decorators = [
+  ThemeProviderDecorator(Theme.LIGHT),
+  StoreDecorator(),
 ];

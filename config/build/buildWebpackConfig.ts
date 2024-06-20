@@ -25,7 +25,7 @@ export const buildWebpackConfig = (
     resolve: buildResolvers(buildOptions),
     ...(isDev && {
       devtool: "eval-source-map",
-      devServer: buildDevServer(buildOptions),
+      devServer: buildDevServer(buildOptions, isDev),
     }),
   };
 };

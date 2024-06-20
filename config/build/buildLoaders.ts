@@ -2,6 +2,20 @@ import { RuleSetRule } from "webpack";
 import { buildCssLoader } from "./loaders/buildCssLoader";
 
 export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
+  const babelLoader = {
+    test: /\.[jt]sx?$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+        plugins: [isDev && require.resolve("react-refresh/babel")].filter(
+          Boolean,
+        ),
+      },
+    },
+  };
+
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -25,5 +39,5 @@ export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
     use: ["@svgr/webpack"],
   };
 
-  return [typescriptLoader, cssLoader, fileLoader, svgLoader];
+  return [babelLoader, typescriptLoader, cssLoader, fileLoader, svgLoader];
 };
