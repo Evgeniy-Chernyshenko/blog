@@ -1,17 +1,19 @@
 import { Suspense, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { AppRouter } from "../../providers/AppRouter";
 import { Navbar } from "@/widgets/Navbar";
 import s from "./App.module.scss";
 import { Sidebar } from "@/widgets/Sidebar";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
-import { User, userActions } from "@/entities/User";
+import { getIsInit, User, userActions } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
 const cx = classNamesBind(s);
 
 export function App() {
   const dispatch = useAppDispatch();
+  const isInit = useSelector(getIsInit);
 
   useEffect(() => {
     try {
@@ -22,7 +24,10 @@ export function App() {
       if (user) {
         dispatch(userActions.setAuthData(user));
       }
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      dispatch(userActions.setIsInit());
+    }
   }, [dispatch]);
 
   return (
@@ -32,9 +37,7 @@ export function App() {
 
         <Sidebar />
 
-        <div className={cx("page-wrapper")}>
-          <AppRouter />
-        </div>
+        <div className={cx("page-wrapper")}>{isInit && <AppRouter />}</div>
       </Suspense>
     </div>
   );

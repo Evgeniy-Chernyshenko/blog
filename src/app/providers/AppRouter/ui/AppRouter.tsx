@@ -1,22 +1,25 @@
-import { memo, Suspense } from "react";
+import { memo, ReactElement, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
+import { AppRouteObject, appRoutes } from "../../AppRouter/config/appRoutes";
 import { PageLoader } from "@/widgets/PageLoader";
-import { getUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
+import { RequireAuth } from "./RequireAuth";
 
 export const AppRouter = memo(function AppRouter() {
-  const isAuth = Boolean(useSelector(getUserAuthData));
+  const renderWithWrapper = (appRoute: AppRouteObject): ReactElement => {
+    const { authOnly, element, ...restAppRoute } = appRoute;
+
+    return (
+      <Route
+        key={appRoute.path}
+        {...restAppRoute}
+        element={authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+      />
+    );
+  };
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {Object.values(appRoutes)
-          .filter((appRoute) => (appRoute.authOnly ? isAuth : true))
-          .map((appRoute) => (
-            <Route key={appRoute.path} {...appRoute} />
-          ))}
-      </Routes>
+      <Routes>{Object.values(appRoutes).map(renderWithWrapper)}</Routes>
     </Suspense>
   );
 });

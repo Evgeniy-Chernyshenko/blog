@@ -3,6 +3,7 @@ import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import HomeIcon from "@/shared/assets/icons/home-icon.svg";
 import AboutIcon from "@/shared/assets/icons/about-icon.svg";
 import ProfileIcon from "@/shared/assets/icons/profile-icon.svg";
+import ArticlesIcon from "@/shared/assets/icons/articles-icon.svg";
 
 export interface SidebarItemType {
   text: string;
@@ -18,6 +19,12 @@ export const sidebarItemsList: SidebarItemType[] = [
     text: "Профиль",
     path: appRoutes.profile.path,
     Icon: ProfileIcon,
+    authOnly: true,
+  },
+  {
+    text: "Статьи",
+    path: appRoutes.articles.path,
+    Icon: ArticlesIcon,
     authOnly: true,
   },
 ];
