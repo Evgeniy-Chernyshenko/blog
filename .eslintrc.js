@@ -57,11 +57,13 @@ module.exports = {
     "no-empty": ["error", { allowEmptyCatch: true }],
     "react/prop-types": "off",
     "react/no-unused-prop-types": "off",
+    "react/no-array-index-key": "off",
   },
   globals: {
     __IS_DEV__: true,
     __API_BASE_URL__: true,
     __PROJECT__: true,
+    DeepRequired: true,
   },
   overrides: [
     {

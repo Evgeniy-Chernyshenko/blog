@@ -12,7 +12,7 @@ const initialState: ProfileSchema = {
   validationErrors: [],
 };
 
-const ProfileSlice = createSlice({
+const profileSlice = createSlice({
   name: "profile",
   reducers: {
     setFormData(state, action: PayloadAction<Profile>) {
@@ -73,4 +73,4 @@ const ProfileSlice = createSlice({
 });
 
 export const { actions: profileActions, reducer: profileReducer } =
-  ProfileSlice;
+  profileSlice;

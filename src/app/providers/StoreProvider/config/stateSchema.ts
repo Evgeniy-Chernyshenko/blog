@@ -11,12 +11,14 @@ import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
 import { AuthByUsernameSchema } from "@/features/AuthByUsername";
 import { ProfileSchema } from "@/entities/Profile";
+import { ArticleSchema } from "@/entities/Article/model/types/articleSchema";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   authByUsername?: AuthByUsernameSchema;
   profile?: ProfileSchema;
+  article?: ArticleSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -37,8 +39,8 @@ export interface ThunkExtraArgument {
   navigate?: NavigateFunction;
 }
 
-export interface ThunkConfig<T> {
-  rejectValue: T;
+export interface ThunkConfig<RejectValueType> {
+  rejectValue: RejectValueType;
   extra: ThunkExtraArgument;
   state: StateSchema;
 }

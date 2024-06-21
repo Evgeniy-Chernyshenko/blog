@@ -10,6 +10,7 @@ interface TextBlockProps {
   theme?: "primary" | "error";
   align?: "left" | "center" | "right";
   className?: string;
+  size?: "m" | "l";
 }
 
 export const TextBlock = memo(function TextBlock({
@@ -18,9 +19,10 @@ export const TextBlock = memo(function TextBlock({
   theme = "primary",
   align = "left",
   className,
+  size = "m",
 }: TextBlockProps) {
   return (
-    <div className={cx("TextBlock", [className, theme, align])}>
+    <div className={cx("TextBlock", [className, theme, align, `size-${size}`])}>
       {title && <p className={cx("title")}>{title}</p>}
       {text && <p className={cx("text")}>{text}</p>}
     </div>

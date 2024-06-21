@@ -12,3 +12,24 @@ body {
   color: var(--primary-color);
   background-color: var(--bg-color);
 }
+
+.skeleton-gradient {
+  background-attachment: fixed;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    var(--skeleton-color)
+  );
+  animation: skeleton-gradient-animation 1.5s linear infinite;
+}
+
+@keyframes skeleton-gradient-animation {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}

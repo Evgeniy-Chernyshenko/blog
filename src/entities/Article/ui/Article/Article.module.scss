@@ -1,0 +1,26 @@
+.Article {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.image {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.statistic-item {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}

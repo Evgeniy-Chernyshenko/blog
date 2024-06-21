@@ -26,7 +26,7 @@ export const SidebarNavItem = memo(function SidebarNavItem({
       to={item.path}
       theme="inverted"
     >
-      <item.Icon className={cx("nav-icon")} />
+      <item.Icon />
       {!collapsed && t(item.text)}
     </AppLink>
   );
