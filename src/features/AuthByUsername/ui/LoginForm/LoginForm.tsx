@@ -68,7 +68,7 @@ const LoginForm = memo(function LoginForm({
   };
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeOnUnmount>
+    <DynamicModuleLoader reducers={initialReducers}>
       <form className={cx("LoginForm", [className])} onSubmit={handleSubmit}>
         <div className={cx("top-text-block", [className])}>
           <TextBlock title={t("Форма авторизации")} />

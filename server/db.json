@@ -6,19 +6,21 @@
     "city": "Moscow",
     "username": "john",
     "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user",
-    "country": "Belarus",
+    "country": "Russia",
     "currency": "EUR"
   },
   "users": [
     {
       "id": "1",
       "username": "john",
-      "password": "password"
+      "password": "password",
+      "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user"
     },
     {
       "id": "2",
       "username": "katty",
-      "password": "password"
+      "password": "password",
+      "avatar": "https://bigpicture.ru/wp-content/uploads/2014/12/luchshie-foto-nedeli-v-dek-2014-0.jpg"
     }
   ],
   "articles": [
@@ -29,7 +31,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": ["it"],
+      "type": [
+        "it"
+      ],
       "blocks": [
         {
           "id": "1",

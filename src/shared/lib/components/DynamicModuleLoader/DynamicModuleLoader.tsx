@@ -12,13 +12,13 @@ export type ReducersList = Partial<ReducersMapObject<Required<StateSchema>>>;
 interface DynamicModuleLoaderProps {
   reducers: ReducersList;
   children: ReactElement;
-  removeOnUnmount?: boolean;
+  notRemoveOnUnmount?: boolean;
 }
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   reducers,
   children,
-  removeOnUnmount,
+  notRemoveOnUnmount = false,
 }) => {
   const dispatch = useDispatch();
   const store = useStore() as ReduxStoreWithManager;
@@ -36,17 +36,18 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
     });
 
     return () => {
-      if (removeOnUnmount) {
-        Object.entries(reducers).forEach(([reducerName]) => {
-          const key = reducerName as StateSchemaKey;
-
-          store.reducerManager.remove(key);
-          dispatch({ type: `@DESTROY ${key} reducer` });
-        });
+      if (notRemoveOnUnmount) {
+        return;
       }
+
+      Object.entries(reducers).forEach(([reducerName]) => {
+        const key = reducerName as StateSchemaKey;
+
+        store.reducerManager.remove(key);
+        dispatch({ type: `@DESTROY ${key} reducer` });
+      });
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, notRemoveOnUnmount, reducers, store]);
 
   return children;
 };

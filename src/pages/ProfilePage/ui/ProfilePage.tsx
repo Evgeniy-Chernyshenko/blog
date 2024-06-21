@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import {
@@ -25,6 +25,7 @@ import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 
 const cx = classNamesBind(s);
 
@@ -39,11 +40,7 @@ export function ProfilePage() {
   const validationErrors = useSelector(getProfileValidationErrors);
   const { t } = useTranslation("profile");
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => dispatch(fetchProfileData()));
 
   const handleEditClick = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -125,7 +122,7 @@ export function ProfilePage() {
   };
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeOnUnmount>
+    <DynamicModuleLoader reducers={initialReducers}>
       <div className={cx("ProfilePage")}>
         <ProfilePageHeader
           isLoading={isLoading}

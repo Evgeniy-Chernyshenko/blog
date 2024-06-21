@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
@@ -23,6 +23,7 @@ import { ArticleBlock } from "../../model/types/article";
 import { ArticleCodeBlock } from "../ArticleCodeBlock/ArticleCodeBlock";
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock";
 import { ArticleImageBlock } from "../ArticleImageBlock/ArticleImageBlock";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 
 const cx = classNamesBind(s);
 
@@ -40,11 +41,7 @@ export const Article = memo(function Article({ id, className }: ArticleProps) {
   const isLoading = useSelector(getArticleIsLoading);
   const { t } = useTranslation("article");
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchArticle(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => dispatch(fetchArticle(id)));
 
   const renderBlock = (block: ArticleBlock, index: number) => {
     switch (block.type) {
@@ -63,7 +60,7 @@ export const Article = memo(function Article({ id, className }: ArticleProps) {
   };
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeOnUnmount>
+    <DynamicModuleLoader reducers={initialReducers}>
       <div className={cx("Article", [className])}>
         {isLoading && (
           <>
