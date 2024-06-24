@@ -8,6 +8,9 @@ import {
   SyntheticEvent,
   useState,
   ReactElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
 } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Input.module.scss";
@@ -40,6 +43,20 @@ const Component = <T extends "string" | "number" | "password" = "string">(
 ) => {
   const [caretOffset, setCaretOffset] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => inputRef.current as HTMLInputElement, []);
+
+  const changeCaretOffset = (inputElement: HTMLInputElement) => {
+    const { scrollLeft, selectionStart } = inputElement;
+    setCaretOffset((selectionStart ?? 0) * CHARACTER_WIDTH - scrollLeft);
+  };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      changeCaretOffset(inputRef.current);
+    }
+  }, [value]);
 
   const isCaretVisible = isFocused && !readOnly;
 
@@ -67,9 +84,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
   };
 
   const handleSelect = (e: SyntheticEvent<HTMLInputElement>) => {
-    const { scrollLeft, selectionStart } = e.currentTarget;
-
-    setCaretOffset((selectionStart ?? 0) * CHARACTER_WIDTH - scrollLeft);
+    changeCaretOffset(e.currentTarget);
 
     onSelect?.(e);
   };
@@ -92,7 +107,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
           onBlur={handleBlur}
           onSelect={handleSelect}
           readOnly={readOnly}
-          ref={ref}
+          ref={inputRef}
           value={value ?? ""}
           type={inputTypeArg}
           {...restProps}

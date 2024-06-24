@@ -5,10 +5,10 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { Button } from "@/shared/ui/Button/Button";
 import { LanguageSwitcher } from "@/widgets/LanguageSwitcher";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-import { sidebarItemsList } from "../../model/items";
 import { SidebarNavItem } from "../SidebarNavItem/SidebarNavItem";
 import s from "./Sidebar.module.scss";
 import { getUserAuthData } from "@/entities/User";
+import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 
 const cx = classNamesBind(s);
 
@@ -19,6 +19,7 @@ interface SidebarProps {
 export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const isAuth = Boolean(useSelector(getUserAuthData));
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const handleToggle = () => {
     setCollapsed((prev) => !prev);

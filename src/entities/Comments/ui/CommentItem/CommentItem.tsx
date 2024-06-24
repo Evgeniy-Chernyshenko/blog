@@ -5,6 +5,8 @@ import { Comment } from "../../model/types/comment";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -20,7 +22,7 @@ export const CommentItem = memo(function CommentItem({
   className,
 }: CommentItemProps) {
   return (
-    <div className={cx("CommentItem", [className])}>
+    <div className={cx("CommentItem", { loading: isLoading }, [className])}>
       {isLoading && (
         <>
           <div className={cx("header", [className])}>
@@ -35,7 +37,10 @@ export const CommentItem = memo(function CommentItem({
 
       {data && (
         <>
-          <div className={cx("header", [className])}>
+          <AppLink
+            className={cx("header", [className])}
+            to={`${appRoutes.profile.pathWithoutParams}/${data.user.id}`}
+          >
             {data.user.avatar && (
               <Avatar
                 src={data.user.avatar}
@@ -45,7 +50,7 @@ export const CommentItem = memo(function CommentItem({
             )}
 
             <TextBlock text={data.user.username} />
-          </div>
+          </AppLink>
 
           <TextBlock text={data.text} />
         </>

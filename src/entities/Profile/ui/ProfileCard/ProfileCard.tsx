@@ -66,7 +66,7 @@ export const ProfileCard = ({
 
   return (
     <div className={cx("ProfileCard", mods, [className])}>
-      {data && !isLoading && (
+      {data && !isLoading && !error && (
         <>
           {data?.avatar && (
             <Avatar
@@ -82,12 +82,12 @@ export const ProfileCard = ({
                 placeholder={t("Имя пользователя")}
                 value={data.username}
                 onChange={onChangeUsername}
+                ref={firstInputRef}
               />
 
               <Input
                 placeholder={t("Ваше имя")}
                 value={data.firstName}
-                ref={firstInputRef}
                 onChange={onChangeFirstName}
               />
 

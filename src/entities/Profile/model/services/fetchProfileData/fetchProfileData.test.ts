@@ -8,6 +8,7 @@ describe("fetchProfileData", () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
 
     const mockedReturnValue = {
+      id: "1",
       firstName: "Туалетный Джо",
       lastName: "Smiths",
       age: 42,
@@ -20,7 +21,7 @@ describe("fetchProfileData", () => {
     };
     thunk.mockedApi.get.mockResolvedValue({ data: mockedReturnValue });
 
-    const result = await thunk.call();
+    const result = await thunk.call("1");
 
     expect(thunk.mockedApi.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");
@@ -33,7 +34,7 @@ describe("fetchProfileData", () => {
 
     thunk.mockedApi.get.mockRejectedValue({ response: { status: 403 } });
 
-    const result = await thunk.call();
+    const result = await thunk.call("1");
 
     expect(thunk.mockedApi.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");

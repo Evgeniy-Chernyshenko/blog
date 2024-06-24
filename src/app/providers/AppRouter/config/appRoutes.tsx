@@ -9,6 +9,7 @@ import { ArticlePageLazy } from "@/pages/ArticlePage";
 
 export interface AppRouteObject extends RouteObject {
   path: string;
+  pathWithoutParams?: string;
   element: ReactElement;
   authOnly?: boolean;
 }
@@ -16,7 +17,12 @@ export interface AppRouteObject extends RouteObject {
 export const nonTypedAppRoutes = {
   main: { path: "/", element: <HomePageLazy /> },
   about: { path: "/about", element: <AboutPageLazy /> },
-  profile: { path: "/profile", element: <ProfilePageLazy />, authOnly: true },
+  profile: {
+    path: "/profile/:id",
+    pathWithoutParams: "/profile",
+    element: <ProfilePageLazy />,
+    authOnly: true,
+  },
   articles: {
     path: "/articles",
     element: <ArticlesPageLazy />,

@@ -1,14 +1,28 @@
 {
-  "profile": {
-    "firstName": "Туалетный Джо1",
-    "lastName": "Smiths",
-    "age": 42,
-    "city": "Moscow",
-    "username": "john",
-    "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user",
-    "country": "Russia",
-    "currency": "EUR"
-  },
+  "profiles": [
+    {
+      "id": "1",
+      "firstName": "Туалетный Джон",
+      "lastName": "Smiths",
+      "age": 42,
+      "city": "Moscow",
+      "username": "john",
+      "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user",
+      "country": "Belarus",
+      "currency": "EUR"
+    },
+    {
+      "id": "2",
+      "firstName": "КЕТТИ",
+      "lastName": "Lee",
+      "age": 12,
+      "city": "Novosibirsk",
+      "username": "katty",
+      "avatar": "https://bigpicture.ru/wp-content/uploads/2014/12/luchshie-foto-nedeli-v-dek-2014-0.jpg",
+      "country": "Kazakhstan",
+      "currency": "RUB"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -108,6 +122,96 @@
       "text": "another comment about post 1",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "text": "test",
+      "articleId": "1",
+      "userId": "1",
+      "id": "mNUljYt"
+    },
+    {
+      "text": "wqeqwweqwe",
+      "articleId": "1",
+      "userId": "1",
+      "id": "KXD5oXs"
+    },
+    {
+      "text": "hi hi hi!",
+      "articleId": "1",
+      "userId": "2",
+      "id": "Loo1YcQ"
+    },
+    {
+      "text": "лялялялял",
+      "articleId": "1",
+      "userId": "2",
+      "id": "QJDiV1c"
+    },
+    {
+      "text": "лололо",
+      "articleId": "1",
+      "userId": "2",
+      "id": "rZKnScz"
+    },
+    {
+      "text": "икики",
+      "articleId": "1",
+      "userId": "2",
+      "id": "cp1NzwT"
+    },
+    {
+      "text": "цуцу2311111111111111111111111111121221",
+      "articleId": "1",
+      "userId": "2",
+      "id": "KwP0bL1"
+    },
+    {
+      "text": "vavavavav",
+      "articleId": "1",
+      "userId": "2",
+      "id": "c1170LL"
+    },
+    {
+      "text": "babababbababababab",
+      "articleId": "1",
+      "userId": "2",
+      "id": "hbAHDa5"
+    },
+    {
+      "text": "1111",
+      "articleId": "1",
+      "userId": "2",
+      "id": "oZsog_n"
+    },
+    {
+      "text": "blablabla",
+      "articleId": "1",
+      "userId": "2",
+      "id": "OLKV3Ow"
+    },
+    {
+      "text": "lalalalla",
+      "articleId": "1",
+      "userId": "2",
+      "id": "nxobNK6"
+    },
+    {
+      "text": "HIHIHI",
+      "articleId": "1",
+      "userId": "2",
+      "id": "RyF2h_V"
+    },
+    {
+      "text": "test comment",
+      "articleId": "1",
+      "userId": "2",
+      "id": "fwba0-5"
+    },
+    {
+      "text": "hellup",
+      "articleId": "1",
+      "userId": "2",
+      "id": "jevHGex"
     }
   ]
 }

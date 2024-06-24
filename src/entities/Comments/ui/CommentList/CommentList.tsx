@@ -26,7 +26,7 @@ export const CommentList = memo(function CommentList({
       {isLoading &&
         [...Array(10)].map((_, index) => <CommentItem key={index} isLoading />)}
 
-      {comments.length &&
+      {Boolean(comments.length) &&
         comments.map((comment) => (
           <CommentItem key={comment.id} data={comment} />
         ))}

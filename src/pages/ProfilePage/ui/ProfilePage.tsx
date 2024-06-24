@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -31,7 +32,7 @@ const cx = classNamesBind(s);
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
-export function ProfilePage() {
+function ProfilePage() {
   const dispatch = useAppDispatch();
   const prodileFormData = useSelector(getProfileFormData);
   const isLoading = useSelector(getProfileIsLoading);
@@ -39,8 +40,13 @@ export function ProfilePage() {
   const readonly = useSelector(getProfileReadonly);
   const validationErrors = useSelector(getProfileValidationErrors);
   const { t } = useTranslation("profile");
+  const { id: userId } = useParams<{ id: string }>();
 
-  useInitialEffect(() => dispatch(fetchProfileData()));
+  useInitialEffect(() => {
+    if (userId) {
+      dispatch(fetchProfileData(userId));
+    }
+  });
 
   const handleEditClick = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
