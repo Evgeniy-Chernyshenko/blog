@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useCallback } from "react";
 import { Article } from "@/entities/Article";
@@ -21,6 +21,8 @@ import { fetchComments } from "../services/fetchComments/fetchComments";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { addComment } from "../services/addComment/addComment";
 import { AddCommentFormLazy } from "@/features/AddCommentForm";
+import { Button } from "@/shared/ui/Button/Button";
+import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -34,6 +36,11 @@ function ArticlePage() {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleBackToArticlesClick = useCallback(() => {
+    navigate(appRoutes.articles.path);
+  }, [navigate]);
 
   useInitialEffect(() => {
     if (!articleId) {
@@ -44,14 +51,16 @@ function ArticlePage() {
   });
 
   const handleSubmitComment = useCallback(
-    (text: string) => {
+    async (text: string) => {
       if (!articleId) {
         return;
       }
 
-      dispatch(addComment(text));
+      const result = await dispatch(addComment(text));
 
-      dispatch(fetchComments(articleId));
+      if (result.meta.requestStatus === "fulfilled") {
+        dispatch(fetchComments(articleId));
+      }
     },
     [dispatch, articleId],
   );
@@ -65,6 +74,12 @@ function ArticlePage() {
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <div className={cx("ArticlePage")}>
+        <div>
+          <Button onClick={handleBackToArticlesClick}>
+            {t("К списку статей")}
+          </Button>
+        </div>
+
         <Article id={articleId} />
 
         <TextBlock title={t("Комментарии")} />

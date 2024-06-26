@@ -1,0 +1,95 @@
+.ArticleListItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  gap: 10px;
+  position: relative;
+  opacity: 0.9;
+  transition: 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+
+  &.hover {
+    scale: 1.01;
+
+    .date {
+      visibility: visible;
+    }
+  }
+
+  .date {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    visibility: hidden;
+  }
+
+  .header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tags {
+    min-width: 0;
+
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-wrap: nowrap;
+    }
+  }
+
+  .title p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+  }
+}
+
+.list {
+  gap: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .description p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.views {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  height: 250px;
+}

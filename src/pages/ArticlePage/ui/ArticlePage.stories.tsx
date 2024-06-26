@@ -3,6 +3,7 @@ import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator
 import { Theme } from "@/app/providers/ThemeProvider";
 import ArticlePage from "./ArticlePage";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
+import avatar from "@/shared/assets/tests/avatar.jpg";
 
 export default {
   title: "pages/ArticlePage",
@@ -20,6 +21,7 @@ export default {
           views: 1022,
           createdAt: "2022-02-26",
           type: ["it"],
+          user: { id: "1", username: "username1", avatar },
           blocks: [
             {
               id: "1",

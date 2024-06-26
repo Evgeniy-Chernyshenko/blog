@@ -1,3 +1,5 @@
+import { User } from "@/entities/User";
+
 type ArticleTag = "it" | "economics" | "science";
 
 interface ArticleBlockBase {
@@ -35,4 +37,7 @@ export interface Article {
   createdAt: string;
   type: ArticleTag[];
   blocks: ArticleBlock[];
+  user: User;
 }
+
+export type ArticleView = "grid" | "list";
