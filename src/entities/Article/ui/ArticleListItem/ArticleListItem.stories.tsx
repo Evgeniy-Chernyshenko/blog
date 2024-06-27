@@ -3,9 +3,9 @@ import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator
 import { Theme } from "@/app/providers/ThemeProvider";
 import { ArticleListItem } from "./ArticleListItem";
 import avatar from "@/shared/assets/tests/avatar.jpg";
-import { Article } from "../../model/types/article";
+import { ArticleType } from "../../model/types/article";
 
-const article: Article = {
+const article: ArticleType = {
   id: "1",
   title: "Javascript news",
   subtitle: "Что нового в JS за 2022 год?",
@@ -13,6 +13,7 @@ const article: Article = {
   views: 1022,
   createdAt: "2022-02-26",
   type: ["it"],
+  userId: "1",
   user: { id: "1", username: "username1", avatar },
   blocks: [
     {

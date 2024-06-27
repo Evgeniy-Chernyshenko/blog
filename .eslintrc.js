@@ -35,13 +35,15 @@ module.exports = {
     "react/button-has-type": "off",
     "no-promise-executor-return": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    ],
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "error",
     "no-nested-ternary": "off",
     "import/no-extraneous-dependencies": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "error",
     "no-underscore-dangle": "off",
     "i18next/no-literal-string": [
       "error",
@@ -58,6 +60,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/no-unused-prop-types": "off",
     "react/no-array-index-key": "off",
+    "@typescript-eslint/no-shadow": "off",
   },
   globals: {
     __IS_DEV__: true,

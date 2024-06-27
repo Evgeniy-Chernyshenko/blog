@@ -3,9 +3,9 @@ import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator
 import { Theme } from "@/app/providers/ThemeProvider";
 import { ArticleList } from "./ArticleList";
 import avatar from "@/shared/assets/tests/avatar.jpg";
-import { Article } from "../../model/types/article";
+import { ArticleType } from "../../model/types/article";
 
-const articles: Article[] = [
+const articles: ArticleType[] = [
   {
     id: "1",
     title: "Javascript news",
@@ -14,6 +14,7 @@ const articles: Article[] = [
     views: 1022,
     createdAt: "2022-02-26",
     type: ["it"],
+    userId: "1",
     user: { id: "1", username: "username1", avatar },
     blocks: [
       {
@@ -84,6 +85,7 @@ const articles: Article[] = [
     views: 1022,
     createdAt: "2022-02-26",
     type: ["it"],
+    userId: "1",
     user: { id: "1", username: "username1", avatar },
     blocks: [
       {

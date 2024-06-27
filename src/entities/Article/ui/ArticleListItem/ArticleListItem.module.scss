@@ -11,6 +11,10 @@
   cursor: pointer;
   overflow: hidden;
 
+  &.skeleton {
+    cursor: default;
+  }
+
   &.hover {
     scale: 1.01;
 

@@ -1,7 +1,7 @@
-import { Article } from "./article";
+import { ArticleType } from "./article";
 
 export interface ArticleSchema {
-  data?: Article;
+  data?: ArticleType;
   isLoading: boolean;
   error?: string;
 }

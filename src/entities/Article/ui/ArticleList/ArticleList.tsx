@@ -1,14 +1,14 @@
 import { memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleList.module.scss";
-import { Article, ArticleView } from "../../model/types/article";
+import { ArticleType, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 
 const cx = classNamesBind(s);
 
 interface ArticleListProps {
-  articles: Article[];
+  articles: ArticleType[];
   view?: ArticleView;
   className?: string;
   isLoading?: boolean;
@@ -20,7 +20,7 @@ export const ArticleList = memo(function ArticleList({
   className,
   isLoading = false,
 }: ArticleListProps) {
-  const renderArticle = (article: Article) => {
+  const renderArticle = (article: ArticleType) => {
     return <ArticleListItem key={article.id} article={article} view={view} />;
   };
 

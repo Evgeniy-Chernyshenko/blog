@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleListItem.module.scss";
 import {
-  Article,
+  ArticleType,
   ArticleTextBlockType,
   ArticleView,
 } from "../../model/types/article";
@@ -20,7 +20,7 @@ import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 const cx = classNamesBind(s);
 
 interface ArticleListItemProps {
-  article: Article;
+  article: ArticleType;
   view?: ArticleView;
   className?: string;
 }

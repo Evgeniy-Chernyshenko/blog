@@ -28,7 +28,7 @@ export type ArticleBlock =
   | ArticleImageBlockType
   | ArticleTextBlockType;
 
-export interface Article {
+export interface ArticleType {
   id: string;
   title: string;
   subtitle: string;
@@ -37,6 +37,7 @@ export interface Article {
   createdAt: string;
   type: ArticleTag[];
   blocks: ArticleBlock[];
+  userId: string;
   user: User;
 }
 

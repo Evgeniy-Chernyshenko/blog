@@ -21,6 +21,7 @@ export default {
           views: 1022,
           createdAt: "2022-02-26",
           type: ["it"],
+          userId: "1",
           user: { id: "1", username: "username1", avatar },
           blocks: [
             {

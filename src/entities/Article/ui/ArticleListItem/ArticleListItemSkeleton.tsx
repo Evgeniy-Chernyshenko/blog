@@ -18,7 +18,7 @@ export const ArticleListItemSkeleton = memo(function ArticleListItemSkeleton({
 }: ArticleListItemSkeletonProps) {
   if (view === "grid") {
     return (
-      <Card className={cx("ArticleListItem", [className, view])}>
+      <Card className={cx("ArticleListItem", [className, view, "skeleton"])}>
         <Skeleton className={cx("image")} />
         <Skeleton height={16} />
         <Skeleton height={16} />
