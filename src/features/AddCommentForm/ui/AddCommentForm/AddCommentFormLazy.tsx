@@ -5,7 +5,7 @@ import { AddCommentFormProps } from "./AddCommentForm";
 const Component = lazy<FC<AddCommentFormProps>>(
   // @ts-ignore
   () =>
-    new Promise((r) => setTimeout(() => r(import("./AddCommentForm")), 500)),
+    new Promise((r) => setTimeout(() => r(import("./AddCommentForm")), 1000)),
 );
 
 export const AddCommentFormLazy: FC<AddCommentFormProps> = (props) => {

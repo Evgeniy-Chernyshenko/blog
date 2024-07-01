@@ -26,7 +26,7 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   };
 
   return (
-    <div
+    <menu
       className={cx("Sidebar", { collapsed }, [className])}
       data-testid="sidebar"
     >
@@ -59,6 +59,6 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
         <ThemeSwitcher />
         <LanguageSwitcher short={collapsed} />
       </div>
-    </div>
+    </menu>
   );
 });

@@ -37,9 +37,9 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   }, [dispatch]);
 
   return (
-    <div className={cx("Navbar", [className])}>
+    <header className={cx("Navbar", [className])}>
       |||
-      <div className={cx("menu")}>
+      <nav className={cx("menu")}>
         {userAuthData ? (
           <Button theme="outlined-inverted" onClick={handleLogout}>
             {t("Выйти")}
@@ -58,7 +58,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
             )}
           </>
         )}
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 });

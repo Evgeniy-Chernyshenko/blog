@@ -7,6 +7,7 @@ import { StateSchema } from "@/app/providers/StoreProvider";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import { ArticleType, ArticleView } from "@/entities/Article";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";
+import { mapArticleViewToLimit } from "../constants/mapArticleViewToLimit";
 
 const articlesPageAdapter = createEntityAdapter<ArticleType>({
   selectId: (article) => article.id,
@@ -18,6 +19,9 @@ const initialState = articlesPageAdapter.getInitialState<ArticlesPageSchema>({
   isLoading: false,
   error: undefined,
   view: "grid",
+  limit: mapArticleViewToLimit.grid,
+  page: 1,
+  hasMore: true,
 });
 
 export const getArticles = articlesPageAdapter.getSelectors<StateSchema>(
@@ -34,14 +38,17 @@ const articlesPageSlice = createSlice({
 
     initState: (state, action: PayloadAction<Partial<ArticlesPageSchema>>) => {
       Object.assign(state, action.payload);
+      state.limit = mapArticleViewToLimit[state.view];
+    },
+
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchArticles.pending, (state) => {
       state.isLoading = true;
       state.error = undefined;
-
-      articlesPageAdapter.removeAll(state);
     });
 
     builder.addCase(fetchArticles.rejected, (state, action) => {
@@ -52,7 +59,9 @@ const articlesPageSlice = createSlice({
     builder.addCase(fetchArticles.fulfilled, (state, action) => {
       state.isLoading = false;
 
-      articlesPageAdapter.setAll(state, action.payload);
+      articlesPageAdapter.addMany(state, action.payload);
+
+      state.hasMore = action.payload.length >= state.limit;
     });
   },
 });

@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs/promises");
 
 const DB_FILE_PATH = path.resolve(__dirname, "db.json");
-const RESPONSE_DELAY = 500;
+const RESPONSE_DELAY = 1000;
 const SERVER_PORT = 8000;
 
 const server = jsonServer.create();

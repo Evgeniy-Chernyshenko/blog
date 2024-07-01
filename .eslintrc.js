@@ -61,6 +61,8 @@ module.exports = {
     "react/no-unused-prop-types": "off",
     "react/no-array-index-key": "off",
     "@typescript-eslint/no-shadow": "off",
+    "default-param-last": "off",
+    "react/jsx-no-useless-fragment": "off",
   },
   globals: {
     __IS_DEV__: true,

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { ArticleList } from "@/entities/Article/ui/ArticleList/ArticleList";
 import {
   DynamicModuleLoader,
@@ -23,6 +23,8 @@ import s from "./ArticlesPage.module.scss";
 import { ArticlesViewSelector } from "@/features/ArticlesViewSelector/ui/ArticlesViewSelector";
 import { LOCALSTORAGE_ARTICLES_VIEW_KEY } from "@/shared/constants/localStorage";
 import { ArticleView } from "@/entities/Article";
+import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll";
+import { fetchNextPageArticles } from "../model/services/fetchNextPageArticles/fetchNextPageArticles";
 
 const cx = classNamesBind(s);
 
@@ -34,14 +36,18 @@ function ArticlesPage() {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
+  const endOfPageRef = useRef<HTMLElement>(null);
+
+  useInfiniteScroll(endOfPageRef, () => dispatch(fetchNextPageArticles()));
 
   useInitialEffect(() => {
     const view = localStorage.getItem(
       LOCALSTORAGE_ARTICLES_VIEW_KEY,
     ) as ArticleView;
 
-    dispatch(fetchArticles());
     dispatch(articlesPageActions.initState({ view }));
+
+    dispatch(fetchArticles());
   });
 
   const handleChangeView = useCallback(
@@ -58,8 +64,15 @@ function ArticlesPage() {
       <div className={cx("ArticlesPage")}>
         <ArticlesViewSelector onChange={handleChangeView} view={view} />
 
-        <ArticleList view={view} articles={articles} isLoading={isLoading} />
+        <ArticleList
+          view={view}
+          articles={articles}
+          isLoading={isLoading}
+          error={error}
+        />
       </div>
+
+      <span ref={endOfPageRef} />
     </DynamicModuleLoader>
   );
 }

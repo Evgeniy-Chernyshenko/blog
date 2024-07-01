@@ -8,6 +8,7 @@ import { Sidebar } from "@/widgets/Sidebar";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
 import { getIsInit, User, userActions } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { PageWrapper } from "@/widgets/PageWrapper";
 
 const cx = classNamesBind(s);
 
@@ -37,7 +38,7 @@ export function App() {
 
         <Sidebar />
 
-        <div className={cx("page-wrapper")}>{isInit && <AppRouter />}</div>
+        <PageWrapper>{isInit && <AppRouter />}</PageWrapper>
       </Suspense>
     </div>
   );

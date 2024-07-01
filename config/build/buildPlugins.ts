@@ -29,7 +29,7 @@ export const buildPlugins = (
     plugins.push(
       new BundleAnalyzerPlugin({ openAnalyzer: true, analyzerPort: "auto" }),
     );
-    plugins.push(new ReactRefreshWebpackPlugin());
+    plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
   }
 
   return plugins;

@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useDispatch, useStore } from "react-redux";
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import {
@@ -11,7 +11,7 @@ export type ReducersList = Partial<ReducersMapObject<Required<StateSchema>>>;
 
 interface DynamicModuleLoaderProps {
   reducers: ReducersList;
-  children: ReactElement;
+  children: ReactNode;
   notRemoveOnUnmount?: boolean;
 }
 
@@ -49,5 +49,5 @@ export const DynamicModuleLoader = ({
     };
   }, [dispatch, notRemoveOnUnmount, reducers, store]);
 
-  return children;
+  return <>{children}</>;
 };
