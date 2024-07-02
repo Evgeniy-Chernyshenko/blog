@@ -12,9 +12,9 @@ import {
 } from "../model/slice/articlesPageSlice";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { fetchArticles } from "../model/services/fetchArticles/fetchArticles";
 import {
   getArticlesPageError,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from "../model/selectors/articlesPageSelectors";
@@ -22,9 +22,9 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPage.module.scss";
 import { ArticlesViewSelector } from "@/features/ArticlesViewSelector/ui/ArticlesViewSelector";
 import { LOCALSTORAGE_ARTICLES_VIEW_KEY } from "@/shared/constants/localStorage";
-import { ArticleView } from "@/entities/Article";
 import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll";
 import { fetchNextPageArticles } from "../model/services/fetchNextPageArticles/fetchNextPageArticles";
+import { initArticlesPage } from "../model/services/initArticlesPage/initArticlesPage";
 
 const cx = classNamesBind(s);
 
@@ -37,17 +37,12 @@ function ArticlesPage() {
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
   const endOfPageRef = useRef<HTMLElement>(null);
+  const _inited = useSelector(getArticlesPageInited);
 
   useInfiniteScroll(endOfPageRef, () => dispatch(fetchNextPageArticles()));
 
   useInitialEffect(() => {
-    const view = localStorage.getItem(
-      LOCALSTORAGE_ARTICLES_VIEW_KEY,
-    ) as ArticleView;
-
-    dispatch(articlesPageActions.initState({ view }));
-
-    dispatch(fetchArticles());
+    dispatch(initArticlesPage());
   });
 
   const handleChangeView = useCallback(
@@ -60,7 +55,7 @@ function ArticlesPage() {
   );
 
   return (
-    <DynamicModuleLoader reducers={initialReducers}>
+    <DynamicModuleLoader reducers={initialReducers} notRemoveOnUnmount>
       <div className={cx("ArticlesPage")}>
         <ArticlesViewSelector onChange={handleChangeView} view={view} />
 

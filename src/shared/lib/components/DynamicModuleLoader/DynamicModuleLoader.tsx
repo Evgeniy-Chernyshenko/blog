@@ -24,12 +24,12 @@ export const DynamicModuleLoader = ({
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
-    const state = store.getState();
+    const mountedReducers = store.reducerManager.getReducerMap();
 
     Object.entries(reducers).forEach(([reducerName, reducer]) => {
       const key = reducerName as StateSchemaKey;
 
-      if (!state[key]) {
+      if (!mountedReducers[key]) {
         store.reducerManager.add(key, reducer);
         dispatch({ type: `@INIT ${key} reducer` });
       }

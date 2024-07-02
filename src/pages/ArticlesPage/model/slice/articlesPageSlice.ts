@@ -22,6 +22,7 @@ const initialState = articlesPageAdapter.getInitialState<ArticlesPageSchema>({
   limit: mapArticleViewToLimit.grid,
   page: 1,
   hasMore: true,
+  _inited: false,
 });
 
 export const getArticles = articlesPageAdapter.getSelectors<StateSchema>(
@@ -39,6 +40,7 @@ const articlesPageSlice = createSlice({
     initState: (state, action: PayloadAction<Partial<ArticlesPageSchema>>) => {
       Object.assign(state, action.payload);
       state.limit = mapArticleViewToLimit[state.view];
+      state._inited = true;
     },
 
     setPage: (state, action: PayloadAction<number>) => {
