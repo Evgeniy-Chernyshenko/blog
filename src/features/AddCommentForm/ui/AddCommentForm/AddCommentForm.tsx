@@ -43,7 +43,7 @@ const AddCommentForm = memo(function AddCommentForm({
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    onSubmit(text ?? "");
+    onSubmit(text);
     handleChangeCommentText("");
   };
 

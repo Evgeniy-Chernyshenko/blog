@@ -8,7 +8,6 @@ import { Sidebar } from "@/widgets/Sidebar";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
 import { getIsInit, User, userActions } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { PageWrapper } from "@/widgets/PageWrapper";
 
 const cx = classNamesBind(s);
 
@@ -38,7 +37,7 @@ export function App() {
 
         <Sidebar />
 
-        <PageWrapper>{isInit && <AppRouter />}</PageWrapper>
+        {isInit && <AppRouter />}
       </Suspense>
     </div>
   );

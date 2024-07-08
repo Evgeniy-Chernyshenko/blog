@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./NotFoundPage.module.scss";
+import { PageWrapper } from "@/widgets/PageWrapper";
 
 const cx = classNamesBind(s);
 
@@ -12,8 +13,8 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={cx("NotFoundPage", [className])}>
+    <PageWrapper className={cx("NotFoundPage", [className])}>
       {t("Страница не найдена")}
-    </div>
+    </PageWrapper>
   );
 };

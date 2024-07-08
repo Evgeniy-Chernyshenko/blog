@@ -2,7 +2,7 @@ import { RefObject, useEffect } from "react";
 
 export const useInfiniteScroll = (
   targetRef: RefObject<HTMLElement>,
-  callback: () => void,
+  callback?: () => void,
 ) => {
   useEffect(() => {
     const targetElement = targetRef.current;

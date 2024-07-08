@@ -14,10 +14,12 @@ import { ArticleSchema } from "@/entities/Article/model/types/articleSchema";
 import { ArticleCommentsSchema } from "@/pages/ArticlePage";
 import { AddCommentFormSchema } from "@/features/AddCommentForm";
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
+import { PageWrapperSchema } from "@/widgets/PageWrapper";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  pageWrapper: PageWrapperSchema;
   authByUsername?: AuthByUsernameSchema;
   profile?: ProfileSchema;
   article?: ArticleSchema;

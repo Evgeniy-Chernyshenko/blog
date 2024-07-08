@@ -9,6 +9,7 @@ import { StateSchema, ThunkExtraArgument } from "./stateSchema";
 import { userReducer } from "@/entities/User";
 import { createReducerManager } from "./reducerManager";
 import { apiInstance } from "@/shared/api/apiInstance";
+import { pageWrapperReducer } from "@/widgets/PageWrapper";
 
 export const createReduxStore = (
   initialState?: StateSchema,
@@ -17,6 +18,7 @@ export const createReduxStore = (
   const rootReducers: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
+    pageWrapper: pageWrapperReducer,
     ...asyncReducers,
   };
 

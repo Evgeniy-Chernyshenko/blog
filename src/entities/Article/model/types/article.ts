@@ -1,6 +1,6 @@
 import { User } from "@/entities/User";
 
-type ArticleTag = "it" | "economics" | "science";
+export type ArticleTag = "all" | "it" | "economics" | "science";
 
 interface ArticleBlockBase {
   id: string;
@@ -42,3 +42,9 @@ export interface ArticleType {
 }
 
 export type ArticleView = "grid" | "list";
+
+export enum ArticleSortField {
+  TITLE = "title",
+  VIEWS = "views",
+  CREATED_AT = "createdAt",
+}

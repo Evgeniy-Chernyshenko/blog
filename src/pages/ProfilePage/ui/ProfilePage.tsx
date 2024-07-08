@@ -27,6 +27,7 @@ import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
+import { PageWrapper } from "@/widgets/PageWrapper";
 
 const cx = classNamesBind(s);
 
@@ -129,39 +130,41 @@ function ProfilePage() {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={cx("ProfilePage")}>
-        <ProfilePageHeader
-          isLoading={isLoading}
-          readonly={readonly}
-          onEditClick={handleEditClick}
-          onCancelClick={handleCancelClick}
-          onSaveClick={handleSaveClick}
-        />
-
-        {validationErrors?.map((validationError) => (
-          <TextBlock
-            theme="error"
-            text={validationErrorTranslates[validationError]}
-            key={validationError}
+      <PageWrapper>
+        <div className={cx("ProfilePage")}>
+          <ProfilePageHeader
+            isLoading={isLoading}
+            readonly={readonly}
+            onEditClick={handleEditClick}
+            onCancelClick={handleCancelClick}
+            onSaveClick={handleSaveClick}
           />
-        ))}
 
-        <ProfileCard
-          data={prodileFormData}
-          error={error}
-          isLoading={isLoading}
-          readonly={readonly}
-          onChangeFirstName={handleChangeFirstName}
-          onChangeLastName={handleChangeLastName}
-          onChangeAge={handleChangeAge}
-          onChangeCity={handleChangeCity}
-          onChangeUsername={handleChangeUsername}
-          onChangeAvatar={handleChangeAvatar}
-          onChangeCountry={handleChangeCountry}
-          onChangeCurrency={handleChangeCurrency}
-          onSubmit={handleSaveClick}
-        />
-      </div>
+          {validationErrors?.map((validationError) => (
+            <TextBlock
+              theme="error"
+              text={validationErrorTranslates[validationError]}
+              key={validationError}
+            />
+          ))}
+
+          <ProfileCard
+            data={prodileFormData}
+            error={error}
+            isLoading={isLoading}
+            readonly={readonly}
+            onChangeFirstName={handleChangeFirstName}
+            onChangeLastName={handleChangeLastName}
+            onChangeAge={handleChangeAge}
+            onChangeCity={handleChangeCity}
+            onChangeUsername={handleChangeUsername}
+            onChangeAvatar={handleChangeAvatar}
+            onChangeCountry={handleChangeCountry}
+            onChangeCurrency={handleChangeCurrency}
+            onSubmit={handleSaveClick}
+          />
+        </div>
+      </PageWrapper>
     </DynamicModuleLoader>
   );
 }

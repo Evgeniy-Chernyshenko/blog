@@ -1,0 +1,12 @@
+.ArticlesPageFilters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}

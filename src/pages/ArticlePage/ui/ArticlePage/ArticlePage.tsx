@@ -14,15 +14,16 @@ import {
 import {
   articleCommentsReducer,
   getArticleComments,
-} from "../model/slice/articleCommentsSlice";
-import { getArticleCommentsIsLoading } from "../model/selectors/articleComments";
+} from "../../model/slice/articleCommentsSlice";
+import { getArticleCommentsIsLoading } from "../../model/selectors/articleComments";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { fetchComments } from "../services/fetchComments/fetchComments";
+import { fetchComments } from "../../model/services/fetchComments/fetchComments";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
-import { addComment } from "../services/addComment/addComment";
+import { addComment } from "../../model/services/addComment/addComment";
 import { AddCommentFormLazy } from "@/features/AddCommentForm";
 import { Button } from "@/shared/ui/Button/Button";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
+import { PageWrapper } from "@/widgets/PageWrapper";
 
 const cx = classNamesBind(s);
 
@@ -73,21 +74,23 @@ function ArticlePage() {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={cx("ArticlePage")}>
-        <div>
-          <Button onClick={handleBackToArticlesClick}>
-            {t("К списку статей")}
-          </Button>
+      <PageWrapper>
+        <div className={cx("ArticlePage")}>
+          <div>
+            <Button onClick={handleBackToArticlesClick}>
+              {t("К списку статей")}
+            </Button>
+          </div>
+
+          <Article id={articleId} />
+
+          <TextBlock title={t("Комментарии")} />
+
+          <AddCommentFormLazy onSubmit={handleSubmitComment} />
+
+          <CommentList comments={comments} isLoading={commentsIsLoading} />
         </div>
-
-        <Article id={articleId} />
-
-        <TextBlock title={t("Комментарии")} />
-
-        <AddCommentFormLazy onSubmit={handleSubmitComment} />
-
-        <CommentList comments={comments} isLoading={commentsIsLoading} />
-      </div>
+      </PageWrapper>
     </DynamicModuleLoader>
   );
 }

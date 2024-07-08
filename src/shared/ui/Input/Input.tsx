@@ -108,7 +108,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
           onSelect={handleSelect}
           readOnly={readOnly}
           ref={inputRef}
-          value={value ?? ""}
+          value={value}
           type={inputTypeArg}
           {...restProps}
         />

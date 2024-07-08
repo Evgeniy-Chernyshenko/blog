@@ -1,3 +1,16 @@
 {
-  "Произошка ошибка при загрузке статей": "Occurrence when there is an error in including articles"
+  "Произошка ошибка при загрузке статей": "Occurrence when there is an error in including articles",
+  "Нет статей": "No articles",
+  "дате создания": "date of creation",
+  "просмотрам": "views",
+  "заголовку": "heading",
+  "убыванию": "descending",
+  "возрастанию": "ascending",
+  "Сортировать по": "Sort by",
+  "Порядок сортировки": "Sorting order",
+  "Все статьи": "All articles",
+  "IT": "IT",
+  "Экономика": "Economy",
+  "Наука": "The science",
+  "Поиск": "Search"
 }

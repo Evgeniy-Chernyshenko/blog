@@ -41,10 +41,14 @@ export const ArticleList = memo(function ArticleList({
 
   return (
     <div className={cx("ArticleList", [className, view])}>
-      {articles.length > 0 ? articles.map(renderArticle) : null}
+      {articles.length > 0 && articles.map(renderArticle)}
+
+      {!isLoading && articles.length === 0 && (
+        <TextBlock title={t("Нет статей")} size="l" />
+      )}
 
       {isLoading &&
-        [...Array(view === "grid" ? 9 : 3)].map((_, index) => (
+        [...Array(view === "grid" ? 6 : 4)].map((_, index) => (
           <ArticleListItemSkeleton key={index} view={view} />
         ))}
     </div>

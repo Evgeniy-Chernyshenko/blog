@@ -14,29 +14,29 @@ interface SelectProps<T extends string> {
   value?: T;
   label?: string;
   className?: string;
-  onChange?: (value: T | undefined) => void;
+  onChange?: (value: T) => void;
 }
 
-const Component = <T extends string>({
+const Component = function Select<T extends string>({
   options,
   value,
   className,
   label,
   onChange,
-}: SelectProps<T>) => {
+}: SelectProps<T>) {
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.((e.target.value as T) || undefined);
+    onChange?.(e.target.value as T);
   };
 
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={cx("Select", [className])}>
-      {label}
+      {label && `${label}>`}
 
       <select className={cx("select")} value={value} onChange={handleChange}>
         {
           // eslint-disable-next-line jsx-a11y/control-has-associated-label
-          <option key="" className={cx("option")} value={undefined} />
+          // <option key="" className={cx("option")} value={undefined} />
         }
 
         {options?.map((option) => (

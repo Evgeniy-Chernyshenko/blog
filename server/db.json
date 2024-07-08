@@ -19,7 +19,7 @@
       "city": "Novosibirsk",
       "username": "katty",
       "avatar": "https://bigpicture.ru/wp-content/uploads/2014/12/luchshie-foto-nedeli-v-dek-2014-0.jpg",
-      "country": "Belarus",
+      "country": "Kazakhstan",
       "currency": "USD"
     }
   ],
@@ -43,8 +43,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "2022-02-26",
+      "views": 10223,
+      "createdAt": "2022-03-26",
       "type": ["it"],
       "userId": "1",
       "blocks": [
@@ -110,11 +110,11 @@
     },
     {
       "id": "2",
-      "title": "Python news",
+      "title": "Экономическая it статья",
       "subtitle": "Новости Питона",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "views": 1022,
-      "createdAt": "2022-03-26",
+      "img": "https://cdn.obyasnyaem.ru/upload/iblock/381/gt42075985s79t687eolnn2e8j4qxh7c/RIA_6235453.jpg",
+      "views": 2022,
+      "createdAt": "2022-01-26",
       "type": ["it"],
       "userId": "1",
       "blocks": [
@@ -183,8 +183,8 @@
       "title": "Kotlin news",
       "subtitle": "Котлина новости",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYbuv79YTgsITLexk1NuAYSLN0e_rEpdLTRA&s",
-      "views": 1022,
-      "createdAt": "2022-02-26",
+      "views": 1321,
+      "createdAt": "2021-03-26",
       "type": ["it"],
       "userId": "1",
       "blocks": [
@@ -253,8 +253,8 @@
       "title": "Javascript news 4",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "2022-02-26",
+      "views": 453,
+      "createdAt": "2021-07-21",
       "type": ["it"],
       "userId": "1",
       "blocks": [
@@ -275,8 +275,8 @@
       "title": "Javascript news 5",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "2022-02-26",
+      "views": 333,
+      "createdAt": "2024-03-16",
       "type": ["it"],
       "userId": "1",
       "blocks": [
@@ -470,12 +470,12 @@
     },
     {
       "id": "14",
-      "title": "Javascript news 14",
+      "title": "Научная статья",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "img": "https://blog.predanie.ru/wp-content/uploads/2018/10/nauka.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": ["it"],
+      "type": ["science"],
       "userId": "1",
       "blocks": [
         {
@@ -633,6 +633,24 @@
       "articleId": "2",
       "userId": "2",
       "id": "LBJr2qn"
+    },
+    {
+      "text": "d",
+      "articleId": "1",
+      "userId": "2",
+      "id": "7eJDCsw"
+    },
+    {
+      "text": "",
+      "articleId": "1",
+      "userId": "2",
+      "id": "6k_Y8UU"
+    },
+    {
+      "text": "1111111111",
+      "articleId": "1",
+      "userId": "2",
+      "id": "Sc3yX4X"
     }
   ]
 }
