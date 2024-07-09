@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ArticleList } from "@/entities/Article/ui/ArticleList/ArticleList";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -23,6 +22,7 @@ import { fetchNextPageArticles } from "../../model/services/fetchNextPageArticle
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { PageWrapper } from "@/widgets/PageWrapper";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
+import { ArticleList } from "@/entities/Article";
 
 const cx = classNamesBind(s);
 

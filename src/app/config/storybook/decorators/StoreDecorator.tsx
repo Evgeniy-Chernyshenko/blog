@@ -5,7 +5,7 @@ import { authByUsernameReducer } from "@/features/AuthByUsername";
 import { profileReducer } from "@/entities/Profile";
 import { articleReducer } from "@/entities/Article/model/slice/articleSlice";
 import { addCommentFormReducer } from "@/features/AddCommentForm/model/slice/addCommentFormSlice";
-import { articleCommentsReducer } from "@/pages/ArticlePage/model/slice/articleCommentsSlice";
+import { articlePageReducer } from "@/pages/ArticlePage";
 
 const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
   {
@@ -13,7 +13,7 @@ const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
     profile: profileReducer,
     article: articleReducer,
     addCommentForm: addCommentFormReducer,
-    articleComments: articleCommentsReducer,
+    articlePage: articlePageReducer,
   };
 
 export const StoreDecorator =

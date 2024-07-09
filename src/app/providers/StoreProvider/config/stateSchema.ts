@@ -11,10 +11,10 @@ import { UserSchema } from "@/entities/User";
 import { AuthByUsernameSchema } from "@/features/AuthByUsername";
 import { ProfileSchema } from "@/entities/Profile";
 import { ArticleSchema } from "@/entities/Article/model/types/articleSchema";
-import { ArticleCommentsSchema } from "@/pages/ArticlePage";
 import { AddCommentFormSchema } from "@/features/AddCommentForm";
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 import { PageWrapperSchema } from "@/widgets/PageWrapper";
+import { ArticlePageSchema } from "@/pages/ArticlePage";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -23,9 +23,9 @@ export interface StateSchema {
   authByUsername?: AuthByUsernameSchema;
   profile?: ProfileSchema;
   article?: ArticleSchema;
-  articleComments?: ArticleCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articlePage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

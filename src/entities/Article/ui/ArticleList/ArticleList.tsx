@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleList.module.scss";
@@ -15,6 +15,7 @@ interface ArticleListProps {
   className?: string;
   isLoading?: boolean;
   error?: string;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo(function ArticleList({
@@ -23,11 +24,19 @@ export const ArticleList = memo(function ArticleList({
   className,
   isLoading = false,
   error,
+  target,
 }: ArticleListProps) {
   const { t } = useTranslation("articles");
 
   const renderArticle = (article: ArticleType) => {
-    return <ArticleListItem key={article.id} article={article} view={view} />;
+    return (
+      <ArticleListItem
+        key={article.id}
+        article={article}
+        view={view}
+        target={target}
+      />
+    );
   };
 
   if (error) {

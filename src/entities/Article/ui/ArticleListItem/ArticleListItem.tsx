@@ -1,6 +1,5 @@
-import { memo, useCallback } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleListItem.module.scss";
 import {
@@ -16,6 +15,7 @@ import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Button } from "@/shared/ui/Button/Button";
 import { formatDate } from "@/shared/lib/utils/formatters";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
 
 const cx = classNamesBind(s);
 
@@ -23,20 +23,17 @@ interface ArticleListItemProps {
   article: ArticleType;
   view?: ArticleView;
   className?: string;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo(function ArticleListItem({
   article,
   view = "grid",
   className,
+  target,
 }: ArticleListItemProps) {
   const [hover, bindHover] = useHover();
   const { t, i18n } = useTranslation("article");
-  const navigate = useNavigate();
-
-  const handleOpenArticleClick = useCallback(() => {
-    navigate(`${appRoutes.articles.path}/${article.id}`);
-  }, [article.id, navigate]);
 
   const formattedDate = formatDate(article.createdAt, i18n.language);
 
@@ -56,20 +53,21 @@ export const ArticleListItem = memo(function ArticleListItem({
 
   if (view === "grid") {
     return (
-      <Card
-        className={cx("ArticleListItem", { hover }, [className, view])}
-        {...bindHover}
-        onClick={handleOpenArticleClick}
-      >
-        {Date}
-        {Image}
-        <div className={cx("header")}>
-          {Tags}
+      <AppLink to={`${appRoutes.articles.path}/${article.id}`} target={target}>
+        <Card
+          className={cx("ArticleListItem", { hover }, [className, view])}
+          {...bindHover}
+        >
+          {Date}
+          {Image}
+          <div className={cx("header")}>
+            {Tags}
 
-          {Views}
-        </div>
-        <TextBlock className={cx("title")} text={article.title} />
-      </Card>
+            {Views}
+          </div>
+          <TextBlock className={cx("title")} text={article.title} />
+        </Card>
+      </AppLink>
     );
   }
 
@@ -101,9 +99,12 @@ export const ArticleListItem = memo(function ArticleListItem({
       {Image}
 
       <div className={cx("footer")}>
-        <Button theme="outlined" onClick={handleOpenArticleClick}>
-          {t("Читать далее")}
-        </Button>
+        <AppLink
+          to={`${appRoutes.articles.path}/${article.id}`}
+          target={target}
+        >
+          <Button theme="outlined">{t("Читать далее")}</Button>
+        </AppLink>
 
         {Views}
       </div>

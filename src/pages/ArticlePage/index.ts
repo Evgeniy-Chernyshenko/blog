@@ -1,2 +1,3 @@
 export { ArticlePageLazy } from "./ui/ArticlePage/ArticlePageLazy";
-export { ArticleCommentsSchema } from "./model/types/ArticleCommentsSchema";
+export { ArticlePageSchema } from "./model/types";
+export { articlePageReducer } from "./model/slices";

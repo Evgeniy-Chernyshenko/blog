@@ -6,3 +6,4 @@ export {
   ArticleSortField,
   ArticleTag,
 } from "./model/types/article";
+export { ArticleList } from "./ui/ArticleList/ArticleList";

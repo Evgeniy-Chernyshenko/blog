@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useCallback } from "react";
-import { Article } from "@/entities/Article";
+import { Article, ArticleList } from "@/entities/Article";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import s from "./ArticlePage.module.scss";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
@@ -11,10 +11,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  articleCommentsReducer,
-  getArticleComments,
-} from "../../model/slice/articleCommentsSlice";
+import { getArticleComments } from "../../model/slices/articleCommentsSlice";
 import { getArticleCommentsIsLoading } from "../../model/selectors/articleComments";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { fetchComments } from "../../model/services/fetchComments/fetchComments";
@@ -24,11 +21,18 @@ import { AddCommentFormLazy } from "@/features/AddCommentForm";
 import { Button } from "@/shared/ui/Button/Button";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { PageWrapper } from "@/widgets/PageWrapper";
+import { getArticleRecommendations } from "../../model/slices/articleRecommendationsSlice";
+import { fetchRecommendations } from "../../model/services/fetchRecommendations/fetchRecommendations";
+import {
+  getArticleRecommendationsError,
+  getArticleRecommendationsIsLoading,
+} from "../../model/selectors/articleRecommendations";
+import { articlePageReducer } from "../../model/slices";
 
 const cx = classNamesBind(s);
 
 const initialReducers: ReducersList = {
-  articleComments: articleCommentsReducer,
+  articlePage: articlePageReducer,
 };
 
 function ArticlePage() {
@@ -38,6 +42,15 @@ function ArticlePage() {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const articleRecommendations = useSelector(
+    getArticleRecommendations.selectAll,
+  );
+  const articleRecommendationsIsLoading = useSelector(
+    getArticleRecommendationsIsLoading,
+  );
+  const articleRecommendationsError = useSelector(
+    getArticleRecommendationsError,
+  );
 
   const handleBackToArticlesClick = useCallback(() => {
     navigate(appRoutes.articles.path);
@@ -49,6 +62,7 @@ function ArticlePage() {
     }
 
     dispatch(fetchComments(articleId));
+    dispatch(fetchRecommendations());
   });
 
   const handleSubmitComment = useCallback(
@@ -83,6 +97,26 @@ function ArticlePage() {
           </div>
 
           <Article id={articleId} />
+
+          {(articleRecommendationsIsLoading ||
+            articleRecommendations.length > 0) && (
+            <>
+              <TextBlock title={t("Рекоммендации")} />
+              <ArticleList
+                className={cx("recommendations")}
+                articles={articleRecommendations}
+                isLoading={articleRecommendationsIsLoading}
+                target="_blank"
+              />
+            </>
+          )}
+
+          {articleRecommendationsError && (
+            <TextBlock
+              theme="error"
+              title={t("Произошла ошибка при загрузке рекоммендаций")}
+            />
+          )}
 
           <TextBlock title={t("Комментарии")} />
 

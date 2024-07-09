@@ -6,5 +6,7 @@
   "Введите комментарий": "Enter a comment",
   "Добавить": "Add",
   "Читать далее": "Read more…",
-  "К списку статей": "Back to articles"
+  "К списку статей": "Back to articles",
+  "Рекоммендации": "Recommendations",
+  "Произошла ошибка при загрузке рекоммендаций": "There was an error loading recommendations"
 }
