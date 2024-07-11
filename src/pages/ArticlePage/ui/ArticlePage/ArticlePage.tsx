@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useCallback } from "react";
 import { Article, ArticleList } from "@/entities/Article";
@@ -18,8 +18,6 @@ import { fetchComments } from "../../model/services/fetchComments/fetchComments"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { addComment } from "../../model/services/addComment/addComment";
 import { AddCommentFormLazy } from "@/features/AddCommentForm";
-import { Button } from "@/shared/ui/Button/Button";
-import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { PageWrapper } from "@/widgets/PageWrapper";
 import { getArticleRecommendations } from "../../model/slices/articleRecommendationsSlice";
 import { fetchRecommendations } from "../../model/services/fetchRecommendations/fetchRecommendations";
@@ -28,6 +26,7 @@ import {
   getArticleRecommendationsIsLoading,
 } from "../../model/selectors/articleRecommendations";
 import { articlePageReducer } from "../../model/slices";
+import { ArticlePageHeader } from "../ArticlePageHeader/ArticlePageHeader";
 
 const cx = classNamesBind(s);
 
@@ -41,7 +40,6 @@ function ArticlePage() {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const articleRecommendations = useSelector(
     getArticleRecommendations.selectAll,
   );
@@ -51,10 +49,6 @@ function ArticlePage() {
   const articleRecommendationsError = useSelector(
     getArticleRecommendationsError,
   );
-
-  const handleBackToArticlesClick = useCallback(() => {
-    navigate(appRoutes.articles.path);
-  }, [navigate]);
 
   useInitialEffect(() => {
     if (!articleId) {
@@ -90,11 +84,7 @@ function ArticlePage() {
     <DynamicModuleLoader reducers={initialReducers}>
       <PageWrapper>
         <div className={cx("ArticlePage")}>
-          <div>
-            <Button onClick={handleBackToArticlesClick}>
-              {t("К списку статей")}
-            </Button>
-          </div>
+          <ArticlePageHeader />
 
           <Article id={articleId} />
 

@@ -40,15 +40,13 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news",
+      "title": "Кеттина статья",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 10223,
       "createdAt": "2022-03-26",
-      "type": [
-        "it"
-      ],
-      "userId": "1",
+      "type": ["it"],
+      "userId": "2",
       "blocks": [
         {
           "id": "1",
@@ -117,9 +115,7 @@
       "img": "https://cdn.obyasnyaem.ru/upload/iblock/381/gt42075985s79t687eolnn2e8j4qxh7c/RIA_6235453.jpg",
       "views": 2022,
       "createdAt": "2022-01-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -189,9 +185,7 @@
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYbuv79YTgsITLexk1NuAYSLN0e_rEpdLTRA&s",
       "views": 1321,
       "createdAt": "2021-03-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -261,9 +255,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 453,
       "createdAt": "2021-07-21",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -285,9 +277,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 333,
       "createdAt": "2024-03-16",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -309,9 +299,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -333,9 +321,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -357,9 +343,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -381,9 +365,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -405,9 +387,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -429,9 +409,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -453,9 +431,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -477,9 +453,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {
@@ -501,9 +475,7 @@
       "img": "https://blog.predanie.ru/wp-content/uploads/2018/10/nauka.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "science"
-      ],
+      "type": ["science"],
       "userId": "1",
       "blocks": [
         {
@@ -525,9 +497,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "2022-02-26",
-      "type": [
-        "it"
-      ],
+      "type": ["it"],
       "userId": "1",
       "blocks": [
         {

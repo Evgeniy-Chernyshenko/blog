@@ -9,6 +9,9 @@ import { getUserAuthData } from "@/entities/User/model/selectors/getUserAuthData
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
 import { userActions } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -38,12 +41,19 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
 
   return (
     <header className={cx("Navbar", [className])}>
-      |||
+      <TextBlock theme="inverted" text={t("Blog App")} />
+
       <nav className={cx("menu")}>
         {userAuthData ? (
-          <Button theme="outlined-inverted" onClick={handleLogout}>
-            {t("Выйти")}
-          </Button>
+          <>
+            <AppLink to={appRoutes.createArticle.path}>
+              <Button theme="background-inverted">{t("Создать статью")}</Button>
+            </AppLink>
+
+            <Button theme="outlined-inverted" onClick={handleLogout}>
+              {t("Выйти")}
+            </Button>
+          </>
         ) : (
           <>
             <Button theme="outlined-inverted" onClick={handleOpenLoginModal}>

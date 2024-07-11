@@ -13,6 +13,7 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    fallbackNS: "translation",
   });
 
 export default i18n;

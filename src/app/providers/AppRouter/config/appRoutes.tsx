@@ -6,6 +6,7 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePageLazy } from "@/pages/ProfilePage";
 import { ArticlesPageLazy } from "@/pages/ArticlesPage";
 import { ArticlePageLazy } from "@/pages/ArticlePage";
+import { ArticleEditPageLazy } from "@/pages/ArticleEditPage";
 
 export interface AppRouteObject extends RouteObject {
   path: string;
@@ -31,6 +32,17 @@ export const nonTypedAppRoutes = {
   article: {
     path: "/articles/:id",
     element: <ArticlePageLazy />,
+    authOnly: true,
+  },
+  editArticle: {
+    path: "/articles/:id/edit",
+    pathWithoutParams: "/articles",
+    element: <ArticleEditPageLazy />,
+    authOnly: true,
+  },
+  createArticle: {
+    path: "/articles/new",
+    element: <ArticleEditPageLazy />,
     authOnly: true,
   },
   notFound: { path: "*", element: <NotFoundPage /> },
