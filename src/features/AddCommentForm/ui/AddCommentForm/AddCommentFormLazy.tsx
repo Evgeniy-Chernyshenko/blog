@@ -3,9 +3,7 @@ import { Loader } from "@/shared/ui/Loader/Loader";
 import { AddCommentFormProps } from "./AddCommentForm";
 
 const Component = lazy<FC<AddCommentFormProps>>(
-  // @ts-ignore
-  () =>
-    new Promise((r) => setTimeout(() => r(import("./AddCommentForm")), 1000)),
+  () => import("./AddCommentForm"),
 );
 
 export const AddCommentFormLazy: FC<AddCommentFormProps> = (props) => {

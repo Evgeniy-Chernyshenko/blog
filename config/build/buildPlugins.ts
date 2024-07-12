@@ -3,6 +3,7 @@ import { ProgressPlugin, WebpackPluginInstance, DefinePlugin } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import { BuildOptions } from "./types/config";
 
 export const buildPlugins = (
@@ -22,6 +23,14 @@ export const buildPlugins = (
       __IS_DEV__: JSON.stringify(isDev),
       __API_BASE_URL__: JSON.stringify(buildOptions.apiBaseUrl),
       __PROJECT__: JSON.stringify(buildOptions.project),
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: buildOptions.paths.locales,
+          to: buildOptions.paths.buildLocales,
+        },
+      ],
     }),
   ];
 

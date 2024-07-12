@@ -9,6 +9,8 @@ export default ({ config }: { config: Configuration }): Configuration => {
     htmlTemplate: "",
     entry: "",
     src: path.resolve(__dirname, "../../src"),
+    locales: "",
+    buildLocales: "",
   };
 
   config.resolve?.modules?.push(paths.src);
