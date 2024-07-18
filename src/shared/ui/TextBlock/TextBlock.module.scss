@@ -16,6 +16,16 @@
   }
 }
 
+.size-s {
+  .title {
+    font: var(--font-m);
+  }
+
+  .text {
+    font: var(--font-s);
+  }
+}
+
 .size-m {
   .title {
     font: var(--font-l);

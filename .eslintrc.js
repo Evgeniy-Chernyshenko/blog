@@ -20,7 +20,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks",
+    "blog-project",
+  ],
   rules: {
     "react/jsx-filename-extension": [
       "error",
@@ -63,6 +69,7 @@ module.exports = {
     "@typescript-eslint/no-shadow": "off",
     "default-param-last": "off",
     "react/jsx-no-useless-fragment": "off",
+    "blog-project/path-checker": "error",
   },
   globals: {
     __IS_DEV__: true,

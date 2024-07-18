@@ -1,9 +1,6 @@
 .ProfileCard {
-  display: flex;
-  flex-direction: column;
   border: 2px solid var(--inverted-bg-color);
   padding: 20px;
-  gap: 30px;
 
   &.loading,
   &.error {
@@ -15,11 +12,4 @@
 
 .avatar {
   margin: 0 auto;
-}
-
-.fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
 }

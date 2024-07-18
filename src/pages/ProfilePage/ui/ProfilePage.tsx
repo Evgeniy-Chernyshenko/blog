@@ -19,8 +19,6 @@ import {
   updateProfileData,
   ValidateProfileError,
 } from "@/entities/Profile";
-import { classNamesBind } from "@/shared/lib/classNames/classNames";
-import s from "./ProfilePage.module.scss";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Country } from "@/entities/Country";
@@ -28,8 +26,7 @@ import { Currency } from "@/entities/Currency";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { PageWrapper } from "@/widgets/PageWrapper";
-
-const cx = classNamesBind(s);
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
@@ -131,7 +128,7 @@ function ProfilePage() {
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <PageWrapper>
-        <div className={cx("ProfilePage")}>
+        <VStack>
           <ProfilePageHeader
             isLoading={isLoading}
             readonly={readonly}
@@ -163,7 +160,7 @@ function ProfilePage() {
             onChangeCurrency={handleChangeCurrency}
             onSubmit={handleSaveClick}
           />
-        </div>
+        </VStack>
       </PageWrapper>
     </DynamicModuleLoader>
   );

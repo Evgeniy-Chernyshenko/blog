@@ -1,11 +1,13 @@
-import { HTMLAttributeAnchorTarget, memo } from "react";
+import { HTMLAttributeAnchorTarget, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { List, ListRowProps, WindowScroller } from "react-virtualized";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleList.module.scss";
 import { ArticleType, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { PAGE_WRAPPER_ID } from "@/widgets/PageWrapper/ui/PageWrapper/PageWrapper";
 
 const cx = classNamesBind(s);
 
@@ -28,16 +30,34 @@ export const ArticleList = memo(function ArticleList({
 }: ArticleListProps) {
   const { t } = useTranslation("articles");
 
-  const renderArticle = (article: ArticleType) => {
-    return (
-      <ArticleListItem
-        key={article.id}
-        article={article}
-        view={view}
-        target={target}
-      />
-    );
-  };
+  const isBig = view === "list";
+  const itemsPerRow = isBig ? 1 : 3;
+  const rowCount = isBig
+    ? articles.length
+    : Math.ceil(articles.length / itemsPerRow);
+
+  const rowRenderer = useCallback(
+    ({ index, style, key }: ListRowProps) => {
+      const fromIndex = index * itemsPerRow;
+      const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+      const slicedArticles = articles.slice(fromIndex, toIndex);
+
+      return (
+        <div key={key} style={style} className={cx("row", [view])}>
+          {slicedArticles.map((article) => (
+            <ArticleListItem
+              key={article.id}
+              article={article}
+              view={view}
+              target={target}
+            />
+          ))}
+        </div>
+      );
+    },
+    [articles, itemsPerRow, target, view],
+  );
 
   if (error) {
     return (
@@ -48,18 +68,50 @@ export const ArticleList = memo(function ArticleList({
     );
   }
 
-  return (
-    <div className={cx("ArticleList", [className, view])}>
-      {articles.length > 0 && articles.map(renderArticle)}
-
-      {!isLoading && articles.length === 0 && (
+  if (!isLoading && articles.length === 0) {
+    return (
+      <div className={cx("ArticleList", [className, view])}>
         <TextBlock title={t("Нет статей")} size="l" />
-      )}
+      </div>
+    );
+  }
 
-      {isLoading &&
-        [...Array(view === "grid" ? 6 : 4)].map((_, index) => (
-          <ArticleListItemSkeleton key={index} view={view} />
-        ))}
-    </div>
+  return (
+    <WindowScroller
+      scrollElement={document.getElementById(PAGE_WRAPPER_ID) ?? undefined}
+    >
+      {({
+        width,
+        height,
+        scrollTop,
+        onChildScroll,
+        isScrolling,
+        registerChild,
+      }) => {
+        return (
+          <div ref={registerChild} className={cx("ArticleList", [className])}>
+            <List
+              width={width ? width - 40 - 12 : 700}
+              height={height || 700}
+              rowHeight={isBig ? 593.6 : 368}
+              rowCount={rowCount}
+              rowRenderer={rowRenderer}
+              autoHeight
+              onScroll={onChildScroll}
+              isScrolling={isScrolling}
+              scrollTop={scrollTop}
+            />
+
+            {isLoading && (
+              <div className={cx("row", [view])}>
+                {[...Array(view === "grid" ? 6 : 4)].map((_, index) => (
+                  <ArticleListItemSkeleton key={index} view={view} />
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      }}
+    </WindowScroller>
   );
 });

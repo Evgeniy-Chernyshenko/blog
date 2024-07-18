@@ -14,10 +14,6 @@
 
 .switchers {
   margin-top: auto;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
 }
 
 .collapsed .switchers {
@@ -33,9 +29,5 @@
 }
 
 .nav-items {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
   margin: 20px 0;
 }

@@ -19,6 +19,8 @@ interface PageWrapperProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_WRAPPER_ID = "page-wrapper";
+
 export const PageWrapper = memo(function PageWrapper({
   children,
   className,
@@ -52,14 +54,15 @@ export const PageWrapper = memo(function PageWrapper({
   const throttledHandleScroll = useThrottle(handleScroll);
 
   return (
-    <section
+    <main
       className={cx("PageWrapper", [className])}
       onScroll={throttledHandleScroll}
       ref={pageWrapperRef}
+      id={PAGE_WRAPPER_ID}
     >
       {children}
 
       <div ref={scrollEndRef} />
-    </section>
+    </main>
   );
 });

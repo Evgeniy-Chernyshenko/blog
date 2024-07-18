@@ -9,6 +9,8 @@ import { SidebarNavItem } from "../SidebarNavItem/SidebarNavItem";
 import s from "./Sidebar.module.scss";
 import { getUserAuthData } from "@/entities/User";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { HStack } from "@/shared/ui/Stack/HStack/HStack";
 
 const cx = classNamesBind(s);
 
@@ -26,7 +28,7 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   };
 
   return (
-    <menu
+    <aside
       className={cx("Sidebar", { collapsed }, [className])}
       data-testid="sidebar"
     >
@@ -43,7 +45,7 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
 
       <BugButton />
 
-      <div className={cx("nav-items")}>
+      <VStack className={cx("nav-items")} role="navigation">
         {sidebarItemsList
           .filter((sidebarItem) => (sidebarItem.authOnly ? isAuth : true))
           .map((sidebarItem) => (
@@ -53,12 +55,12 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
               collapsed={collapsed}
             />
           ))}
-      </div>
+      </VStack>
 
-      <div className={cx("switchers")}>
+      <HStack className={cx("switchers")} justify="center">
         <ThemeSwitcher />
         <LanguageSwitcher short={collapsed} />
-      </div>
-    </menu>
+      </HStack>
+    </aside>
   );
 });

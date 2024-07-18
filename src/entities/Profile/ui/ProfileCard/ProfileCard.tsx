@@ -9,6 +9,7 @@ import { Loader } from "@/shared/ui/Loader/Loader";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Country, CountrySelector } from "@/entities/Country";
 import { Currency, CurrencySelector } from "@/entities/Currency";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 
 const cx = classNamesBind(s);
 
@@ -65,7 +66,7 @@ export const ProfileCard = ({
   const mods = { loading: isLoading, error };
 
   return (
-    <div className={cx("ProfileCard", mods, [className])}>
+    <VStack className={cx("ProfileCard", mods, [className])} fullwidth>
       {data && !isLoading && !error && (
         <>
           {data?.avatar && (
@@ -77,59 +78,61 @@ export const ProfileCard = ({
           )}
 
           <form onSubmit={handleSubmit}>
-            <fieldset className={cx("fieldset")} disabled={readonly}>
-              <Input
-                placeholder={t("Имя пользователя")}
-                value={data.username}
-                onChange={onChangeUsername}
-                ref={firstInputRef}
-              />
+            <fieldset disabled={readonly}>
+              <VStack>
+                <Input
+                  placeholder={t("Имя пользователя")}
+                  value={data.username}
+                  onChange={onChangeUsername}
+                  ref={firstInputRef}
+                />
 
-              <Input
-                placeholder={t("Ваше имя")}
-                value={data.firstName}
-                onChange={onChangeFirstName}
-              />
+                <Input
+                  placeholder={t("Ваше имя")}
+                  value={data.firstName}
+                  onChange={onChangeFirstName}
+                />
 
-              <Input
-                placeholder={t("Ваша фамилия")}
-                value={data.lastName}
-                onChange={onChangeLastName}
-              />
+                <Input
+                  placeholder={t("Ваша фамилия")}
+                  value={data.lastName}
+                  onChange={onChangeLastName}
+                />
 
-              <Input
-                placeholder={t("Возраст")}
-                value={data.age}
-                onChange={onChangeAge}
-                type="number"
-              />
+                <Input
+                  placeholder={t("Возраст")}
+                  value={data.age}
+                  onChange={onChangeAge}
+                  type="number"
+                />
 
-              <CountrySelector
-                value={data.country}
-                onChange={onChangeCountry}
-              />
+                <CountrySelector
+                  value={data.country}
+                  onChange={onChangeCountry}
+                />
 
-              <Input
-                placeholder={t("Город")}
-                value={data.city}
-                onChange={onChangeCity}
-              />
+                <Input
+                  placeholder={t("Город")}
+                  value={data.city}
+                  onChange={onChangeCity}
+                />
 
-              <Input
-                placeholder={t("Аватар")}
-                value={data.avatar}
-                onChange={onChangeAvatar}
-              />
+                <Input
+                  placeholder={t("Аватар")}
+                  value={data.avatar}
+                  onChange={onChangeAvatar}
+                />
 
-              <CurrencySelector
-                value={data.currency}
-                onChange={onChangeCurrency}
-              />
+                <CurrencySelector
+                  value={data.currency}
+                  onChange={onChangeCurrency}
+                />
 
-              {
-                // eslint-disable-next-line jsx-a11y/control-has-associated-label
-                <button type="submit" hidden />
-              }
+                {
+                  // eslint-disable-next-line jsx-a11y/control-has-associated-label
+                  <button type="submit" hidden />
+                }
+              </VStack>
             </fieldset>
           </form>
         </>
@@ -145,6 +148,6 @@ export const ProfileCard = ({
           align="center"
         />
       )}
-    </div>
+    </VStack>
   );
 };

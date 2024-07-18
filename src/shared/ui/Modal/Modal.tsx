@@ -8,7 +8,7 @@ import {
 } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Modal.module.scss";
-import { Portal } from "@/shared/ui/Portal/Portal";
+import { Portal } from "../Portal/Portal";
 
 const cx = classNamesBind(s);
 
