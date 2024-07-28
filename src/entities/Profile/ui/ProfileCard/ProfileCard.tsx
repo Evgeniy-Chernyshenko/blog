@@ -25,8 +25,8 @@ interface ProfileCardProps {
   onChangeCity?: (value: string) => void;
   onChangeUsername?: (value: string) => void;
   onChangeAvatar?: (value: string) => void;
-  onChangeCountry?: (country: Country | undefined) => void;
-  onChangeCurrency?: (currency: Currency | undefined) => void;
+  onChangeCountry?: (country: Country) => void;
+  onChangeCurrency?: (currency: Currency) => void;
   onSubmit: () => void;
 }
 

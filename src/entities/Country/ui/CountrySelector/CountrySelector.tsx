@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { Select, SelectOption } from "@/shared/ui/Select/Select";
 import { Country } from "../../model/types/country";
+import { ListBox, ListBoxOption } from "@/shared/ui/ListBox/ListBox";
 
-const options: SelectOption<Country>[] = [
+const options: ListBoxOption<Country>[] = [
   { value: Country.Russia, text: Country.Russia },
   { value: Country.Belarus, text: Country.Belarus },
   { value: Country.Ukrain, text: Country.Ukrain },
@@ -15,7 +15,7 @@ const options: SelectOption<Country>[] = [
 interface CountrySelectorProps {
   className?: string;
   value?: Country;
-  onChange?: (value: Country | undefined) => void;
+  onChange?: (value: Country) => void;
 }
 
 export const CountrySelector = memo(
@@ -23,12 +23,13 @@ export const CountrySelector = memo(
     const { t } = useTranslation("profile");
 
     return (
-      <Select
+      <ListBox
         options={options}
         value={value}
         onChange={onChange}
         className={classNames("", [className])}
         label={t("Выберите страну")}
+        defaultText={t("Выберите страну")}
       />
     );
   },

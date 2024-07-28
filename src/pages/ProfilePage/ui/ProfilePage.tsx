@@ -101,14 +101,14 @@ function ProfilePage() {
   );
 
   const handleChangeCountry = useCallback(
-    (value: Country | undefined) => {
+    (value: Country) => {
       dispatch(profileActions.setFormData({ country: value }));
     },
     [dispatch],
   );
 
   const handleChangeCurrency = useCallback(
-    (value: Currency | undefined) => {
+    (value: Currency) => {
       dispatch(profileActions.setFormData({ currency: value }));
     },
     [dispatch],
