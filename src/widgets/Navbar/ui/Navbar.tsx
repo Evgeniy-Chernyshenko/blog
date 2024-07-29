@@ -12,6 +12,8 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
+import { Dropdown } from "@/shared/ui/Dropdown/Dropdown";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
 
 const cx = classNamesBind(s);
 
@@ -50,9 +52,26 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
               <Button theme="background-inverted">{t("Создать статью")}</Button>
             </AppLink>
 
-            <Button theme="outlined-inverted" onClick={handleLogout}>
-              {t("Выйти")}
-            </Button>
+            <Dropdown
+              direction="rightBottom"
+              trigger={
+                <Avatar
+                  size={40}
+                  src={userAuthData.avatar}
+                  alt={userAuthData.username}
+                />
+              }
+              items={[
+                {
+                  text: t("Профиль"),
+                  href: `${appRoutes.profile.pathWithoutParams}/${userAuthData.id}`,
+                },
+                {
+                  text: t("Выйти"),
+                  onClick: handleLogout,
+                },
+              ]}
+            />
           </>
         ) : (
           <>

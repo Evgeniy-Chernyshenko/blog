@@ -48,4 +48,4 @@ export const Disabled = Template.bind({});
 Disabled.args = { disabled: true };
 
 export const DropdownDirectionTop = Template.bind({});
-DropdownDirectionTop.args = { dropdownDirection: "top" };
+DropdownDirectionTop.args = { direction: "leftTop" };

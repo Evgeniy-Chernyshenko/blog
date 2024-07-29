@@ -4,6 +4,7 @@ import { HStack } from "../Stack/HStack/HStack";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ListBox.module.scss";
 import { Button } from "../Button/Button";
+import { DropDownDirection } from "../../types/ui";
 
 const cx = classNamesBind(s);
 
@@ -13,8 +14,6 @@ export interface ListBoxOption<T> {
   disabled?: boolean;
 }
 
-type DropdownDirection = "bottom" | "top";
-
 interface ListBoxProps<T> {
   options: ListBoxOption<T>[];
   onChange?: (value: T) => void;
@@ -23,7 +22,7 @@ interface ListBoxProps<T> {
   disabled?: boolean;
   label?: string;
   className?: string;
-  dropdownDirection?: DropdownDirection;
+  direction?: DropDownDirection;
 }
 
 const Component = <T,>({
@@ -34,7 +33,7 @@ const Component = <T,>({
   disabled,
   label,
   className,
-  dropdownDirection = "bottom",
+  direction = "leftBottom",
 }: ListBoxProps<T>) => {
   const handleChange = useCallback(
     (option: ListBoxOption<T>) => {
@@ -63,7 +62,7 @@ const Component = <T,>({
           <Button>{selectedOption?.text ?? defaultText}</Button>
         </HListBox.Button>
 
-        <HListBox.Options className={cx("options", [dropdownDirection])}>
+        <HListBox.Options className={cx("options", [direction])}>
           {options.map((option, index) => (
             <HListBox.Option
               key={index}

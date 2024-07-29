@@ -27,7 +27,7 @@ export const CurrencySelector = memo(
         onChange={onChange}
         className={classNames("", [className])}
         label={t("Выберите валюту")}
-        dropdownDirection="top"
+        direction="leftTop"
       />
     );
   },
