@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import { Button } from "@/shared/ui/Button/Button";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { getUserAuthData } from "@/entities/User";
-import { getProfileData } from "@/entities/Profile";
 import { HStack } from "@/shared/ui/Stack/HStack/HStack";
+import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 
-interface ProfilePageHeaderProps {
+interface EditableProfileHeaderProps {
   onEditClick: () => void;
   onCancelClick: () => void;
   onSaveClick: () => void;
@@ -15,13 +15,13 @@ interface ProfilePageHeaderProps {
   isLoading: boolean;
 }
 
-export const ProfilePageHeader = ({
+export const EditableProfileHeader = ({
   onEditClick,
   onCancelClick,
   onSaveClick,
   readonly,
   isLoading,
-}: ProfilePageHeaderProps) => {
+}: EditableProfileHeaderProps) => {
   const { t } = useTranslation();
   const user = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);

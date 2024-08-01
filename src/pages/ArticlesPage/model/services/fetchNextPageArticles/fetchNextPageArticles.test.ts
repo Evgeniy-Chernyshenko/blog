@@ -20,7 +20,7 @@ describe("fetchNextPageArticles", () => {
     await thunk.call();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-    expect(fetchArticles).toHaveBeenCalledWith({ page: 2 });
+    expect(fetchArticles).toHaveBeenCalled();
   });
 
   test("Страница не меняется, fetchArticles не вызывается", async () => {

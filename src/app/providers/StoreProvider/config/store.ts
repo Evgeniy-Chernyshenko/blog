@@ -10,6 +10,7 @@ import { userReducer } from "@/entities/User";
 import { createReducerManager } from "./reducerManager";
 import { apiInstance } from "@/shared/api/apiInstance";
 import { pageWrapperReducer } from "@/widgets/PageWrapper";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 export const createReduxStore = (
   initialState?: StateSchema,
@@ -20,6 +21,7 @@ export const createReduxStore = (
     user: userReducer,
     pageWrapper: pageWrapperReducer,
     ...asyncReducers,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -33,7 +35,7 @@ export const createReduxStore = (
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: { extraArgument: thunkExtraArgument },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-ignore

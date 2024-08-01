@@ -9,17 +9,19 @@ import { AxiosInstance } from "axios";
 import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
 import { AuthByUsernameSchema } from "@/features/AuthByUsername";
-import { ProfileSchema } from "@/entities/Profile";
 import { ArticleSchema } from "@/entities/Article/model/types/articleSchema";
 import { AddCommentFormSchema } from "@/features/AddCommentForm";
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 import { PageWrapperSchema } from "@/widgets/PageWrapper";
 import { ArticlePageSchema } from "@/pages/ArticlePage";
+import { rtkApi } from "@/shared/api/rtkApi";
+import { ProfileSchema } from "@/features/EditableProfileCard/model/types/profile";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   pageWrapper: PageWrapperSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   authByUsername?: AuthByUsernameSchema;
   profile?: ProfileSchema;
   article?: ArticleSchema;

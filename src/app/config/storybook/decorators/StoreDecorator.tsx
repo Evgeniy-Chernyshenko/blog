@@ -2,10 +2,10 @@ import { Story } from "@storybook/react";
 import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { authByUsernameReducer } from "@/features/AuthByUsername";
-import { profileReducer } from "@/entities/Profile";
 import { articleReducer } from "@/entities/Article/model/slice/articleSlice";
 import { addCommentFormReducer } from "@/features/AddCommentForm/model/slice/addCommentFormSlice";
 import { articlePageReducer } from "@/pages/ArticlePage";
+import { profileReducer } from "@/features/EditableProfileCard/model/slice/profileSlice";
 
 const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
   {

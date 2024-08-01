@@ -1,28 +1,19 @@
-import { useSelector } from "react-redux";
 import { useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  articlesPageReducer,
-  getArticles,
-} from "../../model/slice/articlesPageSlice";
+import { articlesPageReducer } from "../../model/slice/articlesPageSlice";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from "../../model/selectors/articlesPageSelectors";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesPage.module.scss";
 import { fetchNextPageArticles } from "../../model/services/fetchNextPageArticles/fetchNextPageArticles";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { PageWrapper } from "@/widgets/PageWrapper";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
-import { ArticleList } from "@/entities/Article";
+import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
 
 const cx = classNamesBind(s);
 
@@ -30,10 +21,6 @@ const initialReducers: ReducersList = { articlesPage: articlesPageReducer };
 
 function ArticlesPage() {
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
   const [searchParams] = useSearchParams();
 
   useInitialEffect(() => {
@@ -51,12 +38,7 @@ function ArticlesPage() {
         <div className={cx("ArticlesPage")}>
           <ArticlesPageFilters />
 
-          <ArticleList
-            view={view}
-            articles={articles}
-            isLoading={isLoading}
-            error={error}
-          />
+          <ArticleInfiniteList />
         </div>
       </PageWrapper>
     </DynamicModuleLoader>

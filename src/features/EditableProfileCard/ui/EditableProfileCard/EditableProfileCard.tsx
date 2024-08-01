@@ -1,36 +1,37 @@
-import { useCallback } from "react";
-import { useSelector } from "react-redux";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  fetchProfileData,
-  getProfileError,
-  getProfileFormData,
-  getProfileIsLoading,
-  getProfileReadonly,
-  getProfileValidationErrors,
-  profileActions,
-  ProfileCard,
-  profileReducer,
-  updateProfileData,
-  ValidateProfileError,
-} from "@/entities/Profile";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { EditableProfileHeader } from "../EditableProfileHeader/EditableProfileHeader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
-import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
-import { PageWrapper } from "@/widgets/PageWrapper";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { profileActions, profileReducer } from "../../model/slice/profileSlice";
+import { getProfileFormData } from "../../model/selectors/getProfileFormData/getProfileFormData";
+import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
+import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
+import { getProfileValidationErrors } from "../../model/selectors/getProfileValidationErrors/getProfileValidationErrors";
+import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
+import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
+import { ValidateProfileError } from "../../model/types/profile";
+import { ProfileCard } from "@/entities/Profile";
+
+interface EditableProfileCardProps {
+  userId?: string;
+}
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
-function ProfilePage() {
+export const EditableProfileCard = memo(function EditableProfileCard({
+  userId,
+}: EditableProfileCardProps) {
   const dispatch = useAppDispatch();
   const prodileFormData = useSelector(getProfileFormData);
   const isLoading = useSelector(getProfileIsLoading);
@@ -38,7 +39,6 @@ function ProfilePage() {
   const readonly = useSelector(getProfileReadonly);
   const validationErrors = useSelector(getProfileValidationErrors);
   const { t } = useTranslation("profile");
-  const { id: userId } = useParams<{ id: string }>();
 
   useInitialEffect(() => {
     if (userId) {
@@ -127,43 +127,39 @@ function ProfilePage() {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <PageWrapper>
-        <VStack>
-          <ProfilePageHeader
-            isLoading={isLoading}
-            readonly={readonly}
-            onEditClick={handleEditClick}
-            onCancelClick={handleCancelClick}
-            onSaveClick={handleSaveClick}
-          />
+      <VStack>
+        <EditableProfileHeader
+          isLoading={isLoading}
+          readonly={readonly}
+          onEditClick={handleEditClick}
+          onCancelClick={handleCancelClick}
+          onSaveClick={handleSaveClick}
+        />
 
-          {validationErrors?.map((validationError) => (
-            <TextBlock
-              theme="error"
-              text={validationErrorTranslates[validationError]}
-              key={validationError}
-            />
-          ))}
-
-          <ProfileCard
-            data={prodileFormData}
-            error={error}
-            isLoading={isLoading}
-            readonly={readonly}
-            onChangeFirstName={handleChangeFirstName}
-            onChangeLastName={handleChangeLastName}
-            onChangeAge={handleChangeAge}
-            onChangeCity={handleChangeCity}
-            onChangeUsername={handleChangeUsername}
-            onChangeAvatar={handleChangeAvatar}
-            onChangeCountry={handleChangeCountry}
-            onChangeCurrency={handleChangeCurrency}
-            onSubmit={handleSaveClick}
+        {validationErrors?.map((validationError) => (
+          <TextBlock
+            theme="error"
+            text={validationErrorTranslates[validationError]}
+            key={validationError}
           />
-        </VStack>
-      </PageWrapper>
+        ))}
+
+        <ProfileCard
+          data={prodileFormData}
+          error={error}
+          isLoading={isLoading}
+          readonly={readonly}
+          onChangeFirstName={handleChangeFirstName}
+          onChangeLastName={handleChangeLastName}
+          onChangeAge={handleChangeAge}
+          onChangeCity={handleChangeCity}
+          onChangeUsername={handleChangeUsername}
+          onChangeAvatar={handleChangeAvatar}
+          onChangeCountry={handleChangeCountry}
+          onChangeCurrency={handleChangeCurrency}
+          onSubmit={handleSaveClick}
+        />
+      </VStack>
     </DynamicModuleLoader>
   );
-}
-
-export default ProfilePage;
+});
