@@ -22,7 +22,7 @@ export default {
           createdAt: "2022-02-26",
           type: ["it"],
           userId: "1",
-          user: { id: "1", username: "username1", avatar },
+          user: { id: "1", username: "username1", avatar, roles: [] },
           blocks: [
             {
               id: "1",

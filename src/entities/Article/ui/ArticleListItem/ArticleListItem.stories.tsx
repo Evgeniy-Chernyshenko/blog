@@ -4,6 +4,7 @@ import { Theme } from "@/app/providers/ThemeProvider";
 import { ArticleListItem } from "./ArticleListItem";
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { ArticleType } from "../../model/types/article";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 const article: ArticleType = {
   id: "1",
@@ -14,7 +15,7 @@ const article: ArticleType = {
   createdAt: "2022-02-26",
   type: ["it"],
   userId: "1",
-  user: { id: "1", username: "username1", avatar },
+  user: { id: "1", username: "username1", avatar, roles: [] },
   blocks: [
     {
       id: "1",
@@ -81,6 +82,7 @@ export default {
   title: "entities/Article/ArticleListItem",
   component: ArticleListItem,
   args: { article },
+  decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleListItem>;
 
 const Template: ComponentStory<typeof ArticleListItem> = (args) => (

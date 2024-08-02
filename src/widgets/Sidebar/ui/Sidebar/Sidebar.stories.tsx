@@ -4,12 +4,16 @@ import { Theme } from "@/app/providers/ThemeProvider";
 import { Sidebar } from "./Sidebar";
 import { ThemeProviderDecorator } from "@/app/config/storybook/decorators/ThemeProviderDecorator";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 export default {
   title: "widgets/Sidebar",
   component: Sidebar,
   decorators: [
-    StoreDecorator({ user: { authData: { id: "1", username: "John" } } }),
+    StoreDecorator({
+      user: { authData: { id: "1", username: "John", roles: [] } },
+    }),
+    RouterDecorator(),
   ],
 } as ComponentMeta<typeof Sidebar>;
 

@@ -5,11 +5,13 @@ import ProfilePage from "./ProfilePage";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 export default {
   title: "pages/ProfilePage",
   component: ProfilePage,
   decorators: [
+    RouterDecorator({ id: "1" }),
     StoreDecorator({
       profile: {
         form: {

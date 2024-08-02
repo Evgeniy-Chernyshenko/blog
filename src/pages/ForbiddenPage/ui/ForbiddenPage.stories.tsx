@@ -1,22 +1,22 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
 import { Theme } from "@/app/providers/ThemeProvider";
-import AboutPage from "./AboutPage";
+import ForbiddenPage from "./ForbiddenPage";
 import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
 
 export default {
-  title: "pages/AboutPage",
-  component: AboutPage,
+  title: "pages/ForbiddenPage",
+  component: ForbiddenPage,
   argTypes: {},
   decorators: [RouterDecorator(), StoreDecorator()],
-} as ComponentMeta<typeof AboutPage>;
+} as ComponentMeta<typeof ForbiddenPage>;
 
-const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
+const Template: ComponentStory<typeof ForbiddenPage> = () => <ForbiddenPage />;
 
-export const AboutPageLight = Template.bind({});
-AboutPageLight.args = {};
+export const ForbiddenPageLight = Template.bind({});
+ForbiddenPageLight.args = {};
 
-export const AboutPageDark = Template.bind({});
-AboutPageDark.args = {};
-AboutPageDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const ForbiddenPageDark = Template.bind({});
+ForbiddenPageDark.args = {};
+ForbiddenPageDark.decorators = [ThemeDecorator(Theme.DARK)];

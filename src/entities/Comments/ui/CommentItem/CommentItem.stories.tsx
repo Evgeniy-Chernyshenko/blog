@@ -3,6 +3,7 @@ import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator
 import { Theme } from "@/app/providers/ThemeProvider";
 import { CommentItem } from "./CommentItem";
 import avatar from "@/shared/assets/tests/avatar.jpg";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 export default {
   title: "entities/CommentItem",
@@ -11,9 +12,10 @@ export default {
     data: {
       id: "1",
       text: "Comment 1",
-      user: { id: "1", username: "username1", avatar },
+      user: { id: "1", username: "username1", avatar, roles: [] },
     },
   },
+  decorators: [RouterDecorator()],
 } as ComponentMeta<typeof CommentItem>;
 
 const Template: ComponentStory<typeof CommentItem> = (args) => (

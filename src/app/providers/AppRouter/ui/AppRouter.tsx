@@ -12,7 +12,13 @@ export const AppRouter = memo(function AppRouter() {
       <Route
         key={appRoute.path}
         {...restAppRoute}
-        element={authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+        element={
+          authOnly ? (
+            <RequireAuth roles={appRoute.roles}>{element}</RequireAuth>
+          ) : (
+            element
+          )
+        }
       />
     );
   };

@@ -4,11 +4,13 @@ import { Theme } from "@/app/providers/ThemeProvider";
 import ArticlePage from "./ArticlePage";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
 import avatar from "@/shared/assets/tests/avatar.jpg";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 export default {
   title: "pages/ArticlePage",
   component: ArticlePage,
   decorators: [
+    RouterDecorator({ id: "1" }),
     StoreDecorator({
       article: {
         isLoading: false,
@@ -22,7 +24,7 @@ export default {
           createdAt: "2022-02-26",
           type: ["it"],
           userId: "1",
-          user: { id: "1", username: "username1", avatar },
+          user: { id: "1", username: "username1", avatar, roles: [] },
           blocks: [
             {
               id: "1",

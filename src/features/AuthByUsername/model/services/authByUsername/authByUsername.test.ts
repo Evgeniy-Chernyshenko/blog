@@ -44,7 +44,7 @@ describe("authByUsername", () => {
   test("Возвращаются корректные данные", async () => {
     const thunk = new TestAsyncThunk(authByUsername);
 
-    const mockedReturnValue = { id: "1", username: "John" };
+    const mockedReturnValue = { id: "1", username: "John", roles: [] };
     thunk.mockedApi.post.mockResolvedValue({ data: mockedReturnValue });
 
     const result = await thunk.call({ username: "John", password: "password" });

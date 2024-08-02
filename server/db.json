@@ -28,13 +28,20 @@
       "id": "1",
       "username": "john",
       "password": "password",
-      "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user"
+      "avatar": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1718496000&semt=ais_user",
+      "roles": [
+        "admin",
+        "manager"
+      ]
     },
     {
       "id": "2",
       "username": "katty",
       "password": "password",
-      "avatar": "https://bigpicture.ru/wp-content/uploads/2014/12/luchshie-foto-nedeli-v-dek-2014-0.jpg"
+      "avatar": "https://bigpicture.ru/wp-content/uploads/2014/12/luchshie-foto-nedeli-v-dek-2014-0.jpg",
+      "roles": [
+        "user"
+      ]
     }
   ],
   "articles": [
@@ -747,6 +754,48 @@
       "articleId": "5",
       "userId": "1",
       "id": "b01Rb9J"
+    },
+    {
+      "text": "111",
+      "articleId": "5",
+      "userId": "1",
+      "id": "vJO0Luv"
+    },
+    {
+      "text": "hello",
+      "articleId": "5",
+      "userId": "1",
+      "id": "-evDN8B"
+    },
+    {
+      "text": "hehehe",
+      "articleId": "5",
+      "userId": "1",
+      "id": "7JmJag3"
+    },
+    {
+      "text": "heheheh",
+      "articleId": "5",
+      "userId": "1",
+      "id": "rjqn904"
+    },
+    {
+      "text": "nono",
+      "articleId": "5",
+      "userId": "1",
+      "id": "0kTAuXE"
+    },
+    {
+      "text": "nenenene",
+      "articleId": "5",
+      "userId": "1",
+      "id": "WIoUD7Y"
+    },
+    {
+      "text": "1111",
+      "articleId": "5",
+      "userId": "1",
+      "id": "GrTFwwE"
     }
   ]
 }

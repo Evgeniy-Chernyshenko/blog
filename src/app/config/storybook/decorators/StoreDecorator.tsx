@@ -6,6 +6,7 @@ import { articleReducer } from "@/entities/Article/model/slice/articleSlice";
 import { addCommentFormReducer } from "@/features/AddCommentForm/model/slice/addCommentFormSlice";
 import { articlePageReducer } from "@/pages/ArticlePage";
 import { profileReducer } from "@/features/EditableProfileCard/model/slice/profileSlice";
+import { pageWrapperReducer } from "@/widgets/PageWrapper";
 
 const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
   {
@@ -14,6 +15,7 @@ const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
     article: articleReducer,
     addCommentForm: addCommentFormReducer,
     articlePage: articlePageReducer,
+    pageWrapper: pageWrapperReducer,
   };
 
 export const StoreDecorator =

@@ -3,12 +3,13 @@ import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator
 import { Theme } from "@/app/providers/ThemeProvider";
 import { Navbar } from "./Navbar";
 import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 export default {
   title: "widgets/Navbar",
   component: Navbar,
   argTypes: {},
-  decorators: [StoreDecorator()],
+  decorators: [StoreDecorator(), RouterDecorator()],
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
@@ -20,5 +21,7 @@ NavbarDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const WithLogin = Template.bind({});
 WithLogin.decorators = [
-  StoreDecorator({ user: { authData: { id: "1", username: "John" } } }),
+  StoreDecorator({
+    user: { authData: { id: "1", username: "John", roles: [] } },
+  }),
 ];

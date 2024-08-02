@@ -7,12 +7,16 @@ import { ProfilePageLazy } from "@/pages/ProfilePage";
 import { ArticlesPageLazy } from "@/pages/ArticlesPage";
 import { ArticlePageLazy } from "@/pages/ArticlePage";
 import { ArticleEditPageLazy } from "@/pages/ArticleEditPage";
+import { UserRole } from "@/entities/User";
+import { AdminPanelPageLazy } from "@/pages/AdminPanelPage";
+import { ForbiddenPageLazy } from "@/pages/ForbiddenPage";
 
 export interface AppRouteObject extends RouteObject {
   path: string;
   pathWithoutParams?: string;
   element: ReactElement;
   authOnly?: boolean;
+  roles?: UserRole[];
 }
 
 export const nonTypedAppRoutes = {
@@ -44,6 +48,16 @@ export const nonTypedAppRoutes = {
     path: "/articles/new",
     element: <ArticleEditPageLazy />,
     authOnly: true,
+  },
+  adminPanel: {
+    path: "/admin",
+    element: <AdminPanelPageLazy />,
+    authOnly: true,
+    roles: ["admin", "manager"] as UserRole[],
+  },
+  forbidden: {
+    path: "/forbidden",
+    element: <ForbiddenPageLazy />,
   },
   notFound: { path: "*", element: <NotFoundPage /> },
 };

@@ -7,7 +7,7 @@ import { Button } from "@/shared/ui/Button/Button";
 import { LoginModal } from "@/features/AuthByUsername";
 import { getUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
 import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
-import { userActions } from "@/entities/User";
+import { isUserAdmin, isUserManager, userActions } from "@/entities/User";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
@@ -26,6 +26,8 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const userAuthData = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const handleOpenLoginModal = useCallback(() => {
     setIsOpenLoginModal(true);
@@ -62,6 +64,14 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
                 />
               }
               items={[
+                ...(isAdmin || isManager
+                  ? [
+                      {
+                        text: t("Админка"),
+                        href: `${appRoutes.adminPanel.path}`,
+                      },
+                    ]
+                  : []),
                 {
                   text: t("Профиль"),
                   href: `${appRoutes.profile.pathWithoutParams}/${userAuthData.id}`,

@@ -32,7 +32,7 @@ const componentRenderOptions: ComponentRenderOptions = {
       readonly: true,
       validationErrors: [],
     },
-    user: { authData: { id: profileData.id, username: "john" } },
+    user: { authData: { id: profileData.id, username: "john", roles: [] } },
   },
   asyncReducers: { profile: profileReducer },
 };

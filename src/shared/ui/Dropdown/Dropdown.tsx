@@ -48,15 +48,17 @@ export const Dropdown = memo(function Dropdown({
           <Menu.Item key={index} as={Fragment} disabled={item.disabled}>
             {({ active }) =>
               item.href ? (
-                <AppLink
-                  to={item.href}
-                  className={cx("item", { active, disabled: item.disabled })}
-                  onClick={
-                    item.disabled ? (e) => e.preventDefault() : undefined
-                  }
-                >
-                  {item.text}
-                </AppLink>
+                <>
+                  <AppLink
+                    to={item.href}
+                    className={cx("item", { active, disabled: item.disabled })}
+                    onClick={
+                      item.disabled ? (e) => e.preventDefault() : undefined
+                    }
+                  >
+                    {item.text}
+                  </AppLink>
+                </>
               ) : (
                 <button
                   className={cx("item", { active, disabled: item.disabled })}
