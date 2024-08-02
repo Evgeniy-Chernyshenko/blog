@@ -11,7 +11,7 @@ import {
 import { PageWrapper } from "@/widgets/PageWrapper";
 import { articlePageReducer } from "../../model/slices";
 import { ArticlePageHeader } from "../ArticlePageHeader/ArticlePageHeader";
-import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
+import { ArticleRecommendationsList } from "@/features/ArticleRecommendationsList";
 import { ArticleComments } from "../ArticleComments/ArticleComments";
 
 const cx = classNamesBind(s);

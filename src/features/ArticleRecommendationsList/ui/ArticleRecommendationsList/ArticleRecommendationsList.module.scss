@@ -1,0 +1,7 @@
+.recommendations {
+  grid-template-columns: 230px;
+  grid-auto-flow: column;
+  grid-auto-columns: 230px;
+  overflow: auto hidden;
+  padding-bottom: 10px;
+}

@@ -19,6 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
+  dataTestId?: string;
 }
 
 export const Button = memo(function Button({
@@ -26,10 +27,17 @@ export const Button = memo(function Button({
   theme = "primary",
   square = false,
   size = "m",
+  dataTestId,
   ...restProps
 }: ButtonProps) {
   const mods = { square };
   const additional = [className, theme, size];
 
-  return <button className={cx("Button", mods, additional)} {...restProps} />;
+  return (
+    <button
+      data-testid={dataTestId}
+      className={cx("Button", mods, additional)}
+      {...restProps}
+    />
+  );
 });

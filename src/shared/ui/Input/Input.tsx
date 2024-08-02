@@ -22,6 +22,7 @@ interface InputProps<T extends "string" | "number" | "password" = "string">
   type?: T;
   className?: string;
   onChange?: (value: T extends "number" ? number | undefined : string) => void;
+  dataTestId?: string;
 }
 
 const CHARACTER_WIDTH = 8.797;
@@ -37,6 +38,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
     readOnly,
     type,
     value,
+    dataTestId,
     ...restProps
   }: InputProps<T>,
   ref: Ref<HTMLInputElement>,
@@ -110,6 +112,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
           ref={inputRef}
           value={value}
           type={inputTypeArg}
+          data-testid={dataTestId}
           {...restProps}
         />
 

@@ -24,7 +24,7 @@ import { ValidateProfileError } from "../../model/types/profile";
 import { ProfileCard } from "@/entities/Profile";
 
 interface EditableProfileCardProps {
-  userId?: string;
+  userId: string;
 }
 
 const initialReducers: ReducersList = { profile: profileReducer };
@@ -141,6 +141,7 @@ export const EditableProfileCard = memo(function EditableProfileCard({
             theme="error"
             text={validationErrorTranslates[validationError]}
             key={validationError}
+            dataTestId="EditableProfileHeader.Error"
           />
         ))}
 

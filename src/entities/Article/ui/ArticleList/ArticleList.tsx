@@ -18,6 +18,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   error?: string;
   target?: HTMLAttributeAnchorTarget;
+  virtualized?: boolean;
 }
 
 export const ArticleList = memo(function ArticleList({
@@ -27,6 +28,7 @@ export const ArticleList = memo(function ArticleList({
   isLoading = false,
   error,
   target,
+  virtualized = false,
 }: ArticleListProps) {
   const { t } = useTranslation("articles");
 
@@ -90,17 +92,30 @@ export const ArticleList = memo(function ArticleList({
       }) => {
         return (
           <div ref={registerChild} className={cx("ArticleList", [className])}>
-            <List
-              width={width ? width - 40 - 12 : 700}
-              height={height || 700}
-              rowHeight={isBig ? 593.6 : 368}
-              rowCount={rowCount}
-              rowRenderer={rowRenderer}
-              autoHeight
-              onScroll={onChildScroll}
-              isScrolling={isScrolling}
-              scrollTop={scrollTop}
-            />
+            {virtualized ? (
+              <List
+                width={width ? width - 40 - 12 : 700}
+                height={height || 700}
+                rowHeight={isBig ? 593.6 : 368}
+                rowCount={rowCount}
+                rowRenderer={rowRenderer}
+                autoHeight
+                onScroll={onChildScroll}
+                isScrolling={isScrolling}
+                scrollTop={scrollTop}
+              />
+            ) : (
+              <div className={cx("row", [view])}>
+                {articles.map((article) => (
+                  <ArticleListItem
+                    article={article}
+                    view={view}
+                    target={target}
+                    key={article.id}
+                  />
+                ))}
+              </div>
+            )}
 
             {isLoading && (
               <div className={cx("row", [view])}>

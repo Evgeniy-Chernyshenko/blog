@@ -91,12 +91,14 @@ export const ProfileCard = ({
                   placeholder={t("Ваше имя")}
                   value={data.firstName}
                   onChange={onChangeFirstName}
+                  dataTestId="ProfileCard.firstName"
                 />
 
                 <Input
                   placeholder={t("Ваша фамилия")}
                   value={data.lastName}
                   onChange={onChangeLastName}
+                  dataTestId="ProfileCard.lastName"
                 />
 
                 <Input

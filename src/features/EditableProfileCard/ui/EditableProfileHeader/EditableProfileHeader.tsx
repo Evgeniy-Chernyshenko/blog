@@ -35,13 +35,27 @@ export const EditableProfileHeader = ({
       {canEdit && (
         <fieldset disabled={isLoading}>
           {readonly ? (
-            <Button onClick={onEditClick}>{t("Редактировать")}</Button>
+            <Button
+              onClick={onEditClick}
+              dataTestId="EditableProfileHeader.EditButton"
+            >
+              {t("Редактировать")}
+            </Button>
           ) : (
             <HStack>
-              <Button onClick={onCancelClick} theme="outlined-red">
+              <Button
+                onClick={onCancelClick}
+                theme="outlined-red"
+                dataTestId="EditableProfileHeader.CancelButton"
+              >
                 {t("Отменить")}
               </Button>
-              <Button onClick={onSaveClick}>{t("Сохранить")}</Button>
+              <Button
+                onClick={onSaveClick}
+                dataTestId="EditableProfileHeader.SaveButton"
+              >
+                {t("Сохранить")}
+              </Button>
             </HStack>
           )}
         </fieldset>

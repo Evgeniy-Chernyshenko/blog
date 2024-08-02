@@ -13,6 +13,7 @@ interface TextBlockProps {
   align?: "left" | "center" | "right";
   className?: string;
   size?: TextBlockSize;
+  dataTestId?: string;
 }
 
 type HeaderTag = "h1" | "h2" | "h3";
@@ -30,13 +31,25 @@ export const TextBlock = memo(function TextBlock({
   align = "left",
   className,
   size = "m",
+  dataTestId,
 }: TextBlockProps) {
   const HeaderTag = mapSizeToHeaderTag[size];
 
   return (
     <div className={cx("TextBlock", [className, theme, align, `size-${size}`])}>
-      {title && <HeaderTag className={cx("title")}>{title}</HeaderTag>}
-      {text && <p className={cx("text")}>{text}</p>}
+      {title && (
+        <HeaderTag
+          data-testid={dataTestId ? `${dataTestId}.Header` : undefined}
+          className={cx("title")}
+        >
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p data-testid={`${dataTestId}.Text`} className={cx("text")}>
+          {text}
+        </p>
+      )}
     </div>
   );
 });

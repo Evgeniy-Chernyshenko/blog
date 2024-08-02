@@ -7,7 +7,7 @@ function ProfilePage() {
 
   return (
     <PageWrapper>
-      <EditableProfileCard userId={userId} />
+      {userId ? <EditableProfileCard userId={userId} /> : null}
     </PageWrapper>
   );
 }

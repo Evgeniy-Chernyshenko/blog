@@ -27,6 +27,7 @@ export const ArticleInfiniteList = memo(function ArticleInfiniteList({
       isLoading={isLoading}
       error={error}
       className={className}
+      virtualized
     />
   );
 });

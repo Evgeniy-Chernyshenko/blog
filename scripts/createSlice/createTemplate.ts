@@ -7,7 +7,7 @@ export const createTemplate = (
   slice: string,
   sliceLower: string,
 ) => {
-  const pathPrefix = `src/${layer}/${sliceLower}`;
+  const pathPrefix = `src/${layer}/${slice}`;
 
   createModel(pathPrefix, slice, sliceLower);
   createUI(pathPrefix, slice, sliceLower);
