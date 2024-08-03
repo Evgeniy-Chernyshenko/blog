@@ -6,7 +6,7 @@ import s from "./ArticlesPageFilters.module.scss";
 import { LOCALSTORAGE_ARTICLES_VIEW_KEY } from "@/shared/constants/localStorage";
 import { articlesPageActions } from "../../model/slice/articlesPageSlice";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { ArticlesViewSelector } from "@/features/ArticlesViewSelector/ui/ArticlesViewSelector";
+import { ArticlesViewSelector } from "@/features/ArticlesViewSelector";
 import {
   getArticlesPageSearch,
   getArticlesPageSortDirection,

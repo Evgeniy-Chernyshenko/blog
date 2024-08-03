@@ -13,7 +13,8 @@
       "@/*": ["src/*"]
       // "*": ["src/app/types/*.d.ts"]
     },
-    "strict": true
+    "strict": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

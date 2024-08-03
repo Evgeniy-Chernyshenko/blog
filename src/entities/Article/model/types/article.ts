@@ -42,9 +42,3 @@ export interface ArticleType {
 }
 
 export type ArticleView = "grid" | "list";
-
-export enum ArticleSortField {
-  TITLE = "title",
-  VIEWS = "views",
-  CREATED_AT = "createdAt",
-}

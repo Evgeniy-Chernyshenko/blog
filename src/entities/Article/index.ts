@@ -1,9 +1,9 @@
 export { Article } from "./ui/Article/Article";
 export { getArticleData } from "./model/selectors/articleSelectors";
-export {
+export type {
   ArticleView,
   ArticleType,
-  ArticleSortField,
   ArticleTag,
 } from "./model/types/article";
+export { ArticleSortField } from "./model/constants";
 export { ArticleList } from "./ui/ArticleList/ArticleList";
