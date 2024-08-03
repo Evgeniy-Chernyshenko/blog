@@ -26,8 +26,10 @@ export const SidebarNavItem = memo(function SidebarNavItem({
       to={item.path}
       theme="inverted"
     >
-      <item.Icon />
-      {!collapsed && t(item.text)}
+      <>
+        <item.Icon />
+        {!collapsed && t(item.text)}
+      </>
     </AppLink>
   );
 });

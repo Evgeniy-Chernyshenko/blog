@@ -7,7 +7,7 @@ import avatar from "@/shared/assets/tests/avatar.jpg";
 import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 
 export default {
-  title: "pages/ArticlePage",
+  title: "pages/ArticlePage/ArticlePage",
   component: ArticlePage,
   decorators: [
     RouterDecorator({ id: "1" }),

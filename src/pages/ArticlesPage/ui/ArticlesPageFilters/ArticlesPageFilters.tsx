@@ -18,7 +18,7 @@ import { Card } from "@/shared/ui/Card/Card";
 import { Input } from "@/shared/ui/Input/Input";
 import { ArticlesSortSelectors } from "@/features/ArticlesSortSelectors";
 import { SortDirection } from "@/shared/types";
-import { ArticleSortField, ArticleTag } from "@/entities/Article";
+import { ArticleSortField, ArticleTag, ArticleView } from "@/entities/Article";
 import { fetchArticles } from "../../model/services/fetchArticles/fetchArticles";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
 import { ArticlesTags } from "@/features/ArticlesTags";
@@ -46,7 +46,7 @@ export const ArticlesPageFilters = memo(function ArticlesPageFilter({
   const debouncedFetchData = useDebounce(fetchData);
 
   const handleChangeView = useCallback(
-    (view) => {
+    (view: ArticleView) => {
       localStorage.setItem(LOCALSTORAGE_ARTICLES_VIEW_KEY, view);
 
       dispatch(articlesPageActions.setView(view));

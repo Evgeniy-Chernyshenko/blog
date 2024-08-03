@@ -1,4 +1,3 @@
-import { RouteObject } from "react-router-dom";
 import { ReactElement } from "react";
 import { AboutPageLazy } from "@/pages/AboutPage";
 import { HomePageLazy } from "@/pages/HomePage";
@@ -11,7 +10,7 @@ import { UserRole } from "@/entities/User";
 import { AdminPanelPageLazy } from "@/pages/AdminPanelPage";
 import { ForbiddenPageLazy } from "@/pages/ForbiddenPage";
 
-export interface AppRouteObject extends RouteObject {
+export interface AppRouteObject {
   path: string;
   pathWithoutParams?: string;
   element: ReactElement;

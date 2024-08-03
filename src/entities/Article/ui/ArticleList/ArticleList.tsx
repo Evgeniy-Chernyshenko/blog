@@ -91,6 +91,7 @@ export const ArticleList = memo(function ArticleList({
         registerChild,
       }) => {
         return (
+          // @ts-ignore
           <div ref={registerChild} className={cx("ArticleList", [className])}>
             {virtualized ? (
               <List

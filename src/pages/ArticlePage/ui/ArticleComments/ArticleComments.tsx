@@ -10,6 +10,7 @@ import { fetchComments } from "../../model/services/fetchComments/fetchComments"
 import { getArticleComments } from "../../model/slices/articleCommentsSlice";
 import { getArticleCommentsIsLoading } from "../../model/selectors/articleComments";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
+import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 
 interface ArticleCommentsProps {
   id: string;
@@ -47,12 +48,12 @@ export const ArticleComments = memo(function ArticleComments({
   );
 
   return (
-    <>
+    <VStack gap={16}>
       <TextBlock title={t("Комментарии")} />
 
       <AddCommentFormLazy onSubmit={handleSubmitComment} />
 
       <CommentList comments={comments} isLoading={commentsIsLoading} />
-    </>
+    </VStack>
   );
 });

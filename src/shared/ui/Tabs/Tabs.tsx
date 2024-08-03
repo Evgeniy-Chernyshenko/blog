@@ -24,7 +24,7 @@ export const Component = function Tabs<T extends string | number>({
   className,
 }: TabsProps<T>) {
   const handleTabItemClick = useCallback(
-    (value) => () => {
+    (value: T) => () => {
       onChange(value);
     },
     [onChange],
