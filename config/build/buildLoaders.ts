@@ -1,26 +1,16 @@
 import { RuleSetRule } from "webpack";
+import { buildBabelLoader } from "./loaders/buildBabelLoader";
 import { buildCssLoader } from "./loaders/buildCssLoader";
 
 export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
-  const babelLoader = {
-    test: /\.[jt]sx?$/,
-    exclude: /node_modules/,
-    use: {
-      loader: "babel-loader",
-      options: {
-        presets: ["@babel/preset-env"],
-        plugins: [isDev && require.resolve("react-refresh/babel")].filter(
-          Boolean,
-        ),
-      },
-    },
-  };
+  const babelCodeLoader = buildBabelLoader({ isDev, isTsx: false });
+  const babelTsxLoader = buildBabelLoader({ isDev, isTsx: true });
 
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
-    exclude: /node_modules/,
-  };
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: "ts-loader",
+  //   exclude: /node_modules/,
+  // };
 
   const cssLoader = buildCssLoader(isDev);
 
@@ -39,5 +29,11 @@ export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
     use: ["@svgr/webpack"],
   };
 
-  return [babelLoader, typescriptLoader, cssLoader, fileLoader, svgLoader];
+  return [
+    babelCodeLoader,
+    babelTsxLoader,
+    /* typescriptLoader, */ cssLoader,
+    fileLoader,
+    svgLoader,
+  ];
 };
