@@ -1,12 +1,14 @@
-.content {
+.content-container {
   position: absolute;
-  display: flex;
-  flex-direction: column;
   z-index: var(--z-dropdown-items);
   background-color: var(--card-bg);
   border-radius: 10px;
   border: 1px solid var(--primary-color);
-  overflow: hidden;
   transform: translateY(10px);
+  overflow: hidden;
+}
+
+.content {
   padding: 10px 15px;
+  overflow-y: auto;
 }

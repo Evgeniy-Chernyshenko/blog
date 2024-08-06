@@ -22,15 +22,15 @@ export const Popover = memo(function Popover({
   className,
 }: PopoverProps) {
   return (
-    <HPopover as="div" className={cx(popupStyles.popup, [className])}>
+    <HPopover as="div" className={cx(popupStyles.popup)}>
       <HPopover.Button as="div" className={popupStyles.trigger}>
         {trigger}
       </HPopover.Button>
 
       <HPopover.Panel
-        className={cx("content", [mapDirectionToClass[direction]])}
+        className={cx("content-container", [mapDirectionToClass[direction]])}
       >
-        {content}
+        <div className={cx("content", [className])}>{content}</div>
       </HPopover.Panel>
     </HPopover>
   );

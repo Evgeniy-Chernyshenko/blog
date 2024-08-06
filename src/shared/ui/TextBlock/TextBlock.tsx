@@ -39,6 +39,7 @@ export const TextBlock = memo(function TextBlock({
     <div className={cx("TextBlock", [className, theme, align, `size-${size}`])}>
       {title && (
         <HeaderTag
+          // {...(dataTestId && { dataTestId: `${dataTestId}.Header` })}
           data-testid={dataTestId ? `${dataTestId}.Header` : undefined}
           className={cx("title")}
         >
@@ -46,7 +47,11 @@ export const TextBlock = memo(function TextBlock({
         </HeaderTag>
       )}
       {text && (
-        <p data-testid={`${dataTestId}.Text`} className={cx("text")}>
+        <p
+          // {...(dataTestId && { dataTestId: `${dataTestId}.Text` })}
+          data-testid={dataTestId ? `${dataTestId}.Text` : undefined}
+          className={cx("text")}
+        >
           {text}
         </p>
       )}
