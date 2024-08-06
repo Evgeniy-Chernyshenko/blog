@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { Currency } from "../../model/types/currency";
-import { ListBox, ListBoxOption } from "@/shared/ui/ListBox/ListBox";
+import { ListBox, ListBoxOption } from "@/shared/ui/Popups";
 
 const options: ListBoxOption<Currency>[] = [
   { value: Currency.RUB, text: Currency.RUB },

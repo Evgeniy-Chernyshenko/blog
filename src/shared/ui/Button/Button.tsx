@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo } from "react";
+import { ButtonHTMLAttributes, forwardRef, memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Button.module.scss";
 
@@ -22,22 +22,28 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   dataTestId?: string;
 }
 
-export const Button = memo(function Button({
-  className,
-  theme = "primary",
-  square = false,
-  size = "m",
-  dataTestId,
-  ...restProps
-}: ButtonProps) {
-  const mods = { square };
-  const additional = [className, theme, size];
+export const Button = memo(
+  forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+    {
+      className,
+      theme = "primary",
+      square = false,
+      size = "m",
+      dataTestId,
+      ...restProps
+    }: ButtonProps,
+    ref,
+  ) {
+    const mods = { square };
+    const additional = [className, theme, size];
 
-  return (
-    <button
-      data-testid={dataTestId}
-      className={cx("Button", mods, additional)}
-      {...restProps}
-    />
-  );
-});
+    return (
+      <button
+        ref={ref}
+        data-testid={dataTestId}
+        className={cx("Button", mods, additional)}
+        {...restProps}
+      />
+    );
+  }),
+);

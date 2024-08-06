@@ -1,0 +1,37 @@
+.popup {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  cursor: pointer;
+}
+
+.rightBottom {
+  right: 0;
+}
+
+.leftTop {
+  bottom: 100%;
+  transform: translateY(-10px);
+}
+
+.leftBottom {
+  left: 0;
+}
+
+.rightTop {
+  right: 0;
+  bottom: 100%;
+  transform: translateY(-10px);
+}
+
+.active {
+  background-color: var(--inverted-secondary-color);
+}
+
+.disabled,
+.disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

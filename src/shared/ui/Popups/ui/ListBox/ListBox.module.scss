@@ -1,50 +1,20 @@
-.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.ListBox {
-  position: relative;
-}
-
 .options {
   position: absolute;
+  overflow: hidden;
   background-color: var(--listbox-bg);
   min-width: 100%;
   list-style: none;
   box-shadow: 4px 4px 8px var(--listbox-bg);
   border-radius: 10px;
   z-index: var(--z-list-box-options);
-
-  &.rightBottom {
-    right: 0;
-  }
-
-  &.leftTop {
-    bottom: 100%;
-  }
-
-  &.rightTop {
-    right: 0;
-    bottom: 100%;
-  }
 }
 
 .option {
   cursor: pointer;
   padding: 5px 10px;
 
-  &.active {
-    background-color: var(--inverted-secondary-color);
-  }
-
   &.selected {
     color: var(--primary-color);
     background-color: var(--inverted-primary-color);
-  }
-
-  &.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
   }
 }

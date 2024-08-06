@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { forwardRef, memo } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./AppLink.module.scss";
@@ -11,10 +11,17 @@ interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme;
 }
 
-export const AppLink = memo(function AppLink({
-  className,
-  theme = "primary",
-  ...restProps
-}: AppLinkProps) {
-  return <Link className={cx("AppLink", [className, theme])} {...restProps} />;
-});
+export const AppLink = memo(
+  forwardRef<HTMLAnchorElement, AppLinkProps>(function AppLink(
+    { className, theme = "primary", ...restProps }: AppLinkProps,
+    ref,
+  ) {
+    return (
+      <Link
+        ref={ref}
+        className={cx("AppLink", [className, theme])}
+        {...restProps}
+      />
+    );
+  }),
+);

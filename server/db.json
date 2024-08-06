@@ -797,5 +797,40 @@
       "userId": "1",
       "id": "GrTFwwE"
     }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Описание уведомления 1",
+      "link": "http://localhost:3000/admin",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Описание уведомления 1",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Описание уведомления 3",
+      "link": "http://localhost:3000/admin",
+      "userId": "1"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление для Кетти 1",
+      "description": "Описание уведомления для Кетти 1",
+      "link": "http://localhost:3000/admin",
+      "userId": "2"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление для Кетти 2",
+      "description": "Описание уведомления для Кетти 2",
+      "userId": "2"
+    }
   ]
 }

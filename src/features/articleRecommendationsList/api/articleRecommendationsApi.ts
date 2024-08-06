@@ -12,7 +12,6 @@ export const articleRecommendationsApi = rtkApi.injectEndpoints({
       }),
     }),
   }),
-  overrideExisting: false,
 });
 
 export const { useGetArticleRecommendationsListQuery } =

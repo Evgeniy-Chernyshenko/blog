@@ -6,14 +6,12 @@ import s from "./Navbar.module.scss";
 import { Button } from "@/shared/ui/Button/Button";
 import { LoginModal } from "@/features/AuthByUsername";
 import { getUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
-import { LOCALSTORAGE_USER_KEY } from "@/shared/constants/localStorage";
-import { isUserAdmin, isUserManager, userActions } from "@/entities/User";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
-import { Dropdown } from "@/shared/ui/Dropdown/Dropdown";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { HStack } from "@/shared/ui/Stack/HStack/HStack";
+import { NotificationsButton } from "@/features/NotificationsButton";
+import { AvatarDropdown } from "@/features/AvatarDropdown";
 
 const cx = classNamesBind(s);
 
@@ -25,9 +23,6 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation();
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const userAuthData = useSelector(getUserAuthData);
-  const dispatch = useAppDispatch();
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
 
   const handleOpenLoginModal = useCallback(() => {
     setIsOpenLoginModal(true);
@@ -36,12 +31,6 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
   const handleCloseLoginModal = useCallback(() => {
     setIsOpenLoginModal(false);
   }, []);
-
-  const handleLogout = useCallback(() => {
-    localStorage.removeItem(LOCALSTORAGE_USER_KEY);
-
-    dispatch(userActions.setAuthData(null));
-  }, [dispatch]);
 
   return (
     <header className={cx("Navbar", [className])}>
@@ -54,34 +43,10 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
               <Button theme="background-inverted">{t("Создать статью")}</Button>
             </AppLink>
 
-            <Dropdown
-              direction="rightBottom"
-              trigger={
-                <Avatar
-                  size={40}
-                  src={userAuthData.avatar}
-                  alt={userAuthData.username}
-                />
-              }
-              items={[
-                ...(isAdmin || isManager
-                  ? [
-                      {
-                        text: t("Админка"),
-                        href: `${appRoutes.adminPanel.path}`,
-                      },
-                    ]
-                  : []),
-                {
-                  text: t("Профиль"),
-                  href: `${appRoutes.profile.pathWithoutParams}/${userAuthData.id}`,
-                },
-                {
-                  text: t("Выйти"),
-                  onClick: handleLogout,
-                },
-              ]}
-            />
+            <HStack gap={16}>
+              <NotificationsButton />
+              <AvatarDropdown />
+            </HStack>
           </>
         ) : (
           <>

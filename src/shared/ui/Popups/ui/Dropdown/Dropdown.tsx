@@ -2,8 +2,10 @@ import { Fragment, memo, ReactNode } from "react";
 import { Menu } from "@headlessui/react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Dropdown.module.scss";
-import { AppLink } from "../AppLink/AppLink";
-import { DropDownDirection } from "../../types/ui";
+import { AppLink } from "../../../AppLink/AppLink";
+import { DropDownDirection } from "../../types";
+import popupStyles from "../../styles/index.module.scss";
+import { mapDirectionToClass } from "../../styles/mapDirectionToClass";
 
 const cx = classNamesBind(s);
 
@@ -38,30 +40,34 @@ export const Dropdown = memo(function Dropdown({
   className,
 }: DropdownProps) {
   return (
-    <Menu as="div" className={cx("Dropdown", [className])}>
-      <Menu.Button as="div" className={cx("trigger")}>
+    <Menu as="div" className={cx(popupStyles.popup, [className])}>
+      <Menu.Button as="div" className={popupStyles.trigger}>
         {trigger}
       </Menu.Button>
 
-      <Menu.Items className={cx("items", [direction])}>
+      <Menu.Items className={cx("items", [mapDirectionToClass[direction]])}>
         {items.map((item, index) => (
           <Menu.Item key={index} as={Fragment} disabled={item.disabled}>
-            {({ active }) =>
+            {({ active, disabled }) =>
               item.href ? (
-                <>
-                  <AppLink
-                    to={item.href}
-                    className={cx("item", { active, disabled: item.disabled })}
-                    onClick={
-                      item.disabled ? (e) => e.preventDefault() : undefined
-                    }
-                  >
-                    {item.text}
-                  </AppLink>
-                </>
+                <AppLink
+                  to={item.href}
+                  className={cx("item", {
+                    [popupStyles.active]: active,
+                    [popupStyles.disabled]: disabled,
+                  })}
+                  onClick={
+                    item.disabled ? (e) => e.preventDefault() : undefined
+                  }
+                >
+                  {item.text}
+                </AppLink>
               ) : (
                 <button
-                  className={cx("item", { active, disabled: item.disabled })}
+                  className={cx("item", {
+                    [popupStyles.active]: active,
+                    [popupStyles.disabled]: disabled,
+                  })}
                   onClick={item.onClick}
                   disabled={item.disabled}
                 >

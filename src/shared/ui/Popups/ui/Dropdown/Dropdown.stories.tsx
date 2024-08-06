@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
 import { Theme } from "@/app/providers/ThemeProvider";
+import { Button } from "../../../Button/Button";
+import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
 import { Dropdown } from "./Dropdown";
-import { Button } from "../Button/Button";
 
 export default {
   title: "shared/Dropdown",
@@ -16,6 +17,7 @@ export default {
       { text: "item 4", onClick: () => {}, disabled: true },
     ],
   },
+  decorators: [RouterDecorator()],
   parameters: {
     layout: "centered",
   },

@@ -1,10 +1,12 @@
 import { Listbox as HListBox } from "@headlessui/react";
 import { Fragment, memo, ReactNode, useCallback, useMemo } from "react";
-import { HStack } from "../Stack/HStack/HStack";
+import { HStack } from "../../../Stack/HStack/HStack";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ListBox.module.scss";
-import { Button } from "../Button/Button";
-import { DropDownDirection } from "../../types/ui";
+import { Button } from "../../../Button/Button";
+import { DropDownDirection } from "../../types";
+import popupStyles from "../../styles/index.module.scss";
+import { mapDirectionToClass } from "../../styles/mapDirectionToClass";
 
 const cx = classNamesBind(s);
 
@@ -49,20 +51,26 @@ const Component = <T,>({
 
   return (
     <HStack gap={4} className={cx("", [className])}>
-      {label && <span className={cx("", { disabled })}>{`${label}>`}</span>}
+      {label && (
+        <span
+          className={cx("", { [popupStyles.disabled]: disabled })}
+        >{`${label}>`}</span>
+      )}
 
       <HListBox
         as="div"
         value={selectedOption}
         onChange={handleChange}
-        className={cx("ListBox")}
+        className={cx(popupStyles.popup)}
         disabled={disabled}
       >
-        <HListBox.Button as={Fragment}>
-          <Button>{selectedOption?.text ?? defaultText}</Button>
+        <HListBox.Button as={Button} className={popupStyles.trigger}>
+          {selectedOption?.text ?? defaultText}
         </HListBox.Button>
 
-        <HListBox.Options className={cx("options", [direction])}>
+        <HListBox.Options
+          className={cx("options", [mapDirectionToClass[direction]])}
+        >
           {options.map((option, index) => (
             <HListBox.Option
               key={index}
@@ -70,12 +78,12 @@ const Component = <T,>({
               as={Fragment}
               disabled={option.disabled}
             >
-              {({ active, selected }) => (
+              {({ active, selected, disabled }) => (
                 <li
                   className={cx("option", {
-                    active,
+                    [popupStyles.active]: active,
                     selected,
-                    disabled: option.disabled,
+                    [popupStyles.disabled]: disabled,
                   })}
                 >
                   {option.text}

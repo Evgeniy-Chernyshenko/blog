@@ -1,0 +1,10 @@
+.notifications-icon {
+  color: var(--inverted-primary-color);
+  display: block;
+}
+
+.notification-list {
+  width: 400px;
+  max-height: 300px;
+  overflow-y: auto;
+}

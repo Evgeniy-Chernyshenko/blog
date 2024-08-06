@@ -1,0 +1,20 @@
+.items {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-dropdown-items);
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  overflow: hidden;
+  transform: translateY(10px);
+}
+
+.item {
+  background-color: transparent;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-wrap: nowrap;
+  text-align: left;
+}
