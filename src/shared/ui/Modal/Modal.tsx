@@ -1,19 +1,18 @@
-import {
-  MouseEvent,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { CSSProperties, ReactNode } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
+import { useModal } from "@/shared/lib/hooks/useModal";
+import { Overlay } from "../Overlay/Overlay";
 
 const cx = classNamesBind(s);
 
+interface CustomCSSProperties extends CSSProperties {
+  "--animation-duration": string;
+}
+
 interface ModalProps {
-  opened: boolean;
+  isOpen: boolean;
   children: ReactNode;
   lazy?: boolean;
   withoutPortal?: boolean;
@@ -21,90 +20,46 @@ interface ModalProps {
   onClose?: () => void;
 }
 
-const ANIMATION_DURATION = 250;
+const ANIMATION_DURATION = 500;
 
 export const Modal = ({
-  opened,
+  isOpen,
   children,
   lazy,
   withoutPortal,
   className,
   onClose,
 }: ModalProps) => {
-  const [isClosing, setIsClosing] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const animationStateRef = useRef<{ opened: boolean; isClosing: boolean }>({
-    opened,
-    isClosing,
-  });
-  const [isMounted, setIsMounted] = useState(false);
+  const { close, isClosing, isMounted, isOpening, isClosed, isOpened } =
+    useModal({
+      isOpen,
+      animationDuration: ANIMATION_DURATION,
+      onClose,
+    });
 
-  useEffect(() => {
-    animationStateRef.current = { opened, isClosing };
-  }, [opened, isClosing]);
-
-  useEffect(() => {
-    if (opened) {
-      setIsMounted(true);
-    }
-  }, [opened]);
-
-  const close = useCallback(() => {
-    if (
-      !animationStateRef.current.opened ||
-      animationStateRef.current.isClosing
-    ) {
-      return;
-    }
-
-    setIsClosing(true);
-
-    timerRef.current = setTimeout(() => {
-      setIsClosing(false);
-
-      if (onClose) {
-        onClose();
-      }
-    }, ANIMATION_DURATION);
-  }, [onClose]);
-
-  const handleClose = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      close();
-    }
+  const style: CustomCSSProperties = {
+    "--animation-duration": `${ANIMATION_DURATION}ms`,
   };
 
-  useEffect(() => {
-    const listener = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        close();
-      }
-    };
-
-    document.addEventListener("keydown", listener);
-
-    return () => {
-      document.removeEventListener("keydown", listener);
-
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [close]);
-
-  if (lazy && !isMounted) {
-    return null;
-  }
-
   const Component = (
-    <div
-      className={cx("Modal", { opened, closing: isClosing }, [className])}
-      onClick={handleClose}
+    <Overlay
+      onClose={close}
+      style={style}
+      className={cx(
+        "Modal",
+        {
+          toOpened: (isOpening || isOpened) && !(isClosing || isClosed),
+          closed: !isOpen,
+        },
+        [className],
+      )}
     >
       <div className={cx("content-container")}>
-        <div className={cx("content")}>{children}</div>
+        <div className={cx("content")}>
+          {lazy && !isMounted ? null : children}
+        </div>
       </div>
-    </div>
+    </Overlay>
   );
 
   return withoutPortal ? Component : <Portal>{Component}</Portal>;

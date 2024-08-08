@@ -1,9 +1,10 @@
-import { memo, ReactNode } from "react";
+import { CSSProperties, memo, ReactNode } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Drawer.module.scss";
 import { Portal } from "../Portal/Portal";
 import { Overlay } from "../Overlay/Overlay";
 import { Theme, useTheme } from "@/app/providers/ThemeProvider";
+import { useModal } from "@/shared/lib/hooks/useModal";
 
 const cx = classNamesBind(s);
 
@@ -15,6 +16,12 @@ interface DrawerProps {
   onClose: () => void;
 }
 
+interface CustomCSSProperties extends CSSProperties {
+  "--animation-duration": string;
+}
+
+const ANIMATION_DURATION = 500;
+
 export const Drawer = memo(function Drawer({
   isOpen,
   children,
@@ -23,17 +30,26 @@ export const Drawer = memo(function Drawer({
   onClose,
 }: DrawerProps) {
   const { theme: currentTheme } = useTheme();
+  const { close, isClosing } = useModal({
+    isOpen,
+    animationDuration: ANIMATION_DURATION,
+    onClose,
+  });
 
   if (!isOpen) {
     return null;
   }
 
+  const style: CustomCSSProperties = {
+    "--animation-duration": `${ANIMATION_DURATION}ms`,
+  };
+
   return (
     <Portal>
-      <Overlay onClose={onClose}>
+      <Overlay onClose={close} style={style}>
         <div
           data-theme={theme ?? currentTheme}
-          className={cx("Drawer", [className])}
+          className={cx("Drawer", { toClosed: isClosing }, [className])}
         >
           <div className={cx("content")}>{children}</div>
         </div>

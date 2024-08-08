@@ -4,10 +4,14 @@
   background-color: var(--bg-color);
   position: absolute;
   border-radius: 10px;
-  animation: slide-up 0.5s forwards;
+  animation: slide-up var(--animation-duration) forwards;
   width: 100%;
   overflow: hidden;
   display: flex;
+}
+
+.toClosed {
+  animation: slide-down var(--animation-duration) forwards;
 }
 
 .content {
@@ -23,5 +27,15 @@
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
   }
 }

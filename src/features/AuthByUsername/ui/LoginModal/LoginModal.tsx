@@ -5,20 +5,20 @@ import { LoginFormLazy } from "../LoginForm/LoginFormLazy";
 import { Loader } from "@/shared/ui/Loader/Loader";
 
 interface LoginModalProps {
-  opened: boolean;
+  isOpen: boolean;
   onClose: () => void;
   className?: string;
 }
 
 export const LoginModal = memo(function LoginModal({
-  opened,
+  isOpen,
   onClose,
   className,
 }: LoginModalProps) {
   return (
     <Modal
       className={classNames("", [className])}
-      opened={opened}
+      isOpen={isOpen}
       onClose={onClose}
       lazy
     >

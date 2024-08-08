@@ -1,15 +1,10 @@
 .Modal {
-  background-color: rgba(0 0 0 / 60%);
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   pointer-events: none;
+  transition: opacity var(--animation-duration);
 }
 
 .content-container {
@@ -17,9 +12,7 @@
   padding: 20px;
   border-radius: 12px;
   transform: scale(0.2);
-  transition:
-    transform var(--transition-duration1),
-    opacity var(--transition-duration1);
+  transition: transform var(--animation-duration);
   display: flex;
   max-width: 80%;
   max-height: 80%;
@@ -31,7 +24,7 @@
   max-height: 100%;
 }
 
-.opened {
+.toOpened {
   opacity: 1;
   pointer-events: all;
 
@@ -40,8 +33,6 @@
   }
 }
 
-.closing {
-  .content-container {
-    opacity: 0;
-  }
+.closed {
+  display: none;
 }
