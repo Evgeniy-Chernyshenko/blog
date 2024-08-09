@@ -14,7 +14,7 @@ const cx = classNamesBind(s);
 interface OverlayProps {
   children: ReactNode;
   className?: string;
-  onClose: (e: MouseEvent<HTMLDivElement> | KeyboardEvent) => void;
+  onClose: () => void;
   style?: CSSProperties;
 }
 
@@ -27,7 +27,7 @@ export const Overlay = memo(function Overlay({
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        onClose(e);
+        onClose();
       }
     };
 
@@ -44,7 +44,7 @@ export const Overlay = memo(function Overlay({
         return;
       }
 
-      onClose(e);
+      onClose();
     },
     [onClose],
   );
