@@ -1,12 +1,12 @@
 import { FormEvent, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { classNamesBind } from "@/shared/lib/classNames/classNames";
-import s from "./AddCommentForm.module.scss";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { classNamesBind } from "@/shared/lib/classNames/classNames";
+import s from "./AddCommentForm.module.scss";
 import {
   addCommentFormActions,
   addCommentFormReducer,
