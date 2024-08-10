@@ -8,7 +8,6 @@ import { NotificationList } from "@/entities/Notifications";
 import NotificationIcon from "@/shared/assets/icons/notification-icon.svg";
 import { Theme } from "@/app/providers/ThemeProvider";
 import { Drawer } from "@/shared/ui/Drawer/Drawer";
-import { AnimationProvider } from "@/shared/lib/components/AnimationProvider";
 
 const cx = classNamesBind(s);
 
@@ -49,15 +48,13 @@ export const NotificationsButton = memo(function NotificationsButton({
       <MobileView>
         {TriggerComponent}
 
-        <AnimationProvider>
-          <Drawer
-            onClose={handleCloseDrawer}
-            isOpen={isOpenDrawer}
-            theme={Theme.DARK}
-          >
-            <NotificationList />
-          </Drawer>
-        </AnimationProvider>
+        <Drawer
+          onClose={handleCloseDrawer}
+          isOpen={isOpenDrawer}
+          theme={Theme.DARK}
+        >
+          <NotificationList />
+        </Drawer>
       </MobileView>
     </>
   );

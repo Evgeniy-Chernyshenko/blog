@@ -6,7 +6,10 @@ import s from "./Drawer.module.scss";
 import { Portal } from "../Portal/Portal";
 import { Overlay } from "../Overlay/Overlay";
 import { Theme, useTheme } from "@/app/providers/ThemeProvider";
-import { useAnimationModules } from "@/shared/lib/components/AnimationProvider";
+import {
+  AnimationProvider,
+  useAnimationModules,
+} from "@/shared/lib/components/AnimationProvider";
 
 const cx = classNamesBind(s);
 
@@ -110,7 +113,7 @@ export const DrawerInner = memo(function DrawerInner({
   );
 });
 
-export const Drawer = memo(function Drawer(props: DrawerProps) {
+const DrawerAsync = memo(function DrawerAsync(props: DrawerProps) {
   const { isLoaded } = useAnimationModules();
 
   if (!isLoaded) {
@@ -118,4 +121,12 @@ export const Drawer = memo(function Drawer(props: DrawerProps) {
   }
 
   return <DrawerInner {...props} />;
+});
+
+export const Drawer = memo(function Drawer(props: DrawerProps) {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  );
 });
