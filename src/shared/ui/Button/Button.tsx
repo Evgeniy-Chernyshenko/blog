@@ -20,6 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: ButtonSize;
   dataTestId?: string;
+  fullwidth?: boolean;
 }
 
 export const Button = memo(
@@ -30,11 +31,12 @@ export const Button = memo(
       square = false,
       size = "m",
       dataTestId,
+      fullwidth,
       ...restProps
     }: ButtonProps,
     ref,
   ) {
-    const mods = { square };
+    const mods = { square, fullwidth };
     const additional = [className, theme, size];
 
     return (

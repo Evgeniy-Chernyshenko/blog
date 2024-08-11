@@ -19,6 +19,7 @@ interface DrawerProps {
   className?: string;
   theme?: Theme;
   onClose: () => void;
+  onShow?: () => void;
 }
 
 const height = window.innerHeight * 0.8;
@@ -29,6 +30,7 @@ export const DrawerInner = memo(function DrawerInner({
   className,
   theme,
   onClose,
+  onShow,
 }: DrawerProps) {
   const {
     Gesture: { useDrag },
@@ -51,6 +53,16 @@ export const DrawerInner = memo(function DrawerInner({
 
     openDrawer();
   }, [api, isOpen, openDrawer]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      onShow?.();
+    });
+  }, [isOpen, onShow]);
 
   const close = (velocity = 0) => {
     api.start({

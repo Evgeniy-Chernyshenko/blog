@@ -4,13 +4,14 @@ import {
   forwardRef,
   InputHTMLAttributes,
   memo,
-  Ref,
   SyntheticEvent,
   useState,
   ReactElement,
   useEffect,
   useImperativeHandle,
   useRef,
+  MutableRefObject,
+  ForwardedRef,
 } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Input.module.scss";
@@ -41,7 +42,7 @@ const Component = <T extends "string" | "number" | "password" = "string">(
     dataTestId,
     ...restProps
   }: InputProps<T>,
-  ref: Ref<HTMLInputElement>,
+  ref: ForwardedRef<HTMLInputElement>,
 ) => {
   const [caretOffset, setCaretOffset] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
@@ -133,5 +134,7 @@ export const Input = memo(forwardRef(Component)) as <
   T extends "string" | "number" | "password" = "string",
 >(
   // eslint-disable-next-line no-use-before-define
-  props: InputProps<T> & { ref?: Ref<HTMLInputElement> },
+  props: InputProps<T> & {
+    ref?: MutableRefObject<HTMLInputElement | undefined>;
+  },
 ) => ReactElement;

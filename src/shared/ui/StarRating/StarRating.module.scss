@@ -1,0 +1,16 @@
+.star-icon {
+  cursor: pointer;
+}
+
+.star-icon:not(:last-child) {
+  padding-right: 5px;
+  box-sizing: content-box;
+}
+
+.filled {
+  fill: var(--primary-color);
+}
+
+.disabled {
+  cursor: auto;
+}
