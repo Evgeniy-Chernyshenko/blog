@@ -27,6 +27,7 @@ interface RatingCardProps {
   title?: string;
   hasFeedback?: boolean;
   feedbackTitle?: string;
+  disabled?: boolean;
   onEvaluaiton: (value: number, feedbackValue?: string) => void;
   className?: string;
 }
@@ -36,6 +37,7 @@ export const RatingCard = memo(function RatingCard({
   title,
   hasFeedback = true,
   feedbackTitle,
+  disabled = false,
   onEvaluaiton,
   className,
 }: RatingCardProps) {
@@ -97,8 +99,6 @@ export const RatingCard = memo(function RatingCard({
 
     onLoadModal();
   }, [isOpenModal, onLoadModal]);
-
-  const disabled = Boolean(false);
 
   return (
     <Card className={cx("", [className])}>

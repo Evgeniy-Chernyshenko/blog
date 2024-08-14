@@ -796,6 +796,24 @@
       "articleId": "5",
       "userId": "1",
       "id": "GrTFwwE"
+    },
+    {
+      "text": "lala",
+      "articleId": "5",
+      "userId": "1",
+      "id": "YEK5_-n"
+    },
+    {
+      "text": "hello",
+      "articleId": "5",
+      "userId": "1",
+      "id": "xcH1Q78"
+    },
+    {
+      "text": "hihihi",
+      "articleId": "5",
+      "userId": "1",
+      "id": "_HRwHQq"
     }
   ],
   "notifications": [
@@ -831,6 +849,56 @@
       "title": "Уведомление для Кетти 2",
       "description": "Описание уведомления для Кетти 2",
       "userId": "2"
+    }
+  ],
+  "articles-rating": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "rating": 4,
+      "feedback": "Хорошая статья"
+    },
+    {
+      "id": "2",
+      "articleId": "2",
+      "userId": "2",
+      "rating": 5,
+      "feedback": "Отличная статья"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rating": 4,
+      "feedback": "ПЛОА",
+      "id": "jAfq94i"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rating": 2,
+      "feedback": "ЛОЛО",
+      "id": "UFiUewO"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rating": 5,
+      "feedback": "АТЛИЧНА",
+      "id": "mIVX3Zm"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rating": 1,
+      "feedback": "оЧИнь ПЛАХАЯ статья",
+      "id": "7769mwn"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rating": 4,
+      "id": "eZeMZS5"
     }
   ]
 }

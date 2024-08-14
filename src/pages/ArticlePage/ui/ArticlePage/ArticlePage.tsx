@@ -13,6 +13,7 @@ import { articlePageReducer } from "../../model/slices";
 import { ArticlePageHeader } from "../ArticlePageHeader/ArticlePageHeader";
 import { ArticleRecommendationsList } from "@/features/ArticleRecommendationsList";
 import { ArticleComments } from "../ArticleComments/ArticleComments";
+import { ArticleRatingLazy } from "@/features/ArticleRating";
 
 const cx = classNamesBind(s);
 
@@ -39,6 +40,8 @@ function ArticlePage() {
           <Article id={articleId} />
 
           <ArticleRecommendationsList />
+
+          <ArticleRatingLazy articleId={articleId} />
 
           <ArticleComments id={articleId} />
         </div>
