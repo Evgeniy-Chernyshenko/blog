@@ -5,7 +5,7 @@ import { createReduxStore } from "../config/store";
 import { StateSchema } from "../config/stateSchema";
 
 interface StoreProviderProps {
-  initialState?: DeepPartial<StateSchema>;
+  initialState?: DeepPartial<DeepRequired<StateSchema>>;
   asyncReducers?: Partial<ReducersMapObject<Required<StateSchema>>>;
   children: ReactNode;
 }
