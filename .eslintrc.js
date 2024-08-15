@@ -69,7 +69,7 @@ module.exports = {
     "@typescript-eslint/no-shadow": "off",
     "default-param-last": "off",
     "react/jsx-no-useless-fragment": "off",
-    "blog-project/path-checker": "error",
+    "blog-project/path-checker": ["error", { alias: "@" }],
   },
   globals: {
     __IS_DEV__: true,
