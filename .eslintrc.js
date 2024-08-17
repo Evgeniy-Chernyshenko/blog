@@ -70,6 +70,17 @@ module.exports = {
     "default-param-last": "off",
     "react/jsx-no-useless-fragment": "off",
     "blog-project/path-checker": ["error", { alias: "@" }],
+    "blog-project/public-api-imports": [
+      "error",
+      {
+        alias: "@",
+        testFilesPatterns: [
+          "**/*.test.*",
+          "**/*.story.*",
+          "**/StoreDecorator.tsx",
+        ],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

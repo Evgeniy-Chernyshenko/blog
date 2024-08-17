@@ -7,3 +7,4 @@ export type {
 } from "./model/types/article";
 export { ArticleSortField } from "./model/constants";
 export { ArticleList } from "./ui/ArticleList/ArticleList";
+export type { ArticleSchema } from "./model/types/articleSchema";

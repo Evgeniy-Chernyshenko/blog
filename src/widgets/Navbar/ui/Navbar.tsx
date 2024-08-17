@@ -5,13 +5,13 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
 import { Button } from "@/shared/ui/Button/Button";
 import { LoginModal } from "@/features/AuthByUsername";
-import { getUserAuthData } from "@/entities/User/model/selectors/getUserAuthData/getUserAuthData";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { HStack } from "@/shared/ui/Stack/HStack/HStack";
 import { NotificationsButton } from "@/features/NotificationsButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
+import { getUserAuthData } from "@/entities/User";
 
 const cx = classNamesBind(s);
 
