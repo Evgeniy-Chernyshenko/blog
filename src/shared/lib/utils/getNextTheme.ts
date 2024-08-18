@@ -1,4 +1,4 @@
-import { Theme } from "..";
+import { Theme } from "@/shared/constants/theme";
 
 export const getNextTheme = <T>(themes: T, currentTheme: T[keyof T]): Theme => {
   const themeValues = Object.values(themes);

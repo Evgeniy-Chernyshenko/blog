@@ -5,11 +5,12 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Drawer.module.scss";
 import { Portal } from "../Portal/Portal";
 import { Overlay } from "../Overlay/Overlay";
-import { Theme, useTheme } from "@/app/providers/ThemeProvider";
 import {
   AnimationProvider,
   useAnimationModules,
 } from "@/shared/lib/components/AnimationProvider";
+import { Theme } from "@/shared/constants/theme";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 const cx = classNamesBind(s);
 

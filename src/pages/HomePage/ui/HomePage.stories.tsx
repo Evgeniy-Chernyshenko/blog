@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import HomePage from "./HomePage";
-import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
-import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
+import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/decorators/StoreDecorator";
+import { Theme } from "@/shared/constants/theme";
 
 export default {
   title: "pages/HomePage",

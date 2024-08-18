@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlePageHeader.module.scss";
-import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { Button } from "@/shared/ui/Button/Button";
 import { getCanEdit } from "../../model/selectors/article";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { getArticleData } from "@/entities/Article";
+import { routePaths } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -25,7 +25,7 @@ export const ArticlePageHeader = memo(function ArticlePageHeader({
   const articleData = useSelector(getArticleData);
 
   const handleBackToArticlesClick = useCallback(() => {
-    navigate(appRoutes.articles.path);
+    navigate(routePaths.ARTICLES);
   }, [navigate]);
 
   return (
@@ -35,9 +35,7 @@ export const ArticlePageHeader = memo(function ArticlePageHeader({
       </Button>
 
       {canEdit && articleData?.id && (
-        <AppLink
-          to={`${appRoutes.editArticle.pathWithoutParams}/${articleData.id}/edit`}
-        >
+        <AppLink to={`${routePaths.ARTICLE}${articleData.id}/edit`}>
           <Button>{t("Редактировать")}</Button>
         </AppLink>
       )}

@@ -1,9 +1,9 @@
 import { memo } from "react";
-import { useTheme } from "@/app/providers/ThemeProvider";
 import { classNames, classNamesBind } from "@/shared/lib/classNames/classNames";
 import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
 import { Button } from "@/shared/ui/Button/Button";
 import s from "./ThemeSwitcher.module.scss";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 const cx = classNamesBind(s);
 

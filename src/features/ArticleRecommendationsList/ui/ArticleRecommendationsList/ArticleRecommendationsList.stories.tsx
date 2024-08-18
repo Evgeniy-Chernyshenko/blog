@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import withMock from "storybook-addon-mock";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { ArticleRecommendationsList } from "./ArticleRecommendationsList";
-import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
-import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/decorators/StoreDecorator";
+import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
+import { Theme } from "@/shared/constants/theme";
 
 const article = {
   title: "Кеттина статья",

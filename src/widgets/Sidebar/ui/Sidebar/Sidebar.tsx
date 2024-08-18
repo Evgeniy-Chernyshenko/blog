@@ -1,16 +1,16 @@
 import { memo, useState } from "react";
 import { useSelector } from "react-redux";
-import { BugButton } from "@/app/providers/ErrorBoundary";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import { Button } from "@/shared/ui/Button/Button";
-import { LanguageSwitcher } from "@/widgets/LanguageSwitcher";
-import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
+import { LanguageSwitcher } from "@/features/LanguageSwitcher";
+import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { SidebarNavItem } from "../SidebarNavItem/SidebarNavItem";
 import s from "./Sidebar.module.scss";
 import { getUserAuthData } from "@/entities/User";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 import { HStack } from "@/shared/ui/Stack/HStack/HStack";
+import { BugButton } from "@/shared/ui/BugButton/BugButton";
 
 const cx = classNamesBind(s);
 

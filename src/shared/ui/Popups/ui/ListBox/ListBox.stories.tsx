@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useState } from "react";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { ListBox, ListBoxOption } from "./ListBox";
+import { Theme } from "@/shared/constants/theme";
 
 const options: ListBoxOption<number>[] = [
   { text: "Один", value: 1 },

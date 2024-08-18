@@ -1,5 +1,6 @@
 import { Story } from "@storybook/react";
-import { Theme, ThemeProvider } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/constants/theme";
+import { ThemeProvider } from "@/app/providers/ThemeProvider/testing";
 
 export const ThemeProviderDecorator =
   (theme: Theme) => (StoryComponent: Story) => {

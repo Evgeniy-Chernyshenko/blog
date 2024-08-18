@@ -4,7 +4,7 @@ import { EditableProfileCard } from "./EditableProfileCard";
 import {
   componentRender,
   ComponentRenderOptions,
-} from "@/app/config/tests/componentRender";
+} from "@/shared/config/tests/componentRender";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
 import { profileReducer } from "../../model/slice/profileSlice";

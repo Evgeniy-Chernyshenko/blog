@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useState } from "react";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { Drawer } from "./Drawer";
 import { TextBlock } from "../TextBlock/TextBlock";
 import { Button } from "../Button/Button";
+import { Theme } from "@/shared/constants/theme";
 
 export default {
   title: "shared/Drawer",

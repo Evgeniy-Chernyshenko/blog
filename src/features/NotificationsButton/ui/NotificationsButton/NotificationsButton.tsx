@@ -6,8 +6,8 @@ import { Popover } from "@/shared/ui/Popups/ui/Popover/Popover";
 import { Button } from "@/shared/ui/Button/Button";
 import { NotificationList } from "@/entities/Notifications";
 import NotificationIcon from "@/shared/assets/icons/notification-icon.svg";
-import { Theme } from "@/app/providers/ThemeProvider";
 import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import { Theme } from "@/shared/constants/theme";
 
 const cx = classNamesBind(s);
 

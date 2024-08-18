@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import ArticlePage from "./ArticlePage";
-import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/decorators/StoreDecorator";
 import avatar from "@/shared/assets/tests/avatar.jpg";
-import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
+import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
+import { Theme } from "@/shared/constants/theme";
 
 export default {
   title: "pages/ArticlePage/ArticlePage",

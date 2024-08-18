@@ -1,6 +1,8 @@
 import { useContext, useLayoutEffect, useState } from "react";
-import { getNextTheme } from "./getNextTheme";
-import { LOCALSTORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
+import { getNextTheme } from "@/shared/lib/utils/getNextTheme";
+import { ThemeContext } from "@/shared/lib/contexts/ThemeContext";
+import { Theme } from "@/shared/constants/theme";
+import { LOCALSTORAGE_THEME_KEY } from "@/shared/constants/localStorage";
 
 export const useTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext);

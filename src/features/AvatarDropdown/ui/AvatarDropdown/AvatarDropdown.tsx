@@ -12,7 +12,7 @@ import {
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
+import { routePaths } from "@/shared/constants/appRoutes";
 
 interface AvatarDropdownProps {
   className?: string;
@@ -53,13 +53,13 @@ export const AvatarDropdown = memo(function AvatarDropdown({
           ? [
               {
                 text: t("Админка"),
-                href: `${appRoutes.adminPanel.path}`,
+                href: `${routePaths.ADMIN}`,
               },
             ]
           : []),
         {
           text: t("Профиль"),
-          href: `${appRoutes.profile.pathWithoutParams}/${userAuthData.id}`,
+          href: `${routePaths.PROFILE}${userAuthData.id}`,
         },
         {
           text: t("Выйти"),

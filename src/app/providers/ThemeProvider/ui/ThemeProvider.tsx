@@ -1,9 +1,7 @@
 import { ReactNode, useMemo, useState } from "react";
-import {
-  LOCALSTORAGE_THEME_KEY,
-  Theme,
-  ThemeContext,
-} from "../lib/ThemeContext";
+import { LOCALSTORAGE_THEME_KEY } from "@/shared/constants/localStorage";
+import { Theme } from "@/shared/constants/theme";
+import { ThemeContext } from "../../../../shared/lib/contexts/ThemeContext";
 
 interface ThemeProviderProps {
   hardcodeTheme?: Theme;

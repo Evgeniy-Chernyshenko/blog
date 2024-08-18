@@ -7,11 +7,11 @@ import { Button } from "@/shared/ui/Button/Button";
 import { LoginModal } from "@/features/AuthByUsername";
 import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { HStack } from "@/shared/ui/Stack/HStack/HStack";
 import { NotificationsButton } from "@/features/NotificationsButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
 import { getUserAuthData } from "@/entities/User";
+import { routePaths } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -39,7 +39,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
       <nav className={cx("menu")}>
         {userAuthData ? (
           <>
-            <AppLink to={appRoutes.createArticle.path}>
+            <AppLink to={routePaths.ARTICLE_CREATE}>
               <Button theme="background-inverted">{t("Создать статью")}</Button>
             </AppLink>
 

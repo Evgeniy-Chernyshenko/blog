@@ -1,5 +1,5 @@
 import { screen, fireEvent } from "@testing-library/react";
-import { componentRender } from "@/app/config/tests/componentRender";
+import { componentRender } from "@/shared/config/tests/componentRender";
 import { Counter } from "..";
 
 describe("Counter", () => {

@@ -81,6 +81,13 @@ module.exports = {
         ],
       },
     ],
+    "blog-project/layers-import": [
+      "error",
+      {
+        alias: "@",
+        ignoreImportPatterns: ["**/StoreProvider", "**/testing"],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

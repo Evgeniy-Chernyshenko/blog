@@ -14,8 +14,8 @@ import { useHover } from "@/shared/lib/hooks/useHover";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Button } from "@/shared/ui/Button/Button";
 import { formatDate } from "@/shared/lib/utils/formatters";
-import { appRoutes } from "@/app/providers/AppRouter/config/appRoutes";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { routePaths } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -53,7 +53,7 @@ export const ArticleListItem = memo(function ArticleListItem({
 
   if (view === "grid") {
     return (
-      <AppLink to={`${appRoutes.articles.path}/${article.id}`} target={target}>
+      <AppLink to={`${routePaths.ARTICLE}${article.id}`} target={target}>
         <Card
           className={cx("ArticleListItem", { hover }, [className, view])}
           {...bindHover}
@@ -99,10 +99,7 @@ export const ArticleListItem = memo(function ArticleListItem({
       {Image}
 
       <div className={cx("footer")}>
-        <AppLink
-          to={`${appRoutes.articles.path}/${article.id}`}
-          target={target}
-        >
+        <AppLink to={`${routePaths.ARTICLE}${article.id}`} target={target}>
           <Button theme="outlined">{t("Читать далее")}</Button>
         </AppLink>
 

@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { Sidebar } from "./Sidebar";
-import { ThemeProviderDecorator } from "@/app/config/storybook/decorators/ThemeProviderDecorator";
-import { StoreDecorator } from "@/app/config/storybook/decorators/StoreDecorator";
-import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
+import { ThemeProviderDecorator } from "@/shared/config/storybook/decorators/ThemeProviderDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/decorators/StoreDecorator";
+import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
+import { Theme } from "@/shared/constants/theme";
 
 export default {
   title: "widgets/Sidebar",

@@ -1,8 +1,9 @@
 import { memo, ReactElement, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AppRouteObject, appRoutes } from "../../AppRouter/config/appRoutes";
 import { PageLoader } from "@/widgets/PageLoader";
 import { RequireAuth } from "./RequireAuth";
+import { AppRouteObject } from "@/shared/types/router";
+import { appRouterConfig } from "../config/appRouterConfig";
 
 export const AppRouter = memo(function AppRouter() {
   const renderWithWrapper = (appRoute: AppRouteObject): ReactElement => {
@@ -25,7 +26,7 @@ export const AppRouter = memo(function AppRouter() {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes>{Object.values(appRoutes).map(renderWithWrapper)}</Routes>
+      <Routes>{Object.values(appRouterConfig).map(renderWithWrapper)}</Routes>
     </Suspense>
   );
 });

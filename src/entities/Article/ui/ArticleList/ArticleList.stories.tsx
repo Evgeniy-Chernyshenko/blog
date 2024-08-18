@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { ArticleList } from "./ArticleList";
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { ArticleType } from "../../model/types/article";
-import { RouterDecorator } from "@/app/config/storybook/decorators/RouterDecorator";
+import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
+import { Theme } from "@/shared/constants/theme";
 
 const articles: ArticleType[] = [
   {

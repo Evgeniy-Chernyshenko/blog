@@ -1,9 +1,9 @@
 import { addDecorator } from "@storybook/react";
-import { StyleDecorator } from "@/app/config/storybook/decorators/StyleDecorator";
-import { ThemeDecorator } from "@/app/config/storybook/decorators/ThemeDecorator";
+import { StyleDecorator } from "@/shared/config/storybook/decorators/StyleDecorator";
+import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { Theme } from "@/app/providers/ThemeProvider";
-import { TranslationsDecorator } from "@/app/config/storybook/decorators/TranslationsDecorator";
-import { SuspenseDecorator } from "@/app/config/storybook/decorators/SuspenseDecorator";
+import { TranslationsDecorator } from "@/shared/config/storybook/decorators/TranslationsDecorator";
+import { SuspenseDecorator } from "@/shared/config/storybook/decorators/SuspenseDecorator";
 
 export const parameters = {
   actions: {
