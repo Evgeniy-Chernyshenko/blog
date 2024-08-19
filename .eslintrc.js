@@ -26,6 +26,7 @@ module.exports = {
     "i18next",
     "react-hooks",
     "blog-project",
+    "unused-imports",
   ],
   rules: {
     "react/jsx-filename-extension": [
@@ -40,10 +41,22 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react/button-has-type": "off",
     "no-promise-executor-return": "off",
+    // "no-unused-vars": "off",
+    // "@typescript-eslint/no-unused-vars": [
+    //   "error",
+    //   { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    // ],
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
     ],
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "error",
