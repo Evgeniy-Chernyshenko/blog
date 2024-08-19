@@ -4,7 +4,7 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./CommentList.module.scss";
 import { Comment } from "../../model/types/comment";
 import { CommentItem } from "../CommentItem/CommentItem";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 
 const cx = classNamesBind(s);
 

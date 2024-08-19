@@ -2,10 +2,10 @@ import { memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./CommentItem.module.scss";
 import { Comment } from "../../model/types/comment";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { Avatar } from "@/shared/ui/Avatar";
+import { TextBlock } from "@/shared/ui/TextBlock";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { AppLink } from "@/shared/ui/AppLink";
 import { routePaths } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);

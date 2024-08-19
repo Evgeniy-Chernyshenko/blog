@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Button } from "@/shared/ui/Button/Button";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { Button } from "@/shared/ui/Button";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import { getUserAuthData } from "@/entities/User";
-import { HStack } from "@/shared/ui/Stack/HStack/HStack";
+import { HStack } from "@/shared/ui/Stack";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 
 interface EditableProfileHeaderProps {

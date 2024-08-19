@@ -11,8 +11,8 @@ import {
   addCommentFormActions,
   addCommentFormReducer,
 } from "../../model/slice/addCommentFormSlice";
-import { Input } from "@/shared/ui/Input/Input";
-import { Button } from "@/shared/ui/Button/Button";
+import { Input } from "@/shared/ui/Input";
+import { Button } from "@/shared/ui/Button";
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 

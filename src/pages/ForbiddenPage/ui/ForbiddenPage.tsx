@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { PageWrapper } from "@/widgets/PageWrapper";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 
 function ForbiddenPage() {
   const { t } = useTranslation("forbidden");

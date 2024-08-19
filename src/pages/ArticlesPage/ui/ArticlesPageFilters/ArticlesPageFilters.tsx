@@ -14,8 +14,8 @@ import {
   getArticlesPageTag,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { Card } from "@/shared/ui/Card/Card";
-import { Input } from "@/shared/ui/Input/Input";
+import { Card } from "@/shared/ui/Card";
+import { Input } from "@/shared/ui/Input";
 import { ArticlesSortSelectors } from "@/features/ArticlesSortSelectors";
 import { SortDirection } from "@/shared/types";
 import { ArticleSortField, ArticleTag, ArticleView } from "@/entities/Article";

@@ -2,9 +2,9 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleRecommendationsList.module.scss";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import { ArticleList } from "@/entities/Article";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack";
 import { useGetArticleRecommendationsListQuery } from "../../api/articleRecommendationsApi";
 
 const cx = classNamesBind(s);

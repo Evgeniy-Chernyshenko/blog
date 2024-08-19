@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { Article } from "@/entities/Article";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import s from "./ArticlePage.module.scss";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import {

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import s from "./SidebarNavItem.module.scss";
 import { SidebarItemType } from "../../model/types/sidebar";
 

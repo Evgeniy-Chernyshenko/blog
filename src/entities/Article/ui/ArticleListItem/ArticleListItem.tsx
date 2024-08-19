@@ -7,14 +7,14 @@ import {
   ArticleTextBlockType,
   ArticleView,
 } from "../../model/types/article";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import ViewsIcon from "@/shared/assets/icons/views-icon.svg";
-import { Card } from "@/shared/ui/Card/Card";
+import { Card } from "@/shared/ui/Card";
 import { useHover } from "@/shared/lib/hooks/useHover";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Button } from "@/shared/ui/Button/Button";
+import { Avatar } from "@/shared/ui/Avatar";
+import { Button } from "@/shared/ui/Button";
 import { formatDate } from "@/shared/lib/utils/formatters";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import { routePaths } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);

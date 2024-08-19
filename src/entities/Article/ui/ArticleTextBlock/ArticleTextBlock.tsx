@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticleTextBlock.module.scss";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import { ArticleTextBlockType } from "../../model/types/article";
 
 const cx = classNamesBind(s);

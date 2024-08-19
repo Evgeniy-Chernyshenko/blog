@@ -9,7 +9,7 @@ import {
   isUserManager,
   userActions,
 } from "@/entities/User";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Avatar } from "@/shared/ui/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { routePaths } from "@/shared/constants/appRoutes";

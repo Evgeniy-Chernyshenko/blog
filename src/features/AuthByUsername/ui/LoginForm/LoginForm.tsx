@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { FormEvent, memo, useCallback } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./LoginForm.module.scss";
-import { Button } from "@/shared/ui/Button/Button";
-import { Input } from "@/shared/ui/Input/Input";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { Button } from "@/shared/ui/Button";
+import { Input } from "@/shared/ui/Input";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import {
   authByUsernameActions,
   authByUsernameReducer,

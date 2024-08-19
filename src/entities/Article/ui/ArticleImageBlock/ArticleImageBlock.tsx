@@ -1,5 +1,5 @@
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import { ArticleImageBlockType } from "../../model/types/article";
 import s from "./ArticleImageBlock.module.scss";
 

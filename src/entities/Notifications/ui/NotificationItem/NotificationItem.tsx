@@ -2,8 +2,8 @@ import { memo } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./NotificationItem.module.scss";
 import { Notification } from "../../model/types/notification";
-import { Card } from "@/shared/ui/Card/Card";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { Card } from "@/shared/ui/Card";
+import { TextBlock } from "@/shared/ui/TextBlock";
 
 const cx = classNamesBind(s);
 

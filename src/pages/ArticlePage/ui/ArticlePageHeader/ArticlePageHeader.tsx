@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlePageHeader.module.scss";
-import { Button } from "@/shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button";
 import { getCanEdit } from "../../model/selectors/article";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import { getArticleData } from "@/entities/Article";
 import { routePaths } from "@/shared/constants/appRoutes";
 

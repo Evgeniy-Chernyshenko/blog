@@ -1,5 +1,5 @@
 import { FC, lazy, Suspense } from "react";
-import { Loader } from "@/shared/ui/Loader/Loader";
+import { Loader } from "@/shared/ui/Loader";
 import { AddCommentFormProps } from "./AddCommentForm";
 
 const Component = lazy<FC<AddCommentFormProps>>(

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./PageError.module.scss";
-import { Button } from "@/shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button";
 
 const cx = classNamesBind(s);
 

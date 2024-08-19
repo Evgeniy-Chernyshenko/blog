@@ -15,8 +15,8 @@ import {
   getArticleError,
   getArticleIsLoading,
 } from "../../model/selectors/articleSelectors";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import ViewsIcon from "@/shared/assets/icons/views-icon.svg";
 import DateIcon from "@/shared/assets/icons/date-icon.svg";
 import { ArticleBlock } from "../../model/types/article";

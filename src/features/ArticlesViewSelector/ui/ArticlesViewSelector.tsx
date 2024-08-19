@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesViewSelector.module.scss";
-import { Button } from "@/shared/ui/Button/Button";
+import { Button } from "@/shared/ui/Button";
 import GridIcon from "@/shared/assets/icons/grid-icon.svg";
 import ListIcon from "@/shared/assets/icons/list-icon.svg";
 import { ViewType } from "../model/types/viewType";

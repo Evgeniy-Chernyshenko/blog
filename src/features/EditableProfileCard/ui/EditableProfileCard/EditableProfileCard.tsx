@@ -5,13 +5,13 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack";
 import { EditableProfileHeader } from "../EditableProfileHeader/EditableProfileHeader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
+import { TextBlock } from "@/shared/ui/TextBlock";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { getProfileFormData } from "../../model/selectors/getProfileFormData/getProfileFormData";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";

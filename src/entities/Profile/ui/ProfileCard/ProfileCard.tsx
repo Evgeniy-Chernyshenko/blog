@@ -2,14 +2,14 @@ import { useTranslation } from "react-i18next";
 import { FormEvent, useEffect, useRef } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ProfileCard.module.scss";
-import { TextBlock } from "@/shared/ui/TextBlock/TextBlock";
-import { Input } from "@/shared/ui/Input/Input";
+import { TextBlock } from "@/shared/ui/TextBlock";
+import { Input } from "@/shared/ui/Input";
 import { Profile } from "../../model/types/profile";
-import { Loader } from "@/shared/ui/Loader/Loader";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Loader } from "@/shared/ui/Loader";
+import { Avatar } from "@/shared/ui/Avatar";
 import { Country, CountrySelector } from "@/entities/Country";
 import { Currency, CurrencySelector } from "@/entities/Currency";
-import { VStack } from "@/shared/ui/Stack/VStack/VStack";
+import { VStack } from "@/shared/ui/Stack";
 
 const cx = classNamesBind(s);
 

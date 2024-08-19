@@ -1,6 +1,6 @@
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./PageLoader.module.scss";
-import { Loader } from "@/shared/ui/Loader/Loader";
+import { Loader } from "@/shared/ui/Loader";
 
 const cx = classNamesBind(s);
 

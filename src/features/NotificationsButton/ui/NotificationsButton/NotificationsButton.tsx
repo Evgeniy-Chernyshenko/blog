@@ -2,11 +2,11 @@ import { memo, useCallback, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./NotificationsButton.module.scss";
-import { Popover } from "@/shared/ui/Popups/ui/Popover/Popover";
-import { Button } from "@/shared/ui/Button/Button";
+import { Popover } from "@/shared/ui/Popups";
+import { Button } from "@/shared/ui/Button";
 import { NotificationList } from "@/entities/Notifications";
 import NotificationIcon from "@/shared/assets/icons/notification-icon.svg";
-import { Drawer } from "@/shared/ui/Drawer/Drawer";
+import { Drawer } from "@/shared/ui/Drawer";
 import { Theme } from "@/shared/constants/theme";
 
 const cx = classNamesBind(s);
