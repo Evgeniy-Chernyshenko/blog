@@ -16,7 +16,13 @@ type ButtonTheme =
 type ButtonSize = "m" | "l" | "xl";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Тема кнопки. Отвечает за визульный вид (с рамкой, без рамки и т.д.)
+   */
   theme?: ButtonTheme;
+  /**
+   * Нужно ли делать кнопку квадратной
+   */
   square?: boolean;
   size?: ButtonSize;
   dataTestId?: string;

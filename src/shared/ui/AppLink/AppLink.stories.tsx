@@ -2,12 +2,14 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "@/shared/config/storybook/decorators/ThemeDecorator";
 import { AppLink } from "./AppLink";
 import { Theme } from "@/shared/constants/theme";
+import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
 
 export default {
   title: "shared/AppLink",
   component: AppLink,
   argTypes: {},
   args: { to: "/" },
+  decorators: [RouterDecorator()],
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => (
