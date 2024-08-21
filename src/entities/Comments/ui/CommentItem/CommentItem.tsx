@@ -6,7 +6,7 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { TextBlock } from "@/shared/ui/TextBlock";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { AppLink } from "@/shared/ui/AppLink";
-import { routePaths } from "@/shared/constants/appRoutes";
+import { appRoutes } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -39,7 +39,7 @@ export const CommentItem = memo(function CommentItem({
         <>
           <AppLink
             className={cx("header", [className])}
-            to={`${routePaths.PROFILE}${data.user.id}`}
+            to={appRoutes.getProfileRoute(data.user.id)}
           >
             {data.user.avatar && (
               <Avatar

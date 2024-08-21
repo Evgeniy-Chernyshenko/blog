@@ -8,7 +8,7 @@ import { Button } from "@/shared/ui/Button";
 import { getCanEdit } from "../../model/selectors/article";
 import { AppLink } from "@/shared/ui/AppLink";
 import { getArticleData } from "@/entities/Article";
-import { routePaths } from "@/shared/constants/appRoutes";
+import { appRoutes } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -25,7 +25,7 @@ export const ArticlePageHeader = memo(function ArticlePageHeader({
   const articleData = useSelector(getArticleData);
 
   const handleBackToArticlesClick = useCallback(() => {
-    navigate(routePaths.ARTICLES);
+    navigate(appRoutes.getArticlesRoute());
   }, [navigate]);
 
   return (
@@ -35,7 +35,7 @@ export const ArticlePageHeader = memo(function ArticlePageHeader({
       </Button>
 
       {canEdit && articleData?.id && (
-        <AppLink to={`${routePaths.ARTICLE}${articleData.id}/edit`}>
+        <AppLink to={appRoutes.getArticleEditRoute(articleData.id)}>
           <Button>{t("Редактировать")}</Button>
         </AppLink>
       )}

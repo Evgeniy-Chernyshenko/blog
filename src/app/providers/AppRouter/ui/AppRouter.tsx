@@ -26,7 +26,7 @@ export const AppRouter = memo(function AppRouter() {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes>{Object.values(appRouterConfig).map(renderWithWrapper)}</Routes>
+      <Routes>{appRouterConfig.map(renderWithWrapper)}</Routes>
     </Suspense>
   );
 });

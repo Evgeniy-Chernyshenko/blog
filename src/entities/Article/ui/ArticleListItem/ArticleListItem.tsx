@@ -15,7 +15,7 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { Button } from "@/shared/ui/Button";
 import { formatDate } from "@/shared/lib/utils/formatters";
 import { AppLink } from "@/shared/ui/AppLink";
-import { routePaths } from "@/shared/constants/appRoutes";
+import { appRoutes } from "@/shared/constants/appRoutes";
 
 const cx = classNamesBind(s);
 
@@ -53,7 +53,7 @@ export const ArticleListItem = memo(function ArticleListItem({
 
   if (view === "grid") {
     return (
-      <AppLink to={`${routePaths.ARTICLE}${article.id}`} target={target}>
+      <AppLink to={appRoutes.getArticleRoute(article.id)} target={target}>
         <Card
           className={cx("ArticleListItem", { hover }, [className, view])}
           {...bindHover}
@@ -99,7 +99,7 @@ export const ArticleListItem = memo(function ArticleListItem({
       {Image}
 
       <div className={cx("footer")}>
-        <AppLink to={`${routePaths.ARTICLE}${article.id}`} target={target}>
+        <AppLink to={appRoutes.getArticleRoute(article.id)} target={target}>
           <Button theme="outlined">{t("Читать далее")}</Button>
         </AppLink>
 

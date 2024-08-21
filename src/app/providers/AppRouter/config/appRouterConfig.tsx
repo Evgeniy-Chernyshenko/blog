@@ -8,54 +8,54 @@ import { ArticleEditPageLazy } from "@/pages/ArticleEditPage";
 import { AdminPanelPageLazy } from "@/pages/AdminPanelPage";
 import { ForbiddenPageLazy } from "@/pages/ForbiddenPage";
 import { AppRouteObject } from "@/shared/types/router";
-import { AppRoute, routePaths } from "@/shared/constants/appRoutes";
+import { appRoutes } from "@/shared/constants/appRoutes";
 
-export const appRouterConfig: Record<AppRoute, AppRouteObject> = {
-  [AppRoute.MAIN]: {
-    path: routePaths.MAIN,
+export const appRouterConfig: AppRouteObject[] = [
+  {
+    path: appRoutes.getMainRoute(),
     element: <HomePageLazy />,
   },
-  [AppRoute.ABOUT]: {
-    path: routePaths.ABOUT,
+  {
+    path: appRoutes.getAboutRoute(),
     element: <AboutPageLazy />,
   },
-  [AppRoute.PROFILE]: {
-    path: `${routePaths.PROFILE}:id`,
+  {
+    path: appRoutes.getProfileRoute(":id"),
     element: <ProfilePageLazy />,
     authOnly: true,
   },
-  [AppRoute.ARTICLES]: {
-    path: routePaths.ARTICLES,
+  {
+    path: appRoutes.getArticlesRoute(),
     element: <ArticlesPageLazy />,
     authOnly: true,
   },
-  [AppRoute.ARTICLE]: {
-    path: `${routePaths.ARTICLE}:id`,
+  {
+    path: appRoutes.getArticleRoute(":id"),
     element: <ArticlePageLazy />,
     authOnly: true,
   },
-  [AppRoute.ARTICLE_EDIT]: {
-    path: routePaths.ARTICLE_EDIT,
+  {
+    path: appRoutes.getArticleEditRoute(":id"),
     element: <ArticleEditPageLazy />,
     authOnly: true,
   },
-  [AppRoute.ARTICLE_CREATE]: {
-    path: routePaths.ARTICLE_CREATE,
+  {
+    path: appRoutes.getArticleCreateRoute(),
     element: <ArticleEditPageLazy />,
     authOnly: true,
   },
-  [AppRoute.ADMIN]: {
-    path: routePaths.ADMIN,
+  {
+    path: appRoutes.getAdminRoute(),
     element: <AdminPanelPageLazy />,
     authOnly: true,
     roles: ["admin", "manager"],
   },
-  [AppRoute.FORBIDDEN]: {
-    path: routePaths.FORBIDDEN,
+  {
+    path: appRoutes.getForbiddenRoute(),
     element: <ForbiddenPageLazy />,
   },
-  [AppRoute.NOT_FOUND]: {
-    path: routePaths.NOT_FOUND,
+  {
+    path: appRoutes.getNotFoundRoute(),
     element: <NotFoundPage />,
   },
-};
+];
