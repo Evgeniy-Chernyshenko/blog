@@ -7,16 +7,16 @@ import { addCommentFormReducer } from "@/features/AddCommentForm/testing";
 import { authByUsernameReducer } from "@/features/AuthByUsername/testing";
 import { articlePageReducer } from "@/pages/ArticlePage/testing";
 import { pageWrapperReducer } from "@/widgets/PageWrapper/testing";
+import { ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
-const defaultAsyncReducers: Partial<ReducersMapObject<Required<StateSchema>>> =
-  {
-    authByUsername: authByUsernameReducer,
-    profile: profileReducer,
-    article: articleReducer,
-    addCommentForm: addCommentFormReducer,
-    articlePage: articlePageReducer,
-    pageWrapper: pageWrapperReducer,
-  };
+const defaultAsyncReducers: ReducersList = {
+  authByUsername: authByUsernameReducer,
+  profile: profileReducer,
+  article: articleReducer,
+  addCommentForm: addCommentFormReducer,
+  articlePage: articlePageReducer,
+  pageWrapper: pageWrapperReducer,
+};
 
 export const StoreDecorator =
   (
