@@ -11,44 +11,39 @@ export const initArticlesPage = createAsyncThunk<
   void,
   URLSearchParams | void,
   ThunkConfig<string>
->(
-  "articlesPage/initArticlesPage",
-  async (searchParams, { getState, dispatch }) => {
-    const _inited = getArticlesPageInited(getState());
+>("articlesPage/initArticlesPage", (searchParams, { getState, dispatch }) => {
+  const _inited = getArticlesPageInited(getState());
 
-    if (_inited) {
-      return;
-    }
+  if (_inited) {
+    return;
+  }
 
-    const view = localStorage.getItem(
-      LOCALSTORAGE_ARTICLES_VIEW_KEY,
-    ) as ArticleView;
+  const view = localStorage.getItem(
+    LOCALSTORAGE_ARTICLES_VIEW_KEY,
+  ) as ArticleView;
 
-    const searchFromUrl = searchParams?.get("search");
-    const sortFieldFromUrl = searchParams?.get(
-      "sort",
-    ) as ArticleSortField | null;
-    const sortDirectionFromUrl = searchParams?.get(
-      "order",
-    ) as SortDirection | null;
-    const tagFromUrl = searchParams?.get("tag") as ArticleTag | null;
+  const searchFromUrl = searchParams?.get("search");
+  const sortFieldFromUrl = searchParams?.get("sort") as ArticleSortField | null;
+  const sortDirectionFromUrl = searchParams?.get(
+    "order",
+  ) as SortDirection | null;
+  const tagFromUrl = searchParams?.get("tag") as ArticleTag | null;
 
-    dispatch(
-      articlesPageActions.initState({
-        view,
-        ...(searchFromUrl && { search: searchFromUrl }),
-        ...(sortFieldFromUrl && {
-          sortField: sortFieldFromUrl,
-        }),
-        ...(sortDirectionFromUrl && {
-          sortDirection: sortDirectionFromUrl,
-        }),
-        ...(tagFromUrl && {
-          tag: tagFromUrl,
-        }),
+  dispatch(
+    articlesPageActions.initState({
+      view,
+      ...(searchFromUrl && { search: searchFromUrl }),
+      ...(sortFieldFromUrl && {
+        sortField: sortFieldFromUrl,
       }),
-    );
+      ...(sortDirectionFromUrl && {
+        sortDirection: sortDirectionFromUrl,
+      }),
+      ...(tagFromUrl && {
+        tag: tagFromUrl,
+      }),
+    }),
+  );
 
-    dispatch(fetchArticles());
-  },
-);
+  dispatch(fetchArticles());
+});
