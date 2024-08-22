@@ -10,8 +10,8 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
-  MutableRefObject,
   ForwardedRef,
+  RefObject,
 } from "react";
 import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./Input.module.scss";
@@ -135,6 +135,6 @@ export const Input = memo(forwardRef(Component)) as <
 >(
   // eslint-disable-next-line no-use-before-define
   props: InputProps<T> & {
-    ref?: MutableRefObject<HTMLInputElement | undefined>;
+    ref?: RefObject<HTMLInputElement | undefined>;
   },
 ) => ReactElement;
