@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { PageWrapper } from "@/widgets/PageWrapper";
+import { Counter } from "@/entities/Counter";
 
 export function HomePage() {
   const { t } = useTranslation("main");
@@ -7,6 +8,7 @@ export function HomePage() {
   return (
     <PageWrapper>
       <h1>{t("Главная страница")}</h1>
+      <Counter />
     </PageWrapper>
   );
 }
