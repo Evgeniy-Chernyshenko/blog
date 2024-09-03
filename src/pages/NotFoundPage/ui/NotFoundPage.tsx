@@ -13,7 +13,10 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
   const { t } = useTranslation();
 
   return (
-    <PageWrapper className={cx("NotFoundPage", [className])}>
+    <PageWrapper
+      className={cx("NotFoundPage", [className])}
+      dataTestid="NotFoundPage"
+    >
       {t("Страница не найдена")}
     </PageWrapper>
   );

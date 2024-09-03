@@ -8,7 +8,7 @@ import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 
 export interface ComponentRenderOptions {
   route?: string;
-  initialState?: DeepPartial<StateSchema>;
+  initialState?: DeepPartial<DeepRequired<StateSchema>>;
   asyncReducers?: Partial<ReducersMapObject<Required<StateSchema>>>;
 }
 

@@ -13,7 +13,7 @@ import {
 } from "@/entities/Article";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";
 import { mapArticleViewToLimit } from "../constants/mapArticleViewToLimit";
-import { SortDirection } from "@/shared/types";
+import { SortDirection } from "@/shared/types/sort";
 
 const articlesPageAdapter = createEntityAdapter<ArticleType>({
   selectId: (article) => article.id,

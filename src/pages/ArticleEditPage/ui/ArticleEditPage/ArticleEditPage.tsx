@@ -10,7 +10,7 @@ function ArticleEditPage() {
   const isEdit = Boolean(id);
 
   return (
-    <PageWrapper className={cx("ArticleEditPage")}>
+    <PageWrapper className={cx("ArticleEditPage")} dataTestid="ArticleEditPage">
       {isEdit ? `Редактирование ${id}` : "Создание"}
     </PageWrapper>
   );

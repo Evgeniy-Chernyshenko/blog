@@ -17,7 +17,7 @@ import {
 import { Card } from "@/shared/ui/Card";
 import { Input } from "@/shared/ui/Input";
 import { ArticlesSortSelectors } from "@/features/ArticlesSortSelectors";
-import { SortDirection } from "@/shared/types";
+import { SortDirection } from "@/shared/types/sort";
 import { ArticleSortField, ArticleTag, ArticleView } from "@/entities/Article";
 import { fetchArticles } from "../../model/services/fetchArticles/fetchArticles";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";

@@ -6,7 +6,7 @@ function ProfilePage() {
   const { id: userId } = useParams<{ id: string }>();
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid="ProfilePage">
       {userId ? <EditableProfileCard userId={userId} /> : null}
     </PageWrapper>
   );

@@ -6,7 +6,7 @@ export function HomePage() {
   const { t } = useTranslation("main");
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid="HomePage">
       <h1>{t("Главная страница")}</h1>
       <Counter />
     </PageWrapper>

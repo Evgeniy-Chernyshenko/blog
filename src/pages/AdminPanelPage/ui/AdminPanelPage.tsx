@@ -5,7 +5,7 @@ function AdminPanelPage() {
   const { t } = useTranslation("admin");
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid="AdminPanelPage">
       <h1>{t("Панель администратора")}</h1>
     </PageWrapper>
   );

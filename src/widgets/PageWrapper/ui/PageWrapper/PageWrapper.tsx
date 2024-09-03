@@ -10,10 +10,11 @@ import { StateSchema } from "@/app/providers/StoreProvider";
 import { useInitialLayoutEffect } from "@/shared/lib/hooks/useInitialLayoutEffect";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle";
 import s from "./PageWrapper.module.scss";
+import { TestProps } from "@/shared/types/tests";
 
 const cx = classNamesBind(s);
 
-interface PageWrapperProps {
+interface PageWrapperProps extends TestProps {
   children: ReactNode;
   className?: string;
   onScrollEnd?: () => void;
@@ -24,6 +25,7 @@ export const PAGE_WRAPPER_ID = "page-wrapper";
 export const PageWrapper = memo(function PageWrapper({
   children,
   className,
+  dataTestid,
   onScrollEnd,
 }: PageWrapperProps) {
   const pageWrapperRef = useRef<HTMLDivElement>(null);
@@ -59,6 +61,7 @@ export const PageWrapper = memo(function PageWrapper({
       onScroll={throttledHandleScroll}
       ref={pageWrapperRef}
       id={PAGE_WRAPPER_ID}
+      data-testid={dataTestid}
     >
       {children}
 

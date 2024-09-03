@@ -5,7 +5,7 @@ import { articlesPageActions } from "../../slice/articlesPageSlice";
 import { fetchArticles } from "../fetchArticles/fetchArticles";
 import { LOCALSTORAGE_ARTICLES_VIEW_KEY } from "@/shared/constants/localStorage";
 import { ArticleSortField, ArticleTag, ArticleView } from "@/entities/Article";
-import { SortDirection } from "@/shared/types";
+import { SortDirection } from "@/shared/types/sort";
 
 export const initArticlesPage = createAsyncThunk<
   void,

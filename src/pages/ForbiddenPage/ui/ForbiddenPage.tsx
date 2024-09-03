@@ -6,7 +6,7 @@ function ForbiddenPage() {
   const { t } = useTranslation("forbidden");
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid="ForbiddenPage">
       <TextBlock
         title={t("У вас нет прав для доступа к этой странице")}
         theme="error"

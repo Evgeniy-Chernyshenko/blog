@@ -33,7 +33,7 @@ function ArticlePage() {
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <PageWrapper>
+      <PageWrapper dataTestid="ArticlePage">
         <div className={cx("ArticlePage")}>
           <ArticlePageHeader />
 

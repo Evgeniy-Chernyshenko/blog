@@ -5,7 +5,7 @@ function AboutPage() {
   const { t } = useTranslation("about");
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid="AboutPage">
       <h1>{t("О сайте")}</h1>
     </PageWrapper>
   );

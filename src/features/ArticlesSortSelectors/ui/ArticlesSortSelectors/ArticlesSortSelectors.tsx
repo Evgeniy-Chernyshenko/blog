@@ -4,7 +4,7 @@ import { classNamesBind } from "@/shared/lib/classNames/classNames";
 import s from "./ArticlesSortSelectors.module.scss";
 import { Select, SelectOption } from "@/shared/ui/Select";
 import { ArticleSortField } from "@/entities/Article";
-import { SortDirection } from "@/shared/types";
+import { SortDirection } from "@/shared/types/sort";
 
 const cx = classNamesBind(s);
 
