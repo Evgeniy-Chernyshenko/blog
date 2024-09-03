@@ -16,6 +16,8 @@ import { Button } from "@/shared/ui/Button";
 import { formatDate } from "@/shared/lib/utils/formatters";
 import { AppLink } from "@/shared/ui/AppLink";
 import { appRoutes } from "@/shared/constants/appRoutes";
+import { AppImage } from "@/shared/ui/AppImage/AppImage";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 const cx = classNamesBind(s);
 
@@ -39,7 +41,12 @@ export const ArticleListItem = memo(function ArticleListItem({
 
   const Date = <TextBlock className={cx("date")} text={formattedDate} />;
   const Image = (
-    <img className={cx("image")} src={article.img} alt={article.title} />
+    <AppImage
+      className={cx("image")}
+      src={article.img}
+      alt={article.title}
+      fallback={<Skeleton height={250} />}
+    />
   );
   const Tags = (
     <TextBlock className={cx("tags")} text={article.type.join(", ")} />

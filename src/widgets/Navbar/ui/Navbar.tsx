@@ -43,7 +43,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
               <Button theme="background-inverted">{t("Создать статью")}</Button>
             </AppLink>
 
-            <HStack gap={16}>
+            <HStack gap={16} align="center">
               <NotificationsButton />
               <AvatarDropdown />
             </HStack>
