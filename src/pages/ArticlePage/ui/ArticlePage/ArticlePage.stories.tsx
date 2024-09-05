@@ -5,6 +5,7 @@ import { StoreDecorator } from "@/shared/config/storybook/decorators/StoreDecora
 import avatar from "@/shared/assets/tests/avatar.jpg";
 import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
 import { Theme } from "@/shared/constants/theme";
+import articleImg from "@/shared/assets/tests/article-image.png";
 
 export default {
   title: "pages/ArticlePage/ArticlePage",
@@ -19,7 +20,7 @@ export default {
           id: "1",
           title: "Javascript news",
           subtitle: "Что нового в JS за 2022 год?",
-          img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+          img: articleImg,
           views: 1022,
           createdAt: "2022-02-26",
           type: ["it"],
@@ -53,7 +54,7 @@ export default {
             {
               id: "2",
               type: "image",
-              src: "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+              src: articleImg,
               title: "Рисунок 1 - скриншот сайта",
             },
             {
@@ -73,7 +74,7 @@ export default {
             {
               id: "8",
               type: "image",
-              src: "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+              src: articleImg,
               title: "Рисунок 1 - скриншот сайта",
             },
             {

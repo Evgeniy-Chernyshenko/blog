@@ -5,11 +5,12 @@ import { ArticleRecommendationsList } from "./ArticleRecommendationsList";
 import { StoreDecorator } from "@/shared/config/storybook/decorators/StoreDecorator";
 import { RouterDecorator } from "@/shared/config/storybook/decorators/RouterDecorator";
 import { Theme } from "@/shared/constants/theme";
+import articleImg from "@/shared/assets/tests/article-image.png";
 
 const article = {
   title: "Кеттина статья",
   subtitle: "Что нового в JS за 2022 год?",
-  img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+  img: articleImg,
   views: 10223,
   createdAt: "2022-03-26",
   type: ["it"],
