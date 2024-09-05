@@ -3,3 +3,4 @@
 /.idea
 /build
 /storybook-static
+/reports/unit
