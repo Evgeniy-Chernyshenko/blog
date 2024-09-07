@@ -23,14 +23,14 @@ const Template: ComponentStory<typeof Popover> = (args) => (
 export const NormalLight = Template.bind({});
 NormalLight.args = {};
 
-export const leftTop = Template.bind({});
-leftTop.args = { direction: "leftTop" };
+export const LeftTop = Template.bind({});
+LeftTop.args = { direction: "leftTop" };
 
-export const rightBottom = Template.bind({});
-rightBottom.args = { direction: "rightBottom" };
+export const RightBottom = Template.bind({});
+RightBottom.args = { direction: "rightBottom" };
 
-export const rightTop = Template.bind({});
-rightTop.args = { direction: "rightTop" };
+export const RightTop = Template.bind({});
+RightTop.args = { direction: "rightTop" };
 
 export const NormalDark = Template.bind({});
 NormalDark.args = {};

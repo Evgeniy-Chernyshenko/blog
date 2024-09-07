@@ -24,7 +24,7 @@ export function classNames(
 
   const additional: (string | undefined)[] = modsOrAdditionalIsAdditional
     ? modsOrAdditional
-    : additionalOptional ?? [];
+    : (additionalOptional ?? []);
 
   return [
     this?.[cls] ?? cls,

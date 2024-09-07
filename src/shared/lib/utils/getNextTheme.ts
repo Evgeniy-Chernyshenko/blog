@@ -1,6 +1,9 @@
 import { Theme } from "@/shared/constants/theme";
 
-export const getNextTheme = <T>(themes: T, currentTheme: T[keyof T]): Theme => {
+export const getNextTheme = <T extends object>(
+  themes: T,
+  currentTheme: T[keyof T],
+): Theme => {
   const themeValues = Object.values(themes);
 
   const currentThemeIndex = themeValues.findIndex(
