@@ -11,6 +11,7 @@ module.exports = {
     "prettier",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -31,7 +32,9 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": [
       "error",
-      { extensions: [".js", ".jsx", ".tsx"] },
+      {
+        extensions: [".js", ".jsx", ".tsx"],
+      },
     ],
     "import/no-unresolved": "off",
     "import/extensions": "off",
@@ -66,23 +69,41 @@ module.exports = {
     "no-underscore-dangle": "off",
     "i18next/no-literal-string": [
       "error",
-      { markupOnly: true, onlyAttribute: ["text"] },
+      {
+        markupOnly: true,
+        onlyAttribute: ["text"],
+      },
     ],
-    "no-console": ["error", { allow: ["warn", "error", "info"] }],
+    "no-console": [
+      "error",
+      {
+        allow: ["warn", "error", "info"],
+      },
+    ],
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "no-param-reassign": "off",
     "consistent-return": "off",
-    "no-empty": ["error", { allowEmptyCatch: true }],
+    "no-empty": [
+      "error",
+      {
+        allowEmptyCatch: true,
+      },
+    ],
     "react/prop-types": "off",
     "react/no-unused-prop-types": "off",
     "react/no-array-index-key": "off",
     "@typescript-eslint/no-shadow": "off",
     "default-param-last": "off",
     "react/jsx-no-useless-fragment": "off",
-    "blog-project/path-checker": ["error", { alias: "@" }],
+    "blog-project/path-checker": [
+      "error",
+      {
+        alias: "@",
+      },
+    ],
     "blog-project/public-api-imports": [
       "error",
       {
@@ -111,7 +132,9 @@ module.exports = {
   overrides: [
     {
       files: ["**/src/**/*.{test,stories}.{ts,tsx}"],
-      rules: { "i18next/no-literal-string": "off" },
+      rules: {
+        "i18next/no-literal-string": "off",
+      },
     },
   ],
 };

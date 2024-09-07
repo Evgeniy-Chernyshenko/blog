@@ -1,6 +1,9 @@
 import { useCallback, useMemo, useState } from "react";
 
-export const useHover = () => {
+export const useHover = (): [
+  boolean,
+  { onMouseEnter: () => void; onMouseLeave: () => void },
+] => {
   const [isHover, setIsHover] = useState(false);
 
   const onMouseEnter = useCallback(() => {

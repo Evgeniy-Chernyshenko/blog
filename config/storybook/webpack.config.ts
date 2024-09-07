@@ -20,15 +20,23 @@ export default ({ config }: { config: Configuration }): Configuration => {
     issuer: /\.[jt]sx?$/,
     use: ["@svgr/webpack"],
   });
-  Object.assign(config.resolve?.alias, { "@": paths.src });
-  Object.assign(
-    config.module?.rules,
-    config.module?.rules?.map((rule) =>
-      typeof rule === "object" && rule.type === "asset/resource"
-        ? { ...rule, exclude: /\.svg$/i }
-        : rule,
-    ),
-  );
+
+  if (config.resolve?.alias) {
+    Object.assign(config.resolve.alias, { "@": paths.src });
+  }
+
+  if (config.module?.rules) {
+    Object.assign(
+      config.module.rules,
+      config.module.rules.map((rule) =>
+        typeof rule === "object" &&
+        rule !== null &&
+        rule.type === "asset/resource"
+          ? { ...rule, exclude: /\.svg$/i }
+          : rule,
+      ),
+    );
+  }
 
   config.plugins?.push(
     new DefinePlugin({

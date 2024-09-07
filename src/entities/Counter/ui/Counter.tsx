@@ -13,13 +13,13 @@ export const Counter = () => {
     <>
       <h1 data-testid="counter-value">{counterValue}</h1>
 
-      <button data-testid="counter-increment" onClick={increment}>
+      <button data-testid="counter-increment" onClick={() => increment()}>
         +
       </button>
-      <button data-testid="counter-decrement" onClick={decrement}>
+      <button data-testid="counter-decrement" onClick={() => decrement()}>
         -
       </button>
-      <button data-testid="counter-add-five" onClick={handleAddFive}>
+      <button data-testid="counter-add-five" onClick={() => handleAddFive()}>
         +++++
       </button>
     </>
